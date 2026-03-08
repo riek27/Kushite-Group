@@ -68,3 +68,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+
+// Handle quote form submission
+const quoteForm = document.getElementById('quoteForm');
+if (quoteForm) {
+  quoteForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your request. We will contact you within 24 hours.');
+    quoteForm.reset();
+  });
+}
+
+// Optional: Add active state to current page in navigation (already handled by class="active" in HTML)
