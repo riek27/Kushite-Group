@@ -37,38 +37,21 @@
                             900: '#0f1d2e',
                             950: '#0a1420',
                         },
-                        sand: {
-                            50: '#fefce8',
-                            100: '#fef9c3',
-                            200: '#fef08a',
-                            300: '#fde047',
-                            400: '#facc15',
-                            500: '#eab308',
-                            600: '#ca8a04',
-                            700: '#a16207',
-                            800: '#854d0e',
-                            900: '#713f12',
-                        },
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        display: ['Inter', 'system-ui', 'sans-serif'],
                     },
                     animation: {
                         'fade-in': 'fadeIn 0.7s ease-out',
                         'fade-in-up': 'fadeInUp 0.8s ease-out',
-                        'fade-in-down': 'fadeInDown 0.6s ease-out',
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
-                        'shimmer': 'shimmer 2.5s ease-in-out infinite',
                     },
                     keyframes: {
                         fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
                         fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        fadeInDown: { '0%': { opacity: '0', transform: 'translateY(-20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
                         float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } },
                         pulseSoft: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.7' } },
-                        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
                     },
                 }
             }
@@ -84,26 +67,25 @@
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         .hero-overlay {
             background: linear-gradient(180deg,
-                    rgba(10, 20, 32, 0.7) 0%,
+                    rgba(10, 20, 32, 0.72) 0%,
                     rgba(10, 20, 32, 0.45) 35%,
-                    rgba(10, 20, 32, 0.65) 100%);
+                    rgba(10, 20, 32, 0.7) 100%);
         }
         .card-lift {
             transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .card-lift:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.18);
         }
         .image-zoom {
             transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .image-zoom:hover {
-            transform: scale(1.08);
+            transform: scale(1.07);
         }
         .gradient-underline {
             position: relative;
@@ -126,20 +108,25 @@
             backdrop-filter: blur(22px);
             box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
         }
+        /* Mobile menu refined styles */
         .mobile-menu-panel {
             transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease;
-        }
-        .mobile-menu-panel.hidden {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
             transform: translateY(-10px);
         }
-        .mobile-menu-panel.visible {
+        .mobile-menu-panel.menu-visible {
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
             transform: translateY(0);
+        }
+        .mobile-menu-panel.menu-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(-10px);
         }
         .service-submenu-mobile {
             transition: max-height 0.45s ease, opacity 0.35s ease;
@@ -162,7 +149,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
             transition: left 0.8s ease;
             z-index: 1;
             pointer-events: none;
@@ -174,28 +161,19 @@
             animation: pulseRing 2.4s ease-out infinite;
         }
         @keyframes pulseRing {
-            0% {
-                box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.55);
-            }
-            70% {
-                box-shadow: 0 0 0 22px rgba(5, 150, 105, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(5, 150, 105, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.55); }
+            70% { box-shadow: 0 0 0 22px rgba(5, 150, 105, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
         }
         ::selection {
             background-color: #059669;
             color: #ffffff;
         }
-        .text-balance {
-            text-wrap: balance;
-        }
     </style>
 </head>
 <body class="bg-white text-navy-900 antialiased">
 
-    <!-- ==================== STICKY NAVIGATION ==================== -->
+    <!-- ==================== NAVIGATION ==================== -->
     <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-400"
     style="background-color: rgba(10,20,32,0.88); backdrop-filter: blur(18px);">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -264,7 +242,7 @@
                 <a href="tel:+211929970050" class="text-white/90 hover:text-white transition-colors p-1.5">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 </a>
-                <button id="mobileMenuBtn" class="text-white p-2 -mr-2 focus:outline-none" aria-label="Toggle menu">
+                <button id="mobileMenuBtn" class="text-white p-2 -mr-2 focus:outline-none z-50 relative" aria-label="Toggle menu">
                     <svg id="menuIconOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
                     <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
@@ -273,11 +251,10 @@
     </nav>
 
     <!-- Mobile Menu Panel -->
-    <div id="mobileMenu" class="mobile-menu-panel hidden lg:hidden fixed inset-0 top-[70px] bg-navy-950/98 backdrop-blur-xl z-40 overflow-y-auto">
-        <div class="px-5 py-5 space-y-1">
+    <div id="mobileMenu" class="mobile-menu-panel menu-hidden lg:hidden fixed inset-0 top-[70px] bg-navy-950/98 backdrop-blur-2xl z-40 overflow-y-auto">
+        <div class="px-5 py-6 space-y-1">
             <a href="#home" class="mob-link block py-3.5 text-white/90 hover:text-white text-base font-medium border-b border-white/8 transition-colors">Home</a>
             <a href="#about" class="mob-link block py-3.5 text-white/90 hover:text-white text-base font-medium border-b border-white/8 transition-colors">About</a>
-            <!-- Mobile Services Accordion -->
             <div class="border-b border-white/8">
                 <button id="mobileServicesBtn" class="flex items-center justify-between w-full py-3.5 text-white/90 hover:text-white text-base font-medium transition-colors">
                     Services
@@ -313,19 +290,16 @@
     </div>
 </header>
 
-<!-- ==================== HERO SECTION ==================== -->
+<!-- ==================== HERO ==================== -->
 <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=85"
-        alt="Modern Sanitation Infrastructure — Advanced Sanitation Services LTD Juba"
+        <img src="assets/advamced.jpg"
+        alt="Modern Sanitation Infrastructure"
         class="w-full h-full object-cover object-center"
         loading="eager"
-        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=85';">
+        onerror="this.onerror=null; this.src='https://images.';">
         <div class="hero-overlay absolute inset-0"></div>
     </div>
-    <!-- Subtle grain texture -->
-    <div class="absolute inset-0 z-[1] opacity-[0.03]" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 300%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%22.7%22/></filter><rect width=%22300%22 height=%22300%22 filter=%22url(%23n)%22 opacity=%22.5%22/></svg>'); background-size: 300px 300px;"></div>
-
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-12 lg:mt-0">
         <div class="animate-fade-in-up">
             <span class="inline-flex items-center gap-2 bg-emerald-600/20 backdrop-blur-sm text-emerald-300 border border-emerald-500/30 rounded-full px-4 py-2 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-6">
@@ -335,18 +309,18 @@
                 </span>
                 Juba, South Sudan — Always Open
             </span>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight max-w-4xl mx-auto text-balance">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight max-w-4xl mx-auto">
                 Modern <span class="text-emerald-400">Sanitation</span> for a <span class="text-emerald-400">Cleaner</span> South Sudan
             </h1>
-            <p class="mt-6 sm:mt-8 text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light text-balance">
+            <p class="mt-6 sm:mt-8 text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light">
                 Advanced Sanitation Services LTD delivers world-class bio-digester systems, biogas solutions, and construction services across Juba. Reliable. Eco-friendly. Built to last.
             </p>
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="tel:+211929970050" class="group flex items-center gap-3 bg-white text-navy-900 px-8 py-4 rounded-xl font-semibold text-base tracking-wide transition-all duration-300 hover:bg-gray-100 hover:-translate-y-1 shadow-2xl shadow-white/20 hover:shadow-white/30 active:translate-y-0">
+                <a href="tel:+211929970050" class="group flex items-center gap-3 bg-white text-navy-900 px-8 py-4 rounded-xl font-semibold text-base tracking-wide transition-all duration-300 hover:bg-gray-100 hover:-translate-y-1 shadow-2xl shadow-white/20 active:translate-y-0">
                     <svg class="w-5 h-5 text-emerald-600 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                     Call +211 929 970 050
                 </a>
-                <a href="#contact" class="pulse-ring group flex items-center gap-3 bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-base tracking-wide transition-all duration-300 hover:bg-emerald-700 hover:-translate-y-1 shadow-2xl shadow-emerald-600/40 hover:shadow-emerald-600/50 active:translate-y-0">
+                <a href="#contact" class="pulse-ring group flex items-center gap-3 bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-base tracking-wide transition-all duration-300 hover:bg-emerald-700 hover:-translate-y-1 shadow-2xl shadow-emerald-600/40 active:translate-y-0">
                     Get Quote
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                 </a>
@@ -360,17 +334,13 @@
     </div>
 </section>
 
-<!-- ==================== ABOUT SECTION ==================== -->
+<!-- ==================== ABOUT ==================== -->
 <section id="about" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             <div class="relative" data-scroll-reveal>
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/10">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80"
-                    alt="Professional Sanitation Team — Advanced Sanitation Services LTD"
-                    class="w-full h-auto object-cover aspect-[4/3]"
-                    loading="lazy"
-                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80';">
+                    <img src="assets/advanced.jpg" alt="Team" class="w-full h-auto object-cover aspect-[4/3]" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80';">
                 </div>
                 <div class="absolute -bottom-6 -right-6 bg-navy-900 text-white rounded-2xl px-6 py-4 shadow-2xl shadow-navy-900/30 z-10">
                     <span class="text-3xl font-extrabold text-emerald-400">Juba</span>
@@ -379,428 +349,210 @@
             </div>
             <div data-scroll-reveal>
                 <span class="text-emerald-600 font-semibold text-sm tracking-widest uppercase">About Our Company</span>
-                <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight tracking-tight">
-                    Trusted <span class="text-emerald-600">Sanitation Experts</span> in Juba
-                </h2>
-                <p class="mt-6 text-gray-600 leading-relaxed text-base sm:text-lg">
-                    <strong>Advanced Sanitation Services LTD</strong> is a trusted sanitation and infrastructure company based in Juba, South Sudan. We specialize in modern, environmentally friendly waste management systems, including advanced bio-digester septic tanks, biogas solutions, and construction-related services.
-                </p>
-                <p class="mt-4 text-gray-600 leading-relaxed text-base sm:text-lg">
-                    With a strong commitment to quality, innovation, and reliability, we deliver efficient sanitation systems that are cost-effective, durable, and suitable for both residential and commercial applications.
-                </p>
+                <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight tracking-tight">Trusted <span class="text-emerald-600">Sanitation Experts</span> in Juba</h2>
+                <p class="mt-6 text-gray-600 leading-relaxed"><strong>Advanced Sanitation Services LTD</strong> is a trusted sanitation and infrastructure company based in Juba, South Sudan. We specialize in modern, environmentally friendly waste management systems, including advanced bio-digester septic tanks, biogas solutions, and construction-related services.</p>
+                <p class="mt-4 text-gray-600 leading-relaxed">With a strong commitment to quality, innovation, and reliability, we deliver efficient sanitation systems that are cost-effective, durable, and suitable for both residential and commercial applications.</p>
                 <div class="mt-8 grid grid-cols-2 gap-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <span class="text-sm font-semibold text-navy-800">Quality Workmanship</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <span class="text-sm font-semibold text-navy-800">Modern Techniques</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <span class="text-sm font-semibold text-navy-800">Eco-Friendly Solutions</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <span class="text-sm font-semibold text-navy-800">Fast & Responsive</span>
-                    </div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center"><svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><span class="text-sm font-semibold text-navy-800">Quality Workmanship</span></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center"><svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><span class="text-sm font-semibold text-navy-800">Modern Techniques</span></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center"><svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><span class="text-sm font-semibold text-navy-800">Eco-Friendly</span></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center"><svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><span class="text-sm font-semibold text-navy-800">Fast & Responsive</span></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== SERVICES SECTION ==================== -->
+<!-- ==================== SERVICES ==================== -->
 <section id="services" class="py-20 lg:py-28 bg-gray-50/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-scroll-reveal>
             <span class="text-emerald-600 font-semibold text-sm tracking-widest uppercase">Our Services</span>
-            <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight tracking-tight">
-                Comprehensive <span class="text-emerald-600">Sanitation Solutions</span>
-            </h2>
+            <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight">Comprehensive <span class="text-emerald-600">Sanitation Solutions</span></h2>
             <p class="mt-4 text-gray-500 max-w-xl mx-auto">Professional services tailored for residential and commercial needs across Juba.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            <!-- Service 1: Bio-Digester -->
-            <div id="service-bio" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg shadow-navy-900/5 border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
-                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5">
-                    <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                </div>
+            <!-- Service cards same as before -->
+            <div id="service-bio" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
+                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5"><svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></div>
                 <h3 class="text-lg font-bold text-navy-900 mb-2">Bio-Digester Installation</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Advanced triple bio-digester septic tank systems — no emptying, no odors, eco-friendly.</p>
-                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Advanced bio-digester septic tanks — no emptying, no odors, eco-friendly.</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
-            <!-- Service 2: Biogas -->
-            <div id="service-biogas" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg shadow-navy-900/5 border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
-                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5">
-                    <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
-                </div>
+            <div id="service-biogas" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
+                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5"><svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg></div>
                 <h3 class="text-lg font-bold text-navy-900 mb-2">Biogas System Solutions</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Convert waste into usable energy with our innovative biogas systems for homes and businesses.</p>
-                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Convert waste into usable energy with innovative biogas systems.</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
-            <!-- Service 3: Waste Management -->
-            <div id="service-waste" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg shadow-navy-900/5 border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
-                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5">
-                    <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                </div>
+            <div id="service-waste" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
+                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5"><svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div>
                 <h3 class="text-lg font-bold text-navy-900 mb-2">Waste Management</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Comprehensive waste collection, disposal, and recycling for commercial and residential properties.</p>
-                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Comprehensive waste collection, disposal, and recycling.</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
-            <!-- Service 4: Septic Tank -->
-            <div id="service-septic" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg shadow-navy-900/5 border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
-                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5">
-                    <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v8l-8 4m-8-4V7m8 4l8-4M4 7l8 4m0 0v8m0-8L4 7"/></svg>
-                </div>
+            <div id="service-septic" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
+                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5"><svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v8l-8 4m-8-4V7m8 4l8-4M4 7l8 4m0 0v8m0-8L4 7"/></svg></div>
                 <h3 class="text-lg font-bold text-navy-900 mb-2">Septic Tank Construction</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Custom septic tank construction and modification with modern, durable techniques.</p>
-                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Custom septic tank construction and modification.</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
-            <!-- Service 5: Shallow Well Drilling -->
-            <div id="service-well" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg shadow-navy-900/5 border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
-                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5">
-                    <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                </div>
+            <div id="service-well" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
+                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5"><svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
                 <h3 class="text-lg font-bold text-navy-900 mb-2">Shallow Well Drilling</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Professional shallow well drilling services for reliable water access across Juba.</p>
-                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Professional shallow well drilling for reliable water access.</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
-            <!-- Service 6: Drainage -->
-            <div id="service-drainage" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg shadow-navy-900/5 border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
-                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5">
-                    <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
+            <div id="service-drainage" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
+                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5"><svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
                 <h3 class="text-lg font-bold text-navy-900 mb-2">Drainage & Cleaning</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Complete drainage solutions, sewer cleaning, and maintenance for clog-free systems.</p>
-                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Complete drainage solutions and sewer cleaning.</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
-            <!-- Service 7: Environmental -->
-            <div id="service-environmental" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg shadow-navy-900/5 border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
-                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5">
-                    <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
+            <div id="service-environmental" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
+                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5"><svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
                 <h3 class="text-lg font-bold text-navy-900 mb-2">Environmental Sanitation</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Holistic environmental cleanup promoting sustainable and eco-friendly sanitation.</p>
-                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Holistic environmental cleanup solutions.</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
-            <!-- Service 8: Construction -->
-            <div id="service-construction" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg shadow-navy-900/5 border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
-                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5">
-                    <svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4"/></svg>
-                </div>
+            <div id="service-construction" class="card-lift bg-white rounded-2xl p-6 lg:p-7 shadow-lg border border-gray-100 flex flex-col shine-overlay" data-scroll-reveal>
+                <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-5"><svg class="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4"/></svg></div>
                 <h3 class="text-lg font-bold text-navy-900 mb-2">General Construction</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Full-scale construction services from foundation to finish with precision and quality.</p>
-                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700 transition-colors">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">Full-scale construction services with precision.</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:text-emerald-700">Get Quote <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== WHY BIO-DIGESTER SECTION ==================== -->
+<!-- ==================== WHY BIO-DIGESTER ==================== -->
 <section id="why-bio" class="py-20 lg:py-28 bg-navy-900 text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 28px 28px;"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-scroll-reveal>
             <span class="text-emerald-400 font-semibold text-sm tracking-widest uppercase">Why Choose Our Bio-Digester</span>
-            <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-                Designed for <span class="text-emerald-400">Long-Term Value</span>
-            </h2>
+            <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">Designed for <span class="text-emerald-400">Long-Term Value</span></h2>
             <p class="mt-4 text-gray-400 max-w-xl mx-auto">Our systems are engineered to deliver efficiency, sustainability, and peace of mind.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all duration-400" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
-                </div>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all" data-scroll-reveal>
+                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg></div>
                 <h4 class="text-lg font-bold text-white mb-2">No Regular Emptying</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">Our bio-digester systems eliminate the need for frequent emptying, saving you time and money.</p>
+                <p class="text-gray-400 text-sm">Eliminates frequent emptying, saving time and money.</p>
             </div>
-            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all duration-400" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-                </div>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all" data-scroll-reveal>
+                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg></div>
                 <h4 class="text-lg font-bold text-white mb-2">No Unpleasant Odors</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">Advanced sealed design ensures completely odor-free operation for your property.</p>
+                <p class="text-gray-400 text-sm">Sealed design ensures completely odor-free operation.</p>
             </div>
-            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all duration-400" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-                </div>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all" data-scroll-reveal>
+                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg></div>
                 <h4 class="text-lg font-bold text-white mb-2">Requires Less Space</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">Compact footprint ideal for urban and residential areas where space is limited.</p>
+                <p class="text-gray-400 text-sm">Compact footprint ideal for urban and residential areas.</p>
             </div>
-            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all duration-400" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
-                </div>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all" data-scroll-reveal>
+                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></div>
                 <h4 class="text-lg font-bold text-white mb-2">Suitable for Wetlands</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">Performs excellently in wetlands and difficult environments where traditional systems fail.</p>
+                <p class="text-gray-400 text-sm">Performs excellently in difficult environments.</p>
             </div>
-            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all duration-400" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-2">Cost-Effective & Affordable</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">Long-term savings with minimal maintenance and no recurring emptying costs.</p>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all" data-scroll-reveal>
+                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                <h4 class="text-lg font-bold text-white mb-2">Cost-Effective</h4>
+                <p class="text-gray-400 text-sm">Long-term savings with minimal maintenance.</p>
             </div>
-            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all duration-400" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-all" data-scroll-reveal>
+                <div class="w-12 h-12 bg-emerald-600/25 rounded-2xl flex items-center justify-center mb-4"><svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
                 <h4 class="text-lg font-bold text-white mb-2">Environmentally Friendly</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">Sustainable sanitation that protects the environment and promotes a greener future.</p>
+                <p class="text-gray-400 text-sm">Sustainable sanitation for a greener future.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== PROJECTS SECTION ==================== -->
+<!-- ==================== PROJECTS ==================== -->
 <section id="projects" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-scroll-reveal>
             <span class="text-emerald-600 font-semibold text-sm tracking-widest uppercase">Our Projects</span>
-            <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight tracking-tight">
-                Completed <span class="text-emerald-600">Across Juba</span>
-            </h2>
-            <p class="mt-4 text-gray-500 max-w-xl mx-auto">Proven expertise through successful sanitation and infrastructure projects throughout South Sudan.</p>
+            <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight">Completed <span class="text-emerald-600">Across Juba</span></h2>
+            <p class="mt-4 text-gray-500 max-w-xl mx-auto">Proven expertise through successful sanitation and infrastructure projects.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7">
-            <div class="group relative rounded-2xl overflow-hidden shadow-lg shadow-navy-900/10 cursor-pointer" data-scroll-reveal>
-                <div class="aspect-[4/3] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="Rock City Bio-Digester Project" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=600&q=80';">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
-                    <div>
-                        <span class="text-emerald-300 text-xs font-semibold tracking-wider uppercase">Bio-Digester</span>
-                        <h4 class="text-white font-bold text-lg mt-1">Rock City — Triple Bio-Digester</h4>
-                    </div>
-                </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-lg" data-scroll-reveal>
+                <div class="aspect-[4/3] overflow-hidden"><img src="assets/advanced.jpg" alt="Rock City" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=600&q=80';"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6"><div><span class="text-emerald-300 text-xs font-semibold uppercase">Bio-Digester</span><h4 class="text-white font-bold text-lg mt-1">Rock City — Triple Bio-Digester</h4></div></div>
             </div>
-            <div class="group relative rounded-2xl overflow-hidden shadow-lg shadow-navy-900/10 cursor-pointer" data-scroll-reveal>
-                <div class="aspect-[4/3] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=600&q=80" alt="Gudele Block 4 Project" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80';">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
-                    <div>
-                        <span class="text-emerald-300 text-xs font-semibold tracking-wider uppercase">Domestic System</span>
-                        <h4 class="text-white font-bold text-lg mt-1">Gudele Block 4 — Bio-Digester</h4>
-                    </div>
-                </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-lg" data-scroll-reveal>
+                <div class="aspect-[4/3] overflow-hidden"><img src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=600&q=80" alt="Gudele" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80';"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6"><div><span class="text-emerald-300 text-xs font-semibold uppercase">Domestic</span><h4 class="text-white font-bold text-lg mt-1">Gudele Block 4 — Bio-Digester</h4></div></div>
             </div>
-            <div class="group relative rounded-2xl overflow-hidden shadow-lg shadow-navy-900/10 cursor-pointer" data-scroll-reveal>
-                <div class="aspect-[4/3] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1624969862644-791f3dc98927?w=600&q=80" alt="Gurei South Installation" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1574359411659-1553290431fe?w=600&q=80';">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
-                    <div>
-                        <span class="text-emerald-300 text-xs font-semibold tracking-wider uppercase">Installation</span>
-                        <h4 class="text-white font-bold text-lg mt-1">Gurei South — Bio-Digester</h4>
-                    </div>
-                </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-lg" data-scroll-reveal>
+                <div class="aspect-[4/3] overflow-hidden"><img src="https://images.unsplash.com/photo-1624969862644-791f3dc98927?w=600&q=80" alt="Gurei" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1574359411659-1553290431fe?w=600&q=80';"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6"><div><span class="text-emerald-300 text-xs font-semibold uppercase">Installation</span><h4 class="text-white font-bold text-lg mt-1">Gurei South — Bio-Digester</h4></div></div>
             </div>
-            <div class="group relative rounded-2xl overflow-hidden shadow-lg shadow-navy-900/10 cursor-pointer" data-scroll-reveal>
-                <div class="aspect-[4/3] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c3562a6abfac?w=600&q=80" alt="Ministry of Prison Services Project" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80';">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
-                    <div>
-                        <span class="text-emerald-300 text-xs font-semibold tracking-wider uppercase">Government Project</span>
-                        <h4 class="text-white font-bold text-lg mt-1">Ministry of Prison Services</h4>
-                    </div>
-                </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-lg" data-scroll-reveal>
+                <div class="aspect-[4/3] overflow-hidden"><img src="https://images.unsplash.com/photo-1581094794329-c3562a6abfac?w=600&q=80" alt="Ministry" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80';"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6"><div><span class="text-emerald-300 text-xs font-semibold uppercase">Government</span><h4 class="text-white font-bold text-lg mt-1">Ministry of Prison Services</h4></div></div>
             </div>
-            <div class="group relative rounded-2xl overflow-hidden shadow-lg shadow-navy-900/10 cursor-pointer" data-scroll-reveal>
-                <div class="aspect-[4/3] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1574359411659-1553290431fe?w=600&q=80" alt="System Upgrade Project" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1624969862644-791f3dc98927?w=600&q=80';">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
-                    <div>
-                        <span class="text-emerald-300 text-xs font-semibold tracking-wider uppercase">Upgrade</span>
-                        <h4 class="text-white font-bold text-lg mt-1">System Modification & Upgrade</h4>
-                    </div>
-                </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-lg" data-scroll-reveal>
+                <div class="aspect-[4/3] overflow-hidden"><img src="assets/advanced.jpg" alt="Upgrade" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1624969862644-791f3dc98927?w=600&q=80';"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6"><div><span class="text-emerald-300 text-xs font-semibold uppercase">Upgrade</span><h4 class="text-white font-bold text-lg mt-1">System Modification & Upgrade</h4></div></div>
             </div>
-            <div class="group relative rounded-2xl overflow-hidden shadow-lg shadow-navy-900/10 cursor-pointer" data-scroll-reveal>
-                <div class="aspect-[4/3] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="Infrastructure Project Juba" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581094794329-c3562a6abfac?w=600&q=80';">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6">
-                    <div>
-                        <span class="text-emerald-300 text-xs font-semibold tracking-wider uppercase">Infrastructure</span>
-                        <h4 class="text-white font-bold text-lg mt-1">Juba Sanitation Infrastructure</h4>
-                    </div>
-                </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-lg" data-scroll-reveal>
+                <div class="aspect-[4/3] overflow-hidden"><img src="assets/biogas.jpg" alt="Juba Infrastructure" class="w-full h-full object-cover image-zoom" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581094794329-c3562a6abfac?w=600&q=80';"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-6"><div><span class="text-emerald-300 text-xs font-semibold uppercase">Infrastructure</span><h4 class="text-white font-bold text-lg mt-1">Juba Sanitation Infrastructure</h4></div></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== OUR COMMITMENT SECTION ==================== -->
+<!-- ==================== OUR COMMITMENT ==================== -->
 <section class="py-20 lg:py-28 bg-gray-50/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-scroll-reveal>
             <span class="text-emerald-600 font-semibold text-sm tracking-widest uppercase">Our Commitment</span>
-            <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight tracking-tight">
-                What We <span class="text-emerald-600">Stand For</span>
-            </h2>
-            <p class="mt-4 text-gray-500 max-w-xl mx-auto">Our promise to every client — quality, reliability, and sustainability in every project.</p>
+            <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight">What We <span class="text-emerald-600">Stand For</span></h2>
+            <p class="mt-4 text-gray-500 max-w-xl mx-auto">Our promise to every client — quality, reliability, and sustainability.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="flex gap-4" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold text-navy-900 mb-1">High-Quality Workmanship</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Every project is executed with precision and attention to detail, ensuring lasting results.</p>
-                </div>
-            </div>
-            <div class="flex gap-4" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold text-navy-900 mb-1">Modern & Reliable Techniques</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">We use the latest technology and proven methods for superior sanitation outcomes.</p>
-                </div>
-            </div>
-            <div class="flex gap-4" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold text-navy-900 mb-1">Fast & Responsive Service</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">We respond quickly to inquiries and complete projects on schedule, every time.</p>
-                </div>
-            </div>
-            <div class="flex gap-4" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold text-navy-900 mb-1">Customer Satisfaction</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Your satisfaction is our top priority — we don't rest until the job is done right.</p>
-                </div>
-            </div>
-            <div class="flex gap-4" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold text-navy-900 mb-1">Sustainable & Eco-Friendly</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">Promoting green sanitation solutions that protect the environment for future generations.</p>
-                </div>
-            </div>
-            <div class="flex gap-4" data-scroll-reveal>
-                <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold text-navy-900 mb-1">Projects of All Sizes</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">From residential installations to large government projects — we handle it all with equal dedication.</p>
-                </div>
-            </div>
+            <div class="flex gap-4" data-scroll-reveal><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0"><svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div><h4 class="text-lg font-bold text-navy-900 mb-1">High-Quality Workmanship</h4><p class="text-gray-500 text-sm">Every project executed with precision and lasting results.</p></div></div>
+            <div class="flex gap-4" data-scroll-reveal><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0"><svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><h4 class="text-lg font-bold text-navy-900 mb-1">Modern & Reliable Techniques</h4><p class="text-gray-500 text-sm">Latest technology for superior sanitation outcomes.</p></div></div>
+            <div class="flex gap-4" data-scroll-reveal><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0"><svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><h4 class="text-lg font-bold text-navy-900 mb-1">Fast & Responsive Service</h4><p class="text-gray-500 text-sm">Quick response and on-schedule project completion.</p></div></div>
+            <div class="flex gap-4" data-scroll-reveal><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0"><svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><h4 class="text-lg font-bold text-navy-900 mb-1">Customer Satisfaction</h4><p class="text-gray-500 text-sm">Your satisfaction is our top priority.</p></div></div>
+            <div class="flex gap-4" data-scroll-reveal><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0"><svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><h4 class="text-lg font-bold text-navy-900 mb-1">Sustainable & Eco-Friendly</h4><p class="text-gray-500 text-sm">Promoting green sanitation solutions.</p></div></div>
+            <div class="flex gap-4" data-scroll-reveal><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0"><svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div><div><h4 class="text-lg font-bold text-navy-900 mb-1">Projects of All Sizes</h4><p class="text-gray-500 text-sm">From homes to large government projects.</p></div></div>
         </div>
     </div>
 </section>
 
-<!-- ==================== CONTACT SECTION ==================== -->
+<!-- ==================== CONTACT ==================== -->
 <section id="contact" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
             <div class="lg:col-span-2" data-scroll-reveal>
                 <span class="text-emerald-600 font-semibold text-sm tracking-widest uppercase">Get In Touch</span>
-                <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-navy-900 leading-tight tracking-tight">
-                    Let's Discuss Your <span class="text-emerald-600">Project</span>
-                </h2>
-                <p class="mt-4 text-gray-500 leading-relaxed">For inquiries, consultations, or project requests, contact us today. We respond quickly.</p>
+                <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-navy-900 leading-tight">Let's Discuss Your <span class="text-emerald-600">Project</span></h2>
+                <p class="mt-4 text-gray-500">For inquiries, consultations, or project requests, contact us today. We respond quickly.</p>
                 <div class="mt-10 space-y-6">
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Phone / WhatsApp</p>
-                            <a href="tel:+211929970050" class="text-navy-900 font-bold text-lg hover:text-emerald-600 transition-colors">+211 929 970 050</a>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Email</p>
-                            <a href="mailto:info@sanitationadvanced.com" class="text-navy-900 font-bold text-lg hover:text-emerald-600 transition-colors">info@sanitationadvanced.com</a>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Location</p>
-                            <p class="text-navy-900 font-bold text-lg">Juba, South Sudan</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 text-emerald-600 mt-4">
-                        <span class="relative flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                        </span>
-                        <span class="text-sm font-semibold">Always Open — Ready to Serve You</span>
-                    </div>
+                    <div class="flex gap-4"><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center"><svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div><div><p class="text-xs text-gray-400 uppercase font-semibold">Phone / WhatsApp</p><a href="tel:+211929970050" class="text-navy-900 font-bold text-lg hover:text-emerald-600">+211 929 970 050</a></div></div>
+                    <div class="flex gap-4"><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center"><svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div><p class="text-xs text-gray-400 uppercase font-semibold">Email</p><a href="mailto:info@sanitationadvanced.com" class="text-navy-900 font-bold text-lg hover:text-emerald-600">info@sanitationadvanced.com</a></div></div>
+                    <div class="flex gap-4"><div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center"><svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><p class="text-xs text-gray-400 uppercase font-semibold">Location</p><p class="text-navy-900 font-bold text-lg">Juba, South Sudan</p></div></div>
+                    <div class="flex items-center gap-2 text-emerald-600"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span></span><span class="text-sm font-semibold">Always Open — Ready to Serve</span></div>
                 </div>
             </div>
             <div class="lg:col-span-3" data-scroll-reveal>
-                <div class="bg-gray-50/80 rounded-3xl p-8 lg:p-10 shadow-lg shadow-navy-900/5 border border-gray-100">
+                <div class="bg-gray-50/80 rounded-3xl p-8 lg:p-10 shadow-lg border border-gray-100">
                     <form id="contactForm" class="space-y-5">
                         <div class="grid sm:grid-cols-2 gap-5">
-                            <div>
-                                <label for="name" class="block text-sm font-semibold text-navy-800 mb-1.5">Full Name *</label>
-                                <input type="text" id="name" required placeholder="Your full name" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-sm">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-semibold text-navy-800 mb-1.5">Email Address *</label>
-                                <input type="email" id="email" required placeholder="your@email.com" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-sm">
-                            </div>
+                            <div><label for="name" class="block text-sm font-semibold text-navy-800 mb-1.5">Full Name *</label><input type="text" id="name" required placeholder="Your full name" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-sm"></div>
+                            <div><label for="email" class="block text-sm font-semibold text-navy-800 mb-1.5">Email Address *</label><input type="email" id="email" required placeholder="your@email.com" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-sm"></div>
                         </div>
                         <div class="grid sm:grid-cols-2 gap-5">
-                            <div>
-                                <label for="phone" class="block text-sm font-semibold text-navy-800 mb-1.5">Phone Number</label>
-                                <input type="tel" id="phone" placeholder="+211 __ ___ ____" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-sm">
-                            </div>
-                            <div>
-                                <label for="service" class="block text-sm font-semibold text-navy-800 mb-1.5">Service Interested In</label>
-                                <select id="service" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-sm appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23475569%22 stroke-width=%222.5%22><path d=%22M19 9l-7 7-7-7%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px;">
-                                    <option value="">Select a service...</option>
-                                    <option>Bio-Digester Installation</option>
-                                    <option>Biogas System Solutions</option>
-                                    <option>Waste Management</option>
-                                    <option>Septic Tank Construction</option>
-                                    <option>Shallow Well Drilling</option>
-                                    <option>Drainage & Cleaning</option>
-                                    <option>Environmental Sanitation</option>
-                                    <option>General Construction</option>
-                                </select>
-                            </div>
+                            <div><label for="phone" class="block text-sm font-semibold text-navy-800 mb-1.5">Phone Number</label><input type="tel" id="phone" placeholder="+211 __ ___ ____" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-sm"></div>
+                            <div><label for="service" class="block text-sm font-semibold text-navy-800 mb-1.5">Service Interested In</label><select id="service" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-sm appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23475569%22 stroke-width=%222.5%22><path d=%22M19 9l-7 7-7-7%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px;"><option value="">Select a service...</option><option>Bio-Digester Installation</option><option>Biogas System Solutions</option><option>Waste Management</option><option>Septic Tank Construction</option><option>Shallow Well Drilling</option><option>Drainage & Cleaning</option><option>Environmental Sanitation</option><option>General Construction</option></select></div>
                         </div>
-                        <div>
-                            <label for="message" class="block text-sm font-semibold text-navy-800 mb-1.5">Message *</label>
-                            <textarea id="message" required rows="5" placeholder="Tell us about your project or inquiry..." class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-sm resize-none"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5 active:translate-y-0 text-base tracking-wide">
-                            Send Inquiry — We'll Respond Quickly
-                        </button>
+                        <div><label for="message" class="block text-sm font-semibold text-navy-800 mb-1.5">Message *</label><textarea id="message" required rows="5" placeholder="Tell us about your project..." class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-sm resize-none"></textarea></div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5 active:translate-y-0 text-base tracking-wide">Send Inquiry — We'll Respond Quickly</button>
                         <p class="text-xs text-gray-400 text-center mt-3">We respect your privacy. Your information is never shared.</p>
                     </form>
                 </div>
@@ -809,71 +561,24 @@
     </div>
 </section>
 
-<!-- ==================== FOOTER ==================== -->
+<!-- ==================== FOOTER (2026) ==================== -->
 <footer class="bg-navy-950 text-white py-16 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             <div class="lg:col-span-1">
                 <div class="flex items-center gap-3 mb-5">
-                    <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-600/30">
-                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-5 4h1m4 0h1m-5-8h1m4 0h1M5 6h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>
-                    </div>
-                    <div>
-                        <span class="text-white font-bold text-sm leading-tight tracking-tight block">Advanced Sanitation</span>
-                        <span class="text-emerald-400 font-semibold text-[10px] tracking-widest uppercase block">Services LTD</span>
-                    </div>
+                    <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-600/30"><svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-5 4h1m4 0h1m-5-8h1m4 0h1M5 6h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg></div>
+                    <div><span class="text-white font-bold text-sm leading-tight block">Advanced Sanitation</span><span class="text-emerald-400 font-semibold text-[10px] tracking-widest uppercase block">Services LTD</span></div>
                 </div>
-                <p class="text-gray-400 text-sm leading-relaxed">Modern, eco-friendly sanitation solutions for a cleaner, healthier South Sudan.</p>
-                <div class="flex items-center gap-2 text-emerald-400 mt-4">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                    </span>
-                    <span class="text-xs font-semibold">Always Open</span>
-                </div>
+                <p class="text-gray-400 text-sm">Modern, eco-friendly sanitation solutions for a cleaner South Sudan.</p>
+                <div class="flex items-center gap-2 text-emerald-400 mt-4"><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span></span><span class="text-xs font-semibold">Always Open</span></div>
             </div>
-            <div>
-                <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">Quick Links</h4>
-                <ul class="space-y-3">
-                    <li><a href="#home" class="text-gray-400 hover:text-white text-sm transition-colors">Home</a></li>
-                    <li><a href="#about" class="text-gray-400 hover:text-white text-sm transition-colors">About</a></li>
-                    <li><a href="#services" class="text-gray-400 hover:text-white text-sm transition-colors">Services</a></li>
-                    <li><a href="#projects" class="text-gray-400 hover:text-white text-sm transition-colors">Projects</a></li>
-                    <li><a href="#why-bio" class="text-gray-400 hover:text-white text-sm transition-colors">Why Bio-Digester</a></li>
-                    <li><a href="#contact" class="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">Our Services</h4>
-                <ul class="space-y-3">
-                    <li><a href="#service-bio" class="text-gray-400 hover:text-white text-sm transition-colors">Bio-Digester Installation</a></li>
-                    <li><a href="#service-biogas" class="text-gray-400 hover:text-white text-sm transition-colors">Biogas System Solutions</a></li>
-                    <li><a href="#service-waste" class="text-gray-400 hover:text-white text-sm transition-colors">Waste Management</a></li>
-                    <li><a href="#service-septic" class="text-gray-400 hover:text-white text-sm transition-colors">Septic Tank Construction</a></li>
-                    <li><a href="#service-well" class="text-gray-400 hover:text-white text-sm transition-colors">Shallow Well Drilling</a></li>
-                    <li><a href="#service-drainage" class="text-gray-400 hover:text-white text-sm transition-colors">Drainage & Cleaning</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">Contact Info</h4>
-                <ul class="space-y-3">
-                    <li class="flex items-center gap-3 text-gray-400 text-sm">
-                        <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                        +211 929 970 050
-                    </li>
-                    <li class="flex items-center gap-3 text-gray-400 text-sm">
-                        <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        info@sanitationadvanced.com
-                    </li>
-                    <li class="flex items-start gap-3 text-gray-400 text-sm">
-                        <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        Juba, South Sudan
-                    </li>
-                </ul>
-            </div>
+            <div><h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">Quick Links</h4><ul class="space-y-3"><li><a href="#home" class="text-gray-400 hover:text-white text-sm">Home</a></li><li><a href="#about" class="text-gray-400 hover:text-white text-sm">About</a></li><li><a href="#services" class="text-gray-400 hover:text-white text-sm">Services</a></li><li><a href="#projects" class="text-gray-400 hover:text-white text-sm">Projects</a></li><li><a href="#why-bio" class="text-gray-400 hover:text-white text-sm">Why Bio-Digester</a></li><li><a href="#contact" class="text-gray-400 hover:text-white text-sm">Contact</a></li></ul></div>
+            <div><h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">Our Services</h4><ul class="space-y-3"><li><a href="#service-bio" class="text-gray-400 hover:text-white text-sm">Bio-Digester</a></li><li><a href="#service-biogas" class="text-gray-400 hover:text-white text-sm">Biogas Systems</a></li><li><a href="#service-waste" class="text-gray-400 hover:text-white text-sm">Waste Management</a></li><li><a href="#service-septic" class="text-gray-400 hover:text-white text-sm">Septic Tanks</a></li><li><a href="#service-well" class="text-gray-400 hover:text-white text-sm">Well Drilling</a></li><li><a href="#service-drainage" class="text-gray-400 hover:text-white text-sm">Drainage</a></li></ul></div>
+            <div><h4 class="text-white font-bold text-sm uppercase tracking-widest mb-5">Contact Info</h4><ul class="space-y-3"><li class="flex items-center gap-3 text-gray-400 text-sm"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>+211 929 970 050</li><li class="flex items-center gap-3 text-gray-400 text-sm"><svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>info@sanitationadvanced.com</li><li class="flex items-start gap-3 text-gray-400 text-sm"><svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Juba, South Sudan</li></ul></div>
         </div>
         <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p class="text-gray-500 text-xs">&copy; 2024 Advanced Sanitation Services LTD. All rights reserved. | Juba, South Sudan</p>
+            <p class="text-gray-500 text-xs">&copy; 2026 Advanced Sanitation Services LTD. All rights reserved. | Juba, South Sudan</p>
             <p class="text-gray-600 text-xs">Premium Sanitation Solutions — Built for South Sudan</p>
         </div>
     </div>
@@ -904,16 +609,16 @@
         updateNavScroll();
 
         function openMobileMenu() {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('visible');
+            mobileMenu.classList.remove('menu-hidden');
+            mobileMenu.classList.add('menu-visible');
             menuIconOpen.classList.add('hidden');
             menuIconClose.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
         function closeMobileMenu() {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('visible');
+            mobileMenu.classList.add('menu-hidden');
+            mobileMenu.classList.remove('menu-visible');
             menuIconOpen.classList.remove('hidden');
             menuIconClose.classList.add('hidden');
             document.body.style.overflow = '';
@@ -922,7 +627,7 @@
         }
 
         mobileMenuBtn.addEventListener('click', () => {
-            if (mobileMenu.classList.contains('visible')) {
+            if (mobileMenu.classList.contains('menu-visible')) {
                 closeMobileMenu();
             } else {
                 openMobileMenu();
@@ -947,7 +652,7 @@
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('visible')) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('menu-visible')) {
                 closeMobileMenu();
             }
         });
@@ -1004,11 +709,6 @@
                 }
             });
         });
-
-        console.log('%c Advanced Sanitation Services LTD %c Juba, South Sudan %c Premium Website Active ',
-            'background:#059669;color:#fff;padding:8px 14px;border-radius:8px 0 0 8px;font-weight:bold;',
-            'background:#0a1420;color:#34d399;padding:8px 14px;font-weight:bold;',
-            'background:#1e3047;color:#fff;padding:8px 14px;border-radius:0 8px 8px 0;');
     })();
 </script>
 </body>
