@@ -1,1970 +1,1162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jenny Roofing - Tampa's Premier Roofing Contractor. Licensed, insured, and trusted for residential and commercial roofing services in Tampa, Florida. Free estimates available.">
-    <meta name="keywords" content="roofing Tampa, roof repair Tampa, roof replacement Florida, Jenny Roofing, Tampa roofing contractor, commercial roofing Tampa">
-    <meta name="author" content="Jenny Roofing">
-    <meta property="og:title" content="Jenny Roofing | Tampa's Trusted Roofing Experts">
-    <meta property="og:description" content="Professional roofing services in Tampa, Florida. Quality craftsmanship, licensed & insured. Get your free quote today!">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-    <title>Jenny Roofing | Premier Roofing Contractor Tampa, Florida</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-color: #1e3a5f;
-            --secondary-color: #e67e22;
-            --accent-color: #f39c12;
-            --text-dark: #2c3e50;
-            --text-light: #666;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo i {
-            color: var(--secondary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .nav-cta {
-            background: var(--secondary-color);
-            color: var(--white) !important;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.4);
-        }
-
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            height: calc(100vh - 80px);
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.8), rgba(30, 58, 95, 0.6)), 
-                        url('https://images.unsplash.com/photo-1632759145351-1d592919f522?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            width: 100%;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text {
-            color: var(--white);
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(230, 126, 34, 0.9);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 600px;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--secondary-color);
-            color: var(--white);
-            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(230, 126, 34, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary-color);
-        }
-
-        /* Glass Form */
-        .glass-form-container {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            animation: fadeInRight 1s ease 0.8s both;
-        }
-
-        .glass-form-container h3 {
-            color: var(--white);
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        .glass-form-container p {
-            color: rgba(255,255,255,0.9);
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.9rem 1rem;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 12px;
-            background: rgba(255,255,255,0.1);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            background: rgba(255,255,255,0.2);
-        }
-
-        .form-group select option {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--secondary-color);
-            color: var(--white);
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        .submit-btn:hover {
-            background: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.4);
-        }
-
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .trust-badges i {
-            color: var(--secondary-color);
-            margin-right: 0.25rem;
-        }
-
-        /* Trust Section */
-        .trust-section {
-            background: var(--white);
-            padding: 3rem 0;
-            overflow: hidden;
-            border-bottom: 1px solid #eee;
-        }
-
-        .trust-container {
-            display: flex;
-            animation: scroll 30s linear infinite;
-            width: fit-content;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0 3rem;
-            white-space: nowrap;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
-
-        .trust-item:hover {
-            opacity: 1;
-        }
-
-        .trust-item img {
-            height: 50px;
-            width: auto;
-            filter: grayscale(100%);
-            transition: filter 0.3s;
-        }
-
-        .trust-item:hover img {
-            filter: grayscale(0%);
-        }
-
-        .trust-item span {
-            font-weight: 600;
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 2rem;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--bg-light);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .experience-badge {
-            position: absolute;
-            bottom: 30px;
-            right: -30px;
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
-        }
-
-        .experience-badge .years {
-            font-size: 3rem;
-            font-weight: 700;
-            display: block;
-            line-height: 1;
-        }
-
-        .experience-badge .text {
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .license-info {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            border-left: 4px solid var(--secondary-color);
-        }
-
-        .license-info h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .license-info p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin: 0;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-        }
-
-        .service-image {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.1);
-        }
-
-        .service-content {
-            padding: 2rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-content p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .service-link {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .service-link:hover {
-            gap: 1rem;
-        }
-
-        /* Why Choose Us */
-        .why-us {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        .why-us .section-header h2 {
-            color: var(--white);
-        }
-
-        .why-us .section-header p {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .why-us-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .why-us-image {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-        }
-
-        .why-us-image img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-        }
-
-        .why-us-text h3 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .feature-list li {
-            padding: 1rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .feature-list i {
-            color: var(--secondary-color);
-            font-size: 1.25rem;
-            margin-top: 0.25rem;
-        }
-
-        .feature-list strong {
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        .feature-list span {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 400px;
-            cursor: pointer;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(30, 58, 95, 0.95), transparent);
-            padding: 2rem;
-            color: var(--white);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-
-        .project-card:hover .project-overlay {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .project-overlay h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Areas We Serve */
-        .areas {
-            background: var(--bg-light);
-        }
-
-        .areas-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .areas-image {
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        .areas-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .areas-text h3 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .areas-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .area-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .area-item i {
-            color: var(--secondary-color);
-        }
-
-        /* FAQ Section */
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--white);
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-        }
-
-        .faq-question {
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .faq-question:hover {
-            background: var(--bg-light);
-        }
-
-        .faq-question h4 {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
-
-        .faq-icon {
-            color: var(--secondary-color);
-            font-size: 1.25rem;
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0 2rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 2rem 1.5rem;
-            max-height: 300px;
-        }
-
-        .faq-answer p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Blog Section */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .blog-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .blog-image {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .blog-card:hover .blog-image img {
-            transform: scale(1.1);
-        }
-
-        .blog-content {
-            padding: 2rem;
-        }
-
-        .blog-meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .blog-meta i {
-            color: var(--secondary-color);
-            margin-right: 0.5rem;
-        }
-
-        .blog-content h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .blog-content p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .read-more {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, var(--primary-color), #2c5282);
-            color: var(--white);
-        }
-
-        .contact .section-header h2 {
-            color: var(--white);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-details {
-            margin: 2rem 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-top: 0.25rem;
-        }
-
-        .contact-item strong {
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-item span {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .contact-form {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-        }
-
-        .contact-form h3 {
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            font-size: 1.75rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .contact-form .form-group label {
-            color: var(--text-dark);
-        }
-
-        .contact-form .form-group input,
-        .contact-form .form-group textarea {
-            background: var(--bg-light);
-            border: 1px solid #ddd;
-            color: var(--text-dark);
-        }
-
-        .contact-form .form-group input:focus,
-        .contact-form .form-group textarea:focus {
-            background: var(--white);
-            border-color: var(--secondary-color);
-        }
-
-        /* Footer */
-        footer {
-            background: #0f1f33;
-            color: var(--white);
-            padding: 5rem 2rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-brand .logo {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            display: inline-flex;
-        }
-
-        .footer-brand p {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-links h4 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content,
-            .about-content,
-            .why-us-content,
-            .areas-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .glass-form-container {
-                order: -1;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .services-grid,
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .areas-list {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--secondary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 999;
-            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            background: var(--accent-color);
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kushite Engineering — Engineering, Real Estate & Energy Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    background:#fff;color:#1e293b;
+    overflow-x:hidden;
+  }
+  body.menu-open{overflow:hidden}
+  img{max-width:100%;height:auto;display:block}
+  a,button{transition:all .25s ease}
+  a{color:inherit;text-decoration:none}
+
+  ::-webkit-scrollbar{width:8px}
+  ::-webkit-scrollbar-track{background:#f1f5f9}
+  ::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:4px}
+  ::-webkit-scrollbar-thumb:hover{background:#64748b}
+
+  /* ===== PALETTE ===== */
+  :root{
+    --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-200:#bfdbfe;--blue-300:#93c5fd;
+    --blue-400:#60a5fa;--blue-500:#3b82f6;--blue-600:#2563eb;--blue-700:#1d4ed8;
+    --blue-800:#1e40af;--blue-900:#1e3a8a;--blue-950:#0f172a;
+    --surface-50:#f8fafc;--surface-100:#f1f5f9;--surface-200:#e2e8f0;
+    --surface-300:#cbd5e1;--surface-400:#94a3b8;--surface-500:#64748b;
+    --surface-600:#475569;--surface-700:#334155;--surface-800:#1e293b;
+    --surface-900:#0f172a;
+    --accent:#f59e0b;
+  }
+
+  .container{max-width:1280px;margin:0 auto;padding:0 32px}
+
+  /* ===== GLASS ===== */
+  .glass-light{
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.4);
+  }
+  .glass-dark{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.12);
+  }
+
+  .text-gradient{
+    background:linear-gradient(135deg,var(--blue-400),var(--blue-600));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 28px;font-size:13px;font-weight:600;letter-spacing:.02em;
+    border-radius:10px;cursor:pointer;border:0;
+    transition:all .3s cubic-bezier(.4,0,.2,1);
+    position:relative;overflow:hidden;
+  }
+  .btn svg{width:14px;height:14px;transition:transform .3s}
+  .btn:hover svg{transform:translateX(3px)}
+
+  .btn-primary{
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-600));
+    color:#fff;
+  }
+  .btn-primary::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,var(--blue-600),var(--blue-700));
+    opacity:0;transition:opacity .3s;
+  }
+  .btn-primary:hover::after{opacity:1}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(59,130,246,.4)}
+  .btn-primary > *{position:relative;z-index:1}
+
+  .btn-dark{
+    background:var(--blue-950);color:#fff;
+  }
+  .btn-dark:hover{background:var(--blue-800);transform:translateY(-2px);box-shadow:0 12px 30px rgba(15,23,42,.35)}
+
+  .btn-outline{
+    border:1.5px solid rgba(255,255,255,.3);color:#fff;
+    background:transparent;
+  }
+  .btn-outline:hover{
+    background:rgba(255,255,255,.08);
+    border-color:rgba(255,255,255,.55);
+    transform:translateY(-2px);
+  }
+  .btn-outline-dark{
+    border:1.5px solid var(--blue-950);color:var(--blue-950);background:transparent;
+  }
+  .btn-outline-dark:hover{background:var(--blue-950);color:#fff;transform:translateY(-2px)}
+
+  .btn-lg{padding:18px 36px;font-size:14px}
+
+  .card-hover{transition:all .35s cubic-bezier(.16,1,.3,1)}
+  .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(15,23,42,.08)}
+
+  /* ===== NAV ===== */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:18px 0;
+    transition:all .35s ease;
+  }
+  .nav.scrolled{
+    padding:12px 0;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--surface-200);
+    box-shadow:0 1px 3px rgba(15,23,42,.04);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:32px}
+  .logo{display:flex;align-items:center;gap:12px;color:#fff}
+  .nav.scrolled .logo{color:var(--blue-950)}
+  .logo-mark{
+    width:40px;height:40px;border-radius:10px;
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    display:grid;place-items:center;color:#fff;
+    font-weight:700;font-size:18px;
+    box-shadow:0 4px 12px rgba(37,99,235,.35);
+  }
+  .logo-text{font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .logo-text small{display:block;font-size:10px;letter-spacing:.18em;color:var(--blue-400);font-weight:500;text-transform:uppercase;margin-top:-2px}
+  .nav.scrolled .logo-text small{color:var(--blue-600)}
+
+  .nav-links{display:flex;gap:32px;list-style:none}
+  .nav-links a{
+    color:rgba(255,255,255,.85);font-size:14px;font-weight:500;
+    position:relative;padding:6px 0;
+  }
+  .nav.scrolled .nav-links a{color:var(--surface-700)}
+  .nav-links a:hover{color:#fff}
+  .nav.scrolled .nav-links a:hover{color:var(--blue-600)}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+    background:linear-gradient(90deg,var(--blue-400),var(--blue-600));
+    transition:width .3s ease;border-radius:2px;
+  }
+  .nav-links a:hover::after{width:100%}
+
+  .nav-cta{
+    padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-600));
+    color:#fff;box-shadow:0 4px 14px rgba(59,130,246,.3);
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(59,130,246,.4)}
+
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+  .burger span{width:22px;height:2px;background:#fff;transition:all .3s;border-radius:2px}
+  .nav.scrolled .burger span{background:var(--blue-950)}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;min-height:100vh;
+    display:flex;align-items:center;
+    overflow:hidden;
+    padding:140px 0 100px;
+    isolation:isolate;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:-2;
+    background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80');
+    background-size:cover;background-position:center;
+    transform:scale(1.05);
+    animation:slowZoom 20s ease-out forwards;
+  }
+  @keyframes slowZoom{to{transform:scale(1)}}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(135deg,rgba(15,23,42,.85) 0%,rgba(30,58,138,.7) 50%,rgba(15,23,42,.88) 100%),
+      radial-gradient(ellipse at 20% 30%,rgba(59,130,246,.25) 0%,transparent 50%);
+  }
+  .hero-content{position:relative;z-index:2;width:100%}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:8px 18px;border-radius:999px;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:#fff;font-weight:500;margin-bottom:32px;
+  }
+  .hero-eyebrow .dot{width:6px;height:6px;background:var(--blue-400);border-radius:50%;box-shadow:0 0 12px var(--blue-400)}
+  .hero h1{
+    font-size:clamp(44px,6.8vw,96px);
+    font-weight:700;line-height:1.02;letter-spacing:-.03em;
+    color:#fff;max-width:14ch;margin-bottom:28px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--blue-300),var(--blue-400));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .hero-sub{
+    max-width:580px;font-size:18px;line-height:1.7;
+    color:rgba(255,255,255,.78);font-weight:400;margin-bottom:48px;
+  }
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:72px}
+
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+    padding-top:40px;border-top:1px solid rgba(255,255,255,.15);
+    max-width:900px;
+  }
+  .hero-stat .num{
+    font-size:40px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1;
+    background:linear-gradient(135deg,#fff,var(--blue-200));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .hero-stat .lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:8px;font-weight:500}
+
+  .scroll-hint{
+    position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;
+    color:rgba(255,255,255,.6);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+  }
+  .scroll-hint .line{width:1px;height:40px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
+  .scroll-hint .line::after{
+    content:"";position:absolute;left:0;top:-100%;width:100%;height:50%;background:var(--blue-400);
+    animation:scrollLine 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollLine{0%{top:-50%}100%{top:100%}}
+
+  /* ===== MARQUEE ===== */
+  .marquee{
+    background:var(--blue-950);color:#fff;
+    padding:28px 0;overflow:hidden;
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    position:relative;
+  }
+  .marquee::before,.marquee::after{
+    content:"";position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;
+  }
+  .marquee::before{left:0;background:linear-gradient(90deg,var(--blue-950),transparent)}
+  .marquee::after{right:0;background:linear-gradient(-90deg,var(--blue-950),transparent)}
+  .marquee-track{
+    display:flex;gap:64px;white-space:nowrap;
+    animation:marquee 40s linear infinite;
+    width:max-content;
+  }
+  .marquee-item{
+    display:inline-flex;align-items:center;gap:64px;
+    font-size:22px;font-weight:500;letter-spacing:-.01em;
+  }
+  .marquee-item .dot{width:6px;height:6px;background:var(--blue-400);border-radius:50%}
+  .marquee-item em{font-style:normal;color:var(--blue-300);font-weight:400}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* ===== SECTION HEAD ===== */
+  .section{padding:120px 0}
+  .section-head{margin-bottom:72px;max-width:780px}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--blue-600);font-weight:600;margin-bottom:20px;
+  }
+  .eyebrow::before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--blue-500),var(--blue-400));border-radius:2px}
+  .eyebrow.light{color:var(--blue-300)}
+  .eyebrow.light::before{background:linear-gradient(90deg,var(--blue-400),var(--blue-300))}
+  .section-head h2{
+    font-size:clamp(34px,4.4vw,56px);
+    font-weight:700;line-height:1.08;letter-spacing:-.025em;
+    color:var(--blue-950);margin-bottom:20px;
+  }
+  .section-head h2 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .section-head p{font-size:17px;line-height:1.7;color:var(--surface-600);max-width:620px}
+  .section-head.center p{margin:0 auto}
+
+  /* ===== ABOUT ===== */
+  .about{background:#fff}
+  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+  .about-img-wrap{position:relative}
+  .about-img{
+    width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;
+    box-shadow:0 30px 60px -20px rgba(15,23,42,.25);
+  }
+  .about-img-badge{
+    position:absolute;bottom:-28px;right:-28px;
+    background:linear-gradient(135deg,var(--blue-600),var(--blue-800));
+    color:#fff;padding:28px 32px;border-radius:16px;
+    box-shadow:0 20px 40px -10px rgba(37,99,235,.5);
+    max-width:220px;
+  }
+  .about-img-badge .num{font-size:48px;font-weight:700;line-height:1;letter-spacing:-.02em}
+  .about-img-badge p{font-size:13px;margin-top:8px;color:rgba(255,255,255,.85);line-height:1.5}
+  .about-img-decor{
+    position:absolute;top:-20px;left:-20px;width:120px;height:120px;
+    border:2px solid var(--blue-200);border-radius:20px;z-index:-1;
+  }
+  .about h2{
+    font-size:clamp(34px,4.2vw,52px);font-weight:700;line-height:1.08;
+    letter-spacing:-.025em;color:var(--blue-950);margin:20px 0 28px;
+  }
+  .about h2 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .about p{color:var(--surface-600);font-size:16px;line-height:1.8;margin-bottom:18px}
+  .licensed{
+    display:inline-flex;align-items:center;gap:12px;margin-top:24px;
+    padding:14px 20px;background:var(--blue-50);border:1px solid var(--blue-100);
+    border-radius:12px;
+  }
+  .licensed svg{width:20px;height:20px;color:var(--blue-600);flex-shrink:0}
+  .licensed span{font-size:13px;color:var(--blue-900);font-weight:600}
+  .about-stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    margin-top:40px;padding-top:36px;border-top:1px solid var(--surface-200);
+  }
+  .about-stats .s .n{
+    font-size:38px;font-weight:700;color:var(--blue-700);line-height:1;letter-spacing:-.02em;
+  }
+  .about-stats .s .l{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--surface-500);margin-top:8px;font-weight:600}
+
+  /* ===== DIVISIONS ===== */
+  .divisions{background:var(--surface-50)}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .pillar{
+    background:#fff;padding:44px 36px;border-radius:20px;
+    border:1px solid var(--surface-200);
+    transition:all .4s cubic-bezier(.16,1,.3,1);
+    position:relative;overflow:hidden;
+  }
+  .pillar::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--blue-500),var(--blue-400));
+    transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+  }
+  .pillar:hover::before{transform:scaleX(1)}
+  .pillar:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 50px -15px rgba(37,99,235,.2);
+    border-color:var(--blue-200);
+  }
+  .pillar-num{
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--blue-600);font-weight:700;margin-bottom:28px;
+  }
+  .pillar-icon{
+    width:60px;height:60px;border-radius:14px;
+    background:linear-gradient(135deg,var(--blue-50),var(--blue-100));
+    display:grid;place-items:center;margin-bottom:28px;
+    transition:all .4s ease;
+  }
+  .pillar:hover .pillar-icon{
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    transform:rotate(-6deg) scale(1.05);
+  }
+  .pillar-icon svg{width:26px;height:26px;color:var(--blue-600);transition:color .4s}
+  .pillar:hover .pillar-icon svg{color:#fff}
+  .pillar h3{font-size:24px;font-weight:700;margin-bottom:14px;color:var(--blue-950);letter-spacing:-.015em}
+  .pillar p{color:var(--surface-600);font-size:15px;line-height:1.7;margin-bottom:28px}
+  .pillar-link{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--blue-600);
+  }
+  .pillar-link svg{width:14px;height:14px;transition:transform .3s}
+  .pillar:hover .pillar-link svg{transform:translateX(4px)}
+
+  /* ===== ALL SERVICES ===== */
+  .all-services{background:#fff}
+  .services-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .svc{
+    background:#fff;padding:32px 26px;border-radius:16px;
+    border:1px solid var(--surface-200);
+    transition:all .35s cubic-bezier(.16,1,.3,1);
+  }
+  .svc:hover{
+    transform:translateY(-4px);
+    border-color:var(--blue-300);
+    box-shadow:0 16px 32px -10px rgba(37,99,235,.15);
+  }
+  .svc-cat{
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--blue-600);font-weight:700;margin-bottom:14px;
+  }
+  .svc h4{font-size:18px;font-weight:700;color:var(--blue-950);margin-bottom:10px;letter-spacing:-.01em;line-height:1.3}
+  .svc p{font-size:13.5px;color:var(--surface-600);line-height:1.6}
+  .svc-cta{margin-top:72px;text-align:center}
+
+  /* ===== WHY CHOOSE US ===== */
+  .why{
+    background:linear-gradient(135deg,var(--blue-950) 0%,var(--blue-900) 100%);
+    color:#fff;padding:120px 0;position:relative;overflow:hidden;
+  }
+  .why::before{
+    content:"";position:absolute;top:-300px;right:-300px;
+    width:700px;height:700px;border-radius:50%;
+    background:radial-gradient(circle,rgba(59,130,246,.18) 0%,transparent 70%);
+  }
+  .why::after{
+    content:"";position:absolute;bottom:-200px;left:-200px;
+    width:500px;height:500px;border-radius:50%;
+    background:radial-gradient(circle,rgba(96,165,250,.12) 0%,transparent 70%);
+  }
+  .why-grid{
+    display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:center;
+    position:relative;z-index:2;
+  }
+  .why-img-wrap{position:relative}
+  .why-img{
+    width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;
+    box-shadow:0 30px 60px -15px rgba(0,0,0,.5);
+  }
+  .why-img-wrap::before{
+    content:"";position:absolute;top:24px;left:24px;right:-24px;bottom:-24px;
+    border:2px solid var(--blue-400);border-radius:20px;z-index:-1;opacity:.5;
+  }
+  .why h2{
+    font-size:clamp(34px,4.2vw,52px);font-weight:700;line-height:1.08;
+    letter-spacing:-.025em;margin:20px 0 28px;
+  }
+  .why h2 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--blue-300),var(--blue-400));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .why-text{color:rgba(255,255,255,.75);font-size:16px;line-height:1.8;margin-bottom:40px;max-width:520px}
+  .why-list{display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;margin-bottom:44px}
+  .why-item{display:flex;gap:14px;align-items:flex-start}
+  .why-item .check{
+    width:32px;height:32px;border-radius:10px;flex-shrink:0;
+    background:linear-gradient(135deg,rgba(59,130,246,.25),rgba(96,165,250,.15));
+    border:1px solid rgba(96,165,250,.4);
+    display:grid;place-items:center;
+  }
+  .why-item .check svg{width:14px;height:14px;color:var(--blue-300)}
+  .why-item h5{font-size:15px;font-weight:600;margin-bottom:4px;color:#fff}
+  .why-item p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.55;margin:0}
+
+  /* ===== PROPERTIES ===== */
+  .properties{background:var(--surface-50)}
+  .prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .prop{
+    background:#fff;border-radius:20px;overflow:hidden;
+    border:1px solid var(--surface-200);
+    transition:all .4s cubic-bezier(.16,1,.3,1);
+  }
+  .prop:hover{transform:translateY(-6px);box-shadow:0 25px 50px -15px rgba(15,23,42,.15);border-color:var(--blue-200)}
+  .prop-img{width:100%;aspect-ratio:4/5;overflow:hidden;position:relative}
+  .prop-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .prop:hover .prop-img img{transform:scale(1.06)}
+  .prop-tag{
+    position:absolute;top:16px;left:16px;z-index:2;
+    padding:6px 14px;border-radius:999px;
+    background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--blue-700);font-weight:700;
+  }
+  .prop-body{padding:28px}
+  .prop h3{font-size:22px;font-weight:700;margin-bottom:8px;color:var(--blue-950);letter-spacing:-.015em}
+  .prop-loc{font-size:13px;color:var(--surface-500);margin-bottom:20px;display:flex;align-items:center;gap:6px}
+  .prop-loc svg{width:14px;height:14px;color:var(--blue-500)}
+  .prop-meta{
+    display:flex;gap:18px;padding-top:18px;border-top:1px solid var(--surface-200);
+    font-size:12px;color:var(--surface-600);font-weight:500;
+  }
+  .prop-meta span{display:flex;align-items:center;gap:6px}
+  .prop-meta svg{width:14px;height:14px;color:var(--blue-600)}
+
+  /* ===== NEWS ===== */
+  .news{background:#fff}
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .article{
+    background:#fff;border-radius:20px;overflow:hidden;
+    border:1px solid var(--surface-200);
+    transition:all .4s cubic-bezier(.16,1,.3,1);
+    cursor:pointer;
+  }
+  .article:hover{transform:translateY(-6px);box-shadow:0 25px 50px -15px rgba(15,23,42,.12);border-color:var(--blue-200)}
+  .article-img{width:100%;aspect-ratio:16/10;overflow:hidden}
+  .article-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .article:hover .article-img img{transform:scale(1.06)}
+  .article-body{padding:28px}
+  .article-meta{
+    display:flex;gap:16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--surface-500);margin-bottom:14px;font-weight:600;
+  }
+  .article-meta .cat{
+    color:var(--blue-600);padding:4px 10px;border-radius:6px;
+    background:var(--blue-50);
+  }
+  .article h3{
+    font-size:20px;font-weight:700;line-height:1.3;
+    margin-bottom:12px;color:var(--blue-950);letter-spacing:-.015em;
+    transition:color .3s;
+  }
+  .article:hover h3{color:var(--blue-600)}
+  .article p{font-size:14px;color:var(--surface-600);line-height:1.7;margin-bottom:18px}
+  .article-link{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--blue-600);
+  }
+  .article-link svg{width:14px;height:14px;transition:transform .3s}
+  .article:hover .article-link svg{transform:translateX(4px)}
+
+  /* ===== CONTACT ===== */
+  .contact{background:var(--surface-50)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+  .contact-info h2{
+    font-size:clamp(34px,4.2vw,52px);font-weight:700;line-height:1.08;
+    letter-spacing:-.025em;color:var(--blue-950);margin:20px 0 24px;
+  }
+  .contact-info h2 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .contact-info > p{color:var(--surface-600);font-size:16px;line-height:1.8;margin-bottom:40px}
+  .contact-blocks{display:flex;flex-direction:column;gap:20px}
+  .contact-block{
+    display:flex;gap:16px;align-items:flex-start;padding:20px;
+    background:#fff;border-radius:14px;border:1px solid var(--surface-200);
+    transition:all .3s ease;
+  }
+  .contact-block:hover{border-color:var(--blue-200);box-shadow:0 10px 24px -10px rgba(37,99,235,.12)}
+  .contact-block .ic{
+    width:44px;height:44px;border-radius:12px;flex-shrink:0;
+    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+    display:grid;place-items:center;
+  }
+  .contact-block .ic svg{width:18px;height:18px;color:#fff}
+  .contact-block h5{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--surface-500);font-weight:700;margin-bottom:6px}
+  .contact-block p{font-size:14px;color:var(--blue-950);line-height:1.6;font-weight:500}
+
+  .contact-form{
+    background:#fff;padding:44px;border-radius:20px;
+    border:1px solid var(--surface-200);
+    box-shadow:0 20px 40px -20px rgba(15,23,42,.1);
+  }
+  .contact-form h3{font-size:26px;font-weight:700;color:var(--blue-950);margin-bottom:8px;letter-spacing:-.015em}
+  .contact-form .sub{color:var(--surface-500);font-size:14px;margin-bottom:32px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--surface-600);font-weight:700}
+  .field input,.field select,.field textarea{
+    padding:14px 16px;border:1.5px solid var(--surface-200);border-radius:10px;
+    background:var(--surface-50);font-family:inherit;font-size:14px;color:var(--blue-950);
+    outline:none;transition:all .25s ease;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    border-color:var(--blue-500);background:#fff;
+    box-shadow:0 0 0 4px rgba(59,130,246,.1);
+  }
+  .field textarea{resize:vertical;min-height:110px}
+  .form-btn{width:100%;justify-content:center;margin-top:8px}
+
+  /* ===== FINAL CTA ===== */
+  .final-cta{
+    background:linear-gradient(135deg,var(--blue-950) 0%,var(--blue-800) 100%);
+    color:#fff;padding:120px 0;position:relative;overflow:hidden;text-align:center;
+  }
+  .final-cta::before{
+    content:"";position:absolute;inset:0;
+    background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80');
+    background-size:cover;background-position:center;opacity:.1;
+  }
+  .final-cta::after{
+    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:800px;height:800px;border-radius:50%;
+    background:radial-gradient(circle,rgba(59,130,246,.2) 0%,transparent 60%);
+  }
+  .final-cta .container{position:relative;z-index:2}
+  .final-cta h2{
+    font-size:clamp(40px,5.6vw,80px);font-weight:700;line-height:1.04;
+    letter-spacing:-.03em;max-width:18ch;margin:20px auto 28px;
+  }
+  .final-cta h2 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--blue-300),var(--blue-400));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .final-cta p{max-width:560px;margin:0 auto 44px;color:rgba(255,255,255,.75);font-size:17px;line-height:1.75}
+  .final-cta .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--blue-950);color:rgba(255,255,255,.65);padding:80px 0 32px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
+  .foot-brand p{font-size:14px;line-height:1.75;margin:20px 0;max-width:320px}
+  .foot-col h6{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:20px}
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .foot-col a{font-size:14px;transition:color .3s}
+  .foot-col a:hover{color:var(--blue-400)}
+  .foot-bottom{
+    padding-top:28px;border-top:1px solid rgba(255,255,255,.08);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    font-size:12px;
+  }
+  .socials{display:flex;gap:10px;margin-top:20px}
+  .socials a{
+    width:38px;height:38px;border:1px solid rgba(255,255,255,.15);border-radius:10px;
+    display:grid;place-items:center;transition:all .3s;
+  }
+  .socials a:hover{background:linear-gradient(135deg,var(--blue-500),var(--blue-700));border-color:transparent;color:#fff;transform:translateY(-2px)}
+  .socials svg{width:14px;height:14px}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1024px){
+    .container{padding:0 24px}
+    .about-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
+    .pillars,.services-grid{grid-template-columns:repeat(2,1fr)}
+    .prop-grid,.news-grid{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+    .hero-stats{grid-template-columns:repeat(2,1fr);gap:24px}
+    .about-img-badge{right:20px;bottom:-20px}
+    .why-img-wrap::before{display:none}
+  }
+  @media (max-width:720px){
+    .container{padding:0 20px}
+    .nav-links,.nav-cta{display:none}
+    .burger{display:flex}
+    .hero{padding:120px 0 80px;min-height:auto}
+    .section{padding:80px 0}
+    .section-head{margin-bottom:48px}
+    .pillars,.services-grid,.prop-grid,.news-grid{grid-template-columns:1fr}
+    .form-row{grid-template-columns:1fr}
+    .contact-form{padding:28px 22px}
+    .why-list{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr;gap:32px}
+    .marquee-item{font-size:18px;gap:40px}
+    .about-stats{grid-template-columns:1fr 1fr}
+    .hero-stats{grid-template-columns:1fr 1fr}
+    .scroll-hint{display:none}
+    .about-img-decor{display:none}
+  }
+</style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-home"></i>
-                Jenny Roofing
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact" class="nav-cta">Get Free Quote</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">K</div>
+      <div class="logo-text">Kushite<small>Engineering</small></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#consult" class="nav-cta">Get Consultation</a>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <span class="hero-eyebrow"><span class="dot"></span>Engineering · Real Estate · Energy</span>
+    <h1>Building the future of <em>East Africa</em>, one landmark at a time.</h1>
+    <p class="hero-sub">Kushite Engineering delivers integrated engineering, premium real estate, and sustainable energy solutions across South Sudan, Uganda, and Kenya — crafted with integrity, precision, and long-term vision.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary btn-lg">
+        Explore Projects
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#consult" class="btn btn-outline btn-lg">
+        Request Consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">120+</div><div class="lbl">Projects Delivered</div></div>
+      <div class="hero-stat"><div class="num">3</div><div class="lbl">Countries Served</div></div>
+      <div class="hero-stat"><div class="num">10+</div><div class="lbl">Years Experience</div></div>
+      <div class="hero-stat"><div class="num">100%</div><div class="lbl">Licensed & Certified</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <span class="line"></span>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item">Kushite Engineering <span class="dot"></span> <em>Urban Development</em> <span class="dot"></span> Premium Real Estate <span class="dot"></span> <em>Civil Infrastructure</em> <span class="dot"></span> Solar Energy Solutions <span class="dot"></span> <em>Construction Management</em> <span class="dot"></span> Property Investment <span class="dot"></span> <em>Sustainable Power</em> <span class="dot"></span></div>
+    <div class="marquee-item">Kushite Engineering <span class="dot"></span> <em>Urban Development</em> <span class="dot"></span> Premium Real Estate <span class="dot"></span> <em>Civil Infrastructure</em> <span class="dot"></span> Solar Energy Solutions <span class="dot"></span> <em>Construction Management</em> <span class="dot"></span> Property Investment <span class="dot"></span> <em>Sustainable Power</em> <span class="dot"></span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-decor"></div>
+        <img class="about-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Kushite team">
+        <div class="about-img-badge">
+          <div class="num">10+</div>
+          <p>Years delivering engineering and real estate excellence across East Africa.</p>
         </div>
-    </nav>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">About Kushite</span>
+        <h2>A legacy of <em>quality</em>, built on integrity and innovation.</h2>
+        <p>Founded in South Sudan, Kushite Engineering has grown into a regional force delivering integrated engineering, real estate, and sustainable energy solutions across South Sudan, Uganda, and Kenya.</p>
+        <p>Through three core divisions — Engineering, Real Estate, and Energy — we create value-driven projects that meet international standards and contribute meaningfully to the region's economic growth.</p>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <span class="hero-badge">
-                    <i class="fas fa-shield-alt"></i> Licensed & Insured in Florida
-                </span>
-                <h1>Tampa's Most Trusted Roofing Experts</h1>
-                <p>Protecting Florida homes with premium roofing solutions. From repairs to complete replacements, we deliver quality craftsmanship that stands the test of time and weather.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-phone-alt"></i> Get Free Estimate
-                    </a>
-                    <a href="#services" class="btn btn-secondary">
-                        Our Services
-                    </a>
-                </div>
-            </div>
-            
-            <div class="glass-form-container">
-                <h3>Request Your Free Quote</h3>
-                <p>Fill out the form below and we'll get back to you within 24 hours</p>
-                <form id="quoteForm">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(813) 555-0123" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Needed</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option value="repair">Roof Repair</option>
-                            <option value="replacement">Roof Replacement</option>
-                            <option value="inspection">Roof Inspection</option>
-                            <option value="commercial">Commercial Roofing</option>
-                            <option value="emergency">Emergency Service</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message (Optional)</label>
-                        <textarea id="message" name="message" rows="3" placeholder="Tell us about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        Get My Free Quote <i class="fas fa-arrow-right"></i>
-                    </button>
-                </form>
-                <div class="trust-badges">
-                    <span><i class="fas fa-check-circle"></i> 24/7 Service</span>
-                    <span><i class="fas fa-check-circle"></i> Free Estimates</span>
-                    <span><i class="fas fa-check-circle"></i> Warranty</span>
-                </div>
-            </div>
+        <div class="licensed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <span>Fully Licensed · Registered · Certified Across East Africa</span>
         </div>
-    </section>
 
-    <!-- Trust Section -->
-    <section class="trust-section">
-        <div class="trust-container">
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=100&fit=crop" alt="GAF Certified">
-                <span>GAF Master Elite</span>
-            </div>
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=100&h=100&fit=crop" alt="BBB Accredited">
-                <span>BBB A+ Rated</span>
-            </div>
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=100&h=100&fit=crop" alt="Owens Corning">
-                <span>Owens Corning Preferred</span>
-            </div>
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=100&h=100&fit=crop" alt="CertainTeed">
-                <span>CertainTeed SELECT</span>
-            </div>
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=100&h=100&fit=crop" alt="Angie's List">
-                <span>Angie's List Super Service</span>
-            </div>
-            <!-- Duplicate for infinite scroll -->
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=100&fit=crop" alt="GAF Certified">
-                <span>GAF Master Elite</span>
-            </div>
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=100&h=100&fit=crop" alt="BBB Accredited">
-                <span>BBB A+ Rated</span>
-            </div>
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=100&h=100&fit=crop" alt="Owens Corning">
-                <span>Owens Corning Preferred</span>
-            </div>
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=100&h=100&fit=crop" alt="CertainTeed">
-                <span>CertainTeed SELECT</span>
-            </div>
-            <div class="trust-item">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=100&h=100&fit=crop" alt="Angie's List">
-                <span>Angie's List Super Service</span>
-            </div>
+        <div class="about-stats">
+          <div class="s"><div class="n">120+</div><div class="l">Projects Delivered</div></div>
+          <div class="s"><div class="n">3</div><div class="l">Countries Served</div></div>
+          <div class="s"><div class="n">98%</div><div class="l">Client Retention</div></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Jenny Roofing Team">
-                    <div class="experience-badge">
-                        <span class="years">15+</span>
-                        <span class="text">Years of<br>Excellence</span>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h2>Your Trusted Tampa Roofing Partner Since 2009</h2>
-                    <p>At Jenny Roofing, we understand that your roof is more than just shingles and nails—it's the shield that protects your family and your investment. For over 15 years, we've been Tampa Bay's premier roofing contractor, delivering exceptional craftsmanship and unmatched customer service.</p>
-                    <p>Our team of certified professionals specializes in residential and commercial roofing solutions, from minor repairs to complete roof replacements. We pride ourselves on transparent pricing, timely completion, and workmanship that exceeds industry standards.</p>
-                    
-                    <div class="license-info">
-                        <h4><i class="fas fa-certificate"></i> Fully Licensed & Insured</h4>
-                        <p>Florida Certified Roofing Contractor License #CCC1337890 | General Liability Insurance: $2M | Workers' Compensation Coverage</p>
-                    </div>
-
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            Schedule Consultation
-                        </a>
-                        <a href="#projects" class="btn btn-secondary" style="color: var(--primary-color); border-color: var(--primary-color);">
-                            View Our Work
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Roofing Services</h2>
-                <p>Comprehensive roofing solutions tailored to meet your specific needs and budget</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Roof Replacement">
-                    </div>
-                    <div class="service-content">
-                        <h3>Roof Replacement</h3>
-                        <p>Complete roof replacement using premium materials from top manufacturers. We handle everything from tear-off to final inspection, ensuring your new roof meets all building codes and manufacturer specifications.</p>
-                        <a href="#contact" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Roof Repair">
-                    </div>
-                    <div class="service-content">
-                        <h3>Roof Repair</h3>
-                        <p>Fast and reliable roof repair services for leaks, storm damage, missing shingles, and more. Our expert technicians diagnose issues accurately and provide lasting solutions to protect your home.</p>
-                        <a href="#contact" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Roofing">
-                    </div>
-                    <div class="service-content">
-                        <h3>Commercial Roofing</h3>
-                        <p>Specialized commercial roofing services for businesses of all sizes. We offer TPO, EPDM, modified bitumen, and metal roofing systems designed for durability and energy efficiency.</p>
-                        <a href="#contact" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Roof Inspection">
-                    </div>
-                    <div class="service-content">
-                        <h3>Roof Inspection</h3>
-                        <p>Comprehensive roof inspections for home buyers, insurance claims, and routine maintenance. Our detailed reports include photos, recommendations, and honest assessments of your roof's condition.</p>
-                        <a href="#contact" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Storm Damage">
-                    </div>
-                    <div class="service-content">
-                        <h3>Storm Damage Repair</h3>
-                        <p>Emergency storm damage repair available 24/7. We work directly with insurance companies to streamline the claims process and get your roof back to perfect condition quickly.</p>
-                        <a href="#contact" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gutters">
-                    </div>
-                    <div class="service-content">
-                        <h3>Gutter Installation</h3>
-                        <p>Professional gutter installation and repair services. We offer seamless gutters, gutter guards, and downspout installation to protect your home's foundation and landscaping.</p>
-                        <a href="#contact" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="why-us">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Jenny Roofing?</h2>
-                <p>We're committed to excellence in every project we undertake</p>
-            </div>
-            
-            <div class="why-us-content">
-                <div class="why-us-image">
-                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Why Choose Us">
-                </div>
-                <div class="why-us-text">
-                    <h3>The Jenny Roofing Difference</h3>
-                    <p>When you choose Jenny Roofing, you're choosing a partner dedicated to your satisfaction. Here's what sets us apart:</p>
-                    
-                    <ul class="feature-list">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Lifetime Workmanship Warranty</strong>
-                                <span>We stand behind our work with industry-leading warranties on both materials and labor.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Local Tampa Experts</strong>
-                                <span>Deep knowledge of Florida building codes, hurricane requirements, and local weather challenges.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Financing Available</strong>
-                                <span>Flexible financing options with approved credit to make your roofing project affordable.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Clean & Respectful</strong>
-                                <span>We treat your property with respect, using magnetic nail sweepers and daily cleanup.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Same-Day Estimates</strong>
-                                <span>Fast, free, no-obligation estimates with detailed written proposals.</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">
-                        Get Started Today
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Recent Projects</h2>
-                <p>Browse our portfolio of completed roofing projects across Tampa Bay</p>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 1">
-                    <div class="project-overlay">
-                        <h3>Hyde Park Residence</h3>
-                        <p>Complete roof replacement with architectural shingles • Tampa, FL</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 2">
-                    <div class="project-overlay">
-                        <h3>South Tampa Commercial</h3>
-                        <p>TPO flat roof installation • 15,000 sq ft • Tampa, FL</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 3">
-                    <div class="project-overlay">
-                        <h3>Bayshore Boulevard</h3>
-                        <p>Metal roof installation with hurricane straps • Tampa, FL</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 4">
-                    <div class="project-overlay">
-                        <h3>Palma Ceia Estate</h3>
-                        <p>Luxury tile roof replacement • Historic district • Tampa, FL</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Areas We Serve -->
-    <section class="areas">
-        <div class="container">
-            <div class="areas-content">
-                <div class="areas-image">
-                    <img src="https://images.unsplash.com/photo-1535402803947-a92538055c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tampa Bay Area">
-                </div>
-                <div class="areas-text">
-                    <h3>Areas We Serve in Tampa Bay</h3>
-                    <p>As a local Tampa roofing company, we're proud to serve homeowners and businesses throughout the greater Tampa Bay area. Our local expertise means we understand the unique challenges Florida weather presents to your roof.</p>
-                    
-                    <div class="areas-list">
-                        <div class="area-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Tampa</span>
-                        </div>
-                        <div class="area-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>St. Petersburg</span>
-                        </div>
-                        <div class="area-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Clearwater</span>
-                        </div>
-                        <div class="area-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Brandon</span>
-                        </div>
-                        <div class="area-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Plant City</span>
-                        </div>
-                        <div class="area-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Largo</span>
-                        </div>
-                        <div class="area-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Palm Harbor</span>
-                        </div>
-                        <div class="area-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Town 'n' Country</span>
-                        </div>
-                    </div>
-
-                    <a href="#contact" class="btn btn-primary">
-                        Service Your Area? Contact Us
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about our roofing services</p>
-            </div>
-            
-            <div class="faq-container">
-                <div class="faq-item active">
-                    <div class="faq-question">
-                        <h4>How long does a typical roof replacement take?</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Most residential roof replacements are completed in 1-3 days, depending on the size and complexity of your roof. We work efficiently while maintaining the highest quality standards. Commercial projects vary based on square footage and roofing system type.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Do you offer financing options?</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! We offer flexible financing options through trusted lenders with approved credit. We also work with most major insurance companies for storm damage claims and can help you navigate the entire claims process.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>What type of warranty do you provide?</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We provide a lifetime workmanship warranty on all our installations, plus manufacturer warranties that can extend up to 50 years on premium roofing materials. All warranties are transferable if you sell your home.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>How do I know if I need a roof repair or replacement?</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our free inspection will determine the best course of action. Generally, if your roof is over 20 years old, has widespread damage, or multiple leaks, replacement may be more cost-effective. For isolated issues, repair is often sufficient.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Are you licensed and insured in Florida?</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely! Jenny Roofing is a Florida Certified Roofing Contractor (License #CCC1337890) with full general liability insurance ($2M) and workers' compensation coverage. We comply with all state and local building codes.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>What happens if it rains during my roof installation?</h4>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We monitor weather forecasts closely and plan accordingly. If rain is expected, we use tarps and waterproofing materials to protect your home. Our team will never leave your roof exposed to the elements overnight.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="blog" id="blog" style="background: var(--bg-light);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Roofing Tips & News</h2>
-                <p>Expert advice and industry insights from our roofing professionals</p>
-            </div>
-            
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog 1">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> June 10, 2026</span>
-                            <span><i class="far fa-clock"></i> 5 min read</span>
-                        </div>
-                        <h3>Preparing Your Tampa Roof for Hurricane Season 2026</h3>
-                        <p>Essential steps to protect your home before the storms arrive. Learn about hurricane straps, impact-resistant shingles, and emergency preparedness.</p>
-                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog 2">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> June 5, 2026</span>
-                            <span><i class="far fa-clock"></i> 4 min read</span>
-                        </div>
-                        <h3>5 Signs You Need Immediate Roof Repair</h3>
-                        <p>Don't ignore these warning signs that could lead to costly water damage. Early detection saves thousands in repairs.</p>
-                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1600566752229-250ed79470f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog 3">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> May 28, 2026</span>
-                            <span><i class="far fa-clock"></i> 6 min read</span>
-                        </div>
-                        <h3>Architectural vs. 3-Tab Shingles: Which is Right for You?</h3>
-                        <p>Compare durability, aesthetics, and cost to make an informed decision for your Tampa home's new roof.</p>
-                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get Your Free Roofing Estimate</h2>
-                <p>Ready to protect your home? Contact us today for a free, no-obligation consultation</p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Discuss Your Project</h3>
-                    <p>Whether you need emergency repairs or are planning a complete roof replacement, our team is here to help. We respond to all inquiries within 24 hours.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <strong>Office Location</strong>
-                                <span>4521 W Kennedy Blvd<br>Tampa, FL 33609</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
-                                <strong>Phone Number</strong>
-                                <span>(813) 555-ROOF (7663)<br>Available 24/7 for emergencies</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <strong>Email Address</strong>
-                                <span>info@jennyroofingtampa.com<br>estimates@jennyroofingtampa.com</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <strong>Business Hours</strong>
-                                <span>Mon-Fri: 7:00 AM - 7:00 PM<br>Sat: 8:00 AM - 4:00 PM | Sun: Emergency Only</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contactName">Full Name *</label>
-                                <input type="text" id="contactName" required placeholder="Your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="contactPhone">Phone Number *</label>
-                                <input type="tel" id="contactPhone" required placeholder="(813) 555-0123">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="contactEmail">Email Address *</label>
-                            <input type="email" id="contactEmail" required placeholder="your@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="contactService">Service Needed</label>
-                            <select id="contactService">
-                                <option value="">Select a service</option>
-                                <option value="repair">Roof Repair</option>
-                                <option value="replacement">Roof Replacement</option>
-                                <option value="inspection">Inspection</option>
-                                <option value="commercial">Commercial Roofing</option>
-                                <option value="emergency">Emergency Service</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="contactMessage">Message</label>
-                            <textarea id="contactMessage" rows="4" placeholder="Tell us about your roofing needs..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            Send Message <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <i class="fas fa-home"></i>
-                    Jenny Roofing
-                </a>
-                <p>Tampa Bay's premier roofing contractor since 2009. Licensed, insured, and committed to protecting Florida homes with quality craftsmanship and exceptional service.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Roof Replacement</a></li>
-                    <li><a href="#">Roof Repair</a></li>
-                    <li><a href="#">Commercial Roofing</a></li>
-                    <li><a href="#">Storm Damage</a></li>
-                    <li><a href="#">Roof Inspection</a></li>
-                    <li><a href="#">Gutter Installation</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Warranty Information</a></li>
-                    <li><a href="#">License #CCC1337890</a></li>
-                    <li><a href="#">Insurance Info</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Jenny Roofing. All rights reserved. | Florida Certified Roofing Contractor</p>
-            <p>Designed with <i class="fas fa-heart" style="color: var(--secondary-color);"></i> in Tampa, FL</p>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <i class="fas fa-arrow-up"></i>
+<!-- DIVISIONS -->
+<section class="section divisions" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">01 — Our Divisions</span>
+      <h2>Three Pillars of <em>Excellence</em>.</h2>
+      <p>Integrated solutions across engineering, real estate, and energy — delivering comprehensive value to every project, every partner, every community.</p>
     </div>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            const scrollTop = document.querySelector('.scroll-top');
-            
-            if (window.scrollY > 100) {
-                navbar.style.boxShadow = '0 2px 30px rgba(0,0,0,0.1)';
-                scrollTop.classList.add('visible');
-            } else {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-                scrollTop.classList.remove('visible');
-            }
-        });
+    <div class="pillars reveal">
+      <div class="pillar">
+        <span class="pillar-num">01 / Engineering</span>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Engineering Services</h3>
+        <p>Civil engineering, construction management, infrastructure development, and expert consultancy for complex projects of any scale.</p>
+        <a href="#" class="pillar-link">Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">02 / Real Estate</span>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8v10a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1V11z"/></svg>
+        </div>
+        <h3>Real Estate</h3>
+        <p>Premium property development, sales, management, and strategic investment opportunities across East Africa's growing markets.</p>
+        <a href="#" class="pillar-link">Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">03 / Energy</span>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        </div>
+        <h3>Energy Solutions</h3>
+        <p>Solar energy systems, renewable solutions, industrial energy consulting, and sustainable power infrastructure for a greener future.</p>
+        <a href="#" class="pillar-link">Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const isActive = item.classList.contains('active');
-                
-                // Close all items
-                document.querySelectorAll('.faq-item').forEach(faq => {
-                    faq.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
+<!-- ALL SERVICES -->
+<section class="section all-services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">02 — Full Service Catalogue</span>
+      <h2>Everything you need, <em>under one roof</em>.</h2>
+      <p>From the first sketch to the final handover, our integrated teams deliver end-to-end solutions tailored to your ambition.</p>
+    </div>
 
-        // Form submissions
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your request! We will contact you within 24 hours with your free estimate.');
-            this.reset();
-        });
+    <div class="services-grid reveal">
+      <div class="svc"><div class="svc-cat">Engineering</div><h4>Civil Engineering</h4><p>Roads, bridges, drainage, and structural works executed to international standards.</p></div>
+      <div class="svc"><div class="svc-cat">Engineering</div><h4>Construction Management</h4><p>On-time, on-budget project delivery with rigorous quality and safety oversight.</p></div>
+      <div class="svc"><div class="svc-cat">Engineering</div><h4>Infrastructure Development</h4><p>Large-scale public and private infrastructure that powers regional growth.</p></div>
+      <div class="svc"><div class="svc-cat">Engineering</div><h4>Technical Consultancy</h4><p>Expert advisory for complex engineering challenges and feasibility studies.</p></div>
 
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
+      <div class="svc"><div class="svc-cat">Real Estate</div><h4>Property Development</h4><p>Modern residential, commercial, and hospitality projects designed for long-term value.</p></div>
+      <div class="svc"><div class="svc-cat">Real Estate</div><h4>Property Sales</h4><p>Curated listings and direct sales support for investors and homebuyers.</p></div>
+      <div class="svc"><div class="svc-cat">Real Estate</div><h4>Property Management</h4><p>Full-service management that protects and grows your asset portfolio.</p></div>
+      <div class="svc"><div class="svc-cat">Real Estate</div><h4>Investment Advisory</h4><p>Strategic opportunities connecting investors with high-potential markets.</p></div>
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+      <div class="svc"><div class="svc-cat">Energy</div><h4>Solar Energy Systems</h4><p>Residential and commercial solar installations engineered for performance.</p></div>
+      <div class="svc"><div class="svc-cat">Energy</div><h4>Renewable Solutions</h4><p>Wind, hybrid, and off-grid systems tailored to East Africa's terrain.</p></div>
+      <div class="svc"><div class="svc-cat">Energy</div><h4>Industrial Consulting</h4><p>Energy audits, efficiency planning, and cost-optimization for industry.</p></div>
+      <div class="svc"><div class="svc-cat">Energy</div><h4>Power Infrastructure</h4><p>Sustainable grid and micro-grid projects that power communities forward.</p></div>
+    </div>
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <div class="svc-cta reveal">
+      <a href="#consult" class="btn btn-dark btn-lg">
+        Request a Custom Proposal
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+<!-- WHY CHOOSE US -->
+<section class="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-img-wrap reveal">
+        <img class="why-img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Kushite project">
+      </div>
+      <div class="reveal">
+        <span class="eyebrow light">Why Kushite</span>
+        <h2>Built on <em>trust</em>, delivered with precision.</h2>
+        <p class="why-text">We don't just build structures — we build lasting partnerships. Our integrated approach, regional expertise, and unwavering commitment to quality set us apart in every market we serve.</p>
 
-        // Observe elements
-        document.querySelectorAll('.service-card, .project-card, .blog-card, .faq-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><h5>Regional Expertise</h5><p>Deep knowledge of South Sudan, Uganda, and Kenya markets.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><h5>International Standards</h5><p>Every project meets global quality and safety benchmarks.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><h5>Integrated Delivery</h5><p>Engineering, real estate, and energy — one seamless team.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><h5>Sustainable Focus</h5><p>Green solutions that respect community and environment.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><h5>Proven Track Record</h5><p>120+ projects delivered across three countries.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><h5>Client-First Culture</h5><p>Transparent communication and accountability at every step.</p></div>
+          </div>
+        </div>
+
+        <a href="#consult" class="btn btn-primary btn-lg">
+          Start Your Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="section properties" id="properties">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">03 — Featured Properties</span>
+      <h2>Premium spaces, <em>curated for you</em>.</h2>
+      <p>A selection of our most sought-after residential, commercial, and investment properties across the region.</p>
+    </div>
+
+    <div class="prop-grid">
+      <div class="prop reveal">
+        <div class="prop-img">
+          <span class="prop-tag">Residential · For Sale</span>
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=80" alt="Juba Heights">
+        </div>
+        <div class="prop-body">
+          <h3>Juba Heights Residences</h3>
+          <div class="prop-loc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
+            Juba, South Sudan
+          </div>
+          <div class="prop-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>4 Beds</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>320 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="prop reveal">
+        <div class="prop-img">
+          <span class="prop-tag">Commercial · Leasing</span>
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80" alt="Kampala Towers">
+        </div>
+        <div class="prop-body">
+          <h3>Kampala Business Towers</h3>
+          <div class="prop-loc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
+            Kampala, Uganda
+          </div>
+          <div class="prop-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Office</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>1,200 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>2024</span>
+          </div>
+        </div>
+      </div>
+      <div class="prop reveal">
+        <div class="prop-img">
+          <span class="prop-tag">Luxury · Investment</span>
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Nairobi Villas">
+        </div>
+        <div class="prop-body">
+          <h3>Nairobi Garden Villas</h3>
+          <div class="prop-loc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
+            Nairobi, Kenya
+          </div>
+          <div class="prop-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>5 Beds</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>480 m²</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-cta reveal" style="margin-top:64px">
+      <a href="#consult" class="btn btn-outline-dark btn-lg">
+        View All Properties
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section news" id="news">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">04 — News & Insights</span>
+      <h2>Stories from <em>the field</em>.</h2>
+      <p>Project updates, industry perspectives, and the latest from Kushite Engineering across the region.</p>
+    </div>
+
+    <div class="news-grid">
+      <article class="article reveal">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80" alt=""></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Real Estate</span><span>June 12, 2026</span></div>
+          <h3>Kushite unveils new mixed-use development in Juba's growing business district.</h3>
+          <p>The 42,000 m² project will combine premium office space, retail, and serviced residences — setting a new benchmark for urban development in South Sudan.</p>
+          <a href="#" class="article-link">Read Article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="article reveal">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=80" alt=""></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Energy</span><span>May 28, 2026</span></div>
+          <h3>Our 5MW solar farm in Northern Uganda reaches full operational capacity.</h3>
+          <p>The installation will power over 8,000 homes and reduce regional carbon emissions by an estimated 6,200 tonnes annually — a milestone for clean energy in East Africa.</p>
+          <a href="#" class="article-link">Read Article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+      <article class="article reveal">
+        <div class="article-img"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=80" alt=""></div>
+        <div class="article-body">
+          <div class="article-meta"><span class="cat">Engineering</span><span>May 04, 2026</span></div>
+          <h3>Kushite partners with regional authorities on cross-border infrastructure initiative.</h3>
+          <p>The multi-year programme will deliver roads, bridges, and utilities connecting three East African markets — strengthening trade and community access.</p>
+          <a href="#" class="article-link">Read Article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <div class="svc-cta reveal" style="margin-top:64px">
+      <a href="#" class="btn btn-outline-dark btn-lg">
+        All News & Press
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Let's build something <em>extraordinary</em> together.</h2>
+        <p>Whether you're planning a development, exploring an investment, or need expert engineering guidance — our team is ready to help.</p>
+
+        <div class="contact-blocks">
+          <div class="contact-block">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg></div>
+            <div><h5>Head Office</h5><p>Juba, South Sudan<br>Regional offices in Kampala & Nairobi</p></div>
+          </div>
+          <div class="contact-block">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V21a1 1 0 01-1.09 1 19 19 0 01-8.29-3 19 19 0 01-6-6A19 19 0 013.1 4.1 1 1 0 014.1 3h4.09a1 1 0 011 .75c.2.96.5 1.9.9 2.8a1 1 0 01-.23 1L8.21 9.21a16 16 0 006 6l1.66-1.66a1 1 0 011-.23c.9.4 1.84.7 2.8.9a1 1 0 01.75 1z"/></svg></div>
+            <div><h5>Phone</h5><p>+211 (9) 277 55  557<br>+256 (0) 654 654 000</p></div>
+          </div>
+          <div class="contact-block">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div><h5>Email</h5><p>info@kushiteengineering.com<br>projects@kushiteengineering.com</p></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="consult" onsubmit="event.preventDefault();alert('Thank you. Our team will be in touch within 24 hours.');">
+        <h3>Request a Consultation</h3>
+        <p class="sub">Tell us about your project — we'll respond within one business day.</p>
+        <div class="form-row">
+          <div class="field"><label>Full Name</label><input type="text" required placeholder="John Doe"></div>
+          <div class="field"><label>Email</label><input type="email" required placeholder="you@email.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Phone</label><input type="tel" placeholder="+211 ..."></div>
+          <div class="field"><label>Service Interest</label>
+            <select>
+              <option>Real Estate</option>
+              <option>Engineering</option>
+              <option>Energy Solutions</option>
+              <option>Investment Advisory</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:18px"><label>Project Details</label><textarea placeholder="Tell us about your project, timeline, and goals..."></textarea></div>
+        <button type="submit" class="btn btn-primary btn-lg form-btn">
+          Send Request
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow light">Ready to Begin?</span>
+    <h2>Your next landmark <em>starts here</em>.</h2>
+    <p>From concept to completion, Kushite Engineering is the partner you can trust to deliver projects that shape communities and create lasting value.</p>
+    <div class="btns">
+      <a href="#consult" class="btn btn-primary btn-lg">
+        Request Consultation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#projects" class="btn btn-outline btn-lg">
+        Explore Projects
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo" style="color:#fff">
+          <div class="logo-mark">K</div>
+          <div class="logo-text">Kushite<small>Engineering</small></div>
+        </a>
+        <p>Engineering, real estate, and sustainable energy solutions shaping the future of East Africa — with integrity, innovation, and excellence.</p>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.3 18.3H5.7V9.7h2.6v8.6zM7 8.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11.3 9.8h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.6V9.7h2.5v1.2h.1a2.7 2.7 0 012.5-1.4c2.7 0 3.2 1.8 3.2 4.1v4.7z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8a8.5 8.5 0 01-2.4.7 4.2 4.2 0 001.8-2.3 8.3 8.3 0 01-2.6 1 4.1 4.1 0 00-7 3.7A11.7 11.7 0 013 4.9a4.1 4.1 0 001.3 5.5 4 4 0 01-1.9-.5v.1a4.1 4.1 0 003.3 4 4.1 4.1 0 01-1.9.1 4.1 4.1 0 003.8 2.9A8.3 8.3 0 012 18.6 11.7 11.7 0 008.3 20.5c7.5 0 11.7-6.3 11.7-11.7v-.5A8.4 8.4 0 0022 5.8z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.2.3-2 2-2h2V2.1A26 26 0 0014.2 2C11.4 2 9.5 3.7 9.5 6.8V10H7v4h2.5v8H13z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h6>Company</h6>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Divisions</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h6>Services</h6>
+        <ul>
+          <li><a href="#">Real Estate</a></li>
+          <li><a href="#">Engineering</a></li>
+          <li><a href="#">Energy Solutions</a></li>
+          <li><a href="#">Investment</a></li>
+          <li><a href="#">Consultancy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <ul>
+          <li>Juba, South Sudan</li>
+          <li>Kampala, Uganda</li>
+          <li>Nairobi, Kenya</li>
+          <li>info@kushiteengineering.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Kushite Engineering. All rights reserved.</div>
+      <div>Integrity · Excellence · Innovation · Sustainability</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const burger = document.querySelector('.burger');
+  const links = document.querySelector('.nav-links');
+  burger?.addEventListener('click', () => {
+    const open = links.style.display === 'flex';
+    links.style.display = open ? '' : 'flex';
+    links.style.position = 'absolute';
+    links.style.top = '100%';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = '#fff';
+    links.style.flexDirection = 'column';
+    links.style.padding = '24px 32px';
+    links.style.gap = '18px';
+    links.style.borderTop = '1px solid #e2e8f0';
+    links.querySelectorAll('a').forEach(a => a.style.color = '#1e293b');
+  });
+</script>
+
 </body>
 </html>
