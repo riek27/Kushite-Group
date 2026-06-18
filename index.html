@@ -1,1114 +1,1970 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Houstonian Home Renovations — Houston's trusted home remodeler for over 30 years. Siding, brick & stone, outdoor kitchens, garages, window replacement. Free estimates. (281) 226-2350.">
-    <title>Houstonian Home Renovations | Houston TX | Remodeling & Construction</title>
-    <link rel="canonical" href="https://www.houstonianhomerenovations.com/">
-    <meta property="og:title" content="Houstonian Home Renovations | Houston TX">
-    <meta property="og:description" content="Over 30 years of unmatched home construction and remodeling craftsmanship. From new builds to full renovations, we make it smooth and painless.">
+    <meta name="description" content="Jenny Roofing - Tampa's Premier Roofing Contractor. Licensed, insured, and trusted for residential and commercial roofing services in Tampa, Florida. Free estimates available.">
+    <meta name="keywords" content="roofing Tampa, roof repair Tampa, roof replacement Florida, Jenny Roofing, Tampa roofing contractor, commercial roofing Tampa">
+    <meta name="author" content="Jenny Roofing">
+    <meta property="og:title" content="Jenny Roofing | Tampa's Trusted Roofing Experts">
+    <meta property="og:description" content="Professional roofing services in Tampa, Florida. Quality craftsmanship, licensed & insured. Get your free quote today!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.houstonianhomerenovations.com/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200">
-
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Playfair Display', 'Georgia', 'serif'],
-                    },
-                    colors: {
-                        primary: { DEFAULT: '#1e3a8a', dark: '#153073', light: '#3b5cb8' },
-                        accent: { DEFAULT: '#f97316', dark: '#ea580c', light: '#fb923c' },
-                        dark: { DEFAULT: '#0f172a', 2: '#1e293b', 3: '#334155' },
-                    },
-                    animation: {
-                        'marquee': 'marquee 35s linear infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-delay': 'float 6s ease-in-out 2s infinite',
-                        'float-slow': 'float 8s ease-in-out 1s infinite',
-                        'pulse-slow': 'pulse 3s ease-in-out infinite',
-                        'shimmer': 'shimmer 2s linear infinite',
-                    },
-                    keyframes: {
-                        marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
-                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } },
-                        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
-                    }
-                }
-            }
-        }
-    </script>
-
+    <meta property="og:locale" content="en_US">
+    <title>Jenny Roofing | Premier Roofing Contractor Tampa, Florida</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #e67e22;
+            --accent-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
 
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "GeneralContractor",
-            "name": "Houstonian Home Renovations",
-            "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200",
-            "url": "https://www.houstonianhomerenovations.com",
-            "telephone": "+1-281-226-2350",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "4220 Northfield Ln",
-                "addressLocality": "Houston",
-                "addressRegion": "TX",
-                "postalCode": "77092",
-                "addressCountry": "US"
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "5.0",
-                "reviewCount": "15"
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-cta {
+            background: var(--secondary-color);
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.4);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: calc(100vh - 80px);
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.8), rgba(30, 58, 95, 0.6)), 
+                        url('https://images.unsplash.com/photo-1632759145351-1d592919f522?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(230, 126, 34, 0.9);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(230, 126, 34, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Glass Form */
+        .glass-form-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            animation: fadeInRight 1s ease 0.8s both;
+        }
+
+        .glass-form-container h3 {
+            color: var(--white);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .glass-form-container p {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .form-group select option {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.4);
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .trust-badges i {
+            color: var(--secondary-color);
+            margin-right: 0.25rem;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: var(--white);
+            padding: 3rem 0;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trust-container {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0 3rem;
+            white-space: nowrap;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .trust-item:hover {
+            opacity: 1;
+        }
+
+        .trust-item img {
+            height: 50px;
+            width: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .trust-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        .trust-item span {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -30px;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
+        }
+
+        .experience-badge .years {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .experience-badge .text {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .license-info {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .license-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .license-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .why-us .section-header h2 {
+            color: var(--white);
+        }
+
+        .why-us .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .why-us-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .why-us-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .why-us-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .why-us-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            padding: 1rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .feature-list i {
+            color: var(--secondary-color);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .feature-list strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-list span {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(30, 58, 95, 0.95), transparent);
+            padding: 2rem;
+            color: var(--white);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Areas We Serve */
+        .areas {
+            background: var(--bg-light);
+        }
+
+        .areas-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .areas-image {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .areas-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .areas-text h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .areas-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .area-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .area-item i {
+            color: var(--secondary-color);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-question h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .faq-icon {
+            color: var(--secondary-color);
+            font-size: 1.25rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 2rem 1.5rem;
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .blog-meta i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .read-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-color), #2c5282);
+            color: var(--white);
+        }
+
+        .contact .section-header h2 {
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 0.25rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item span {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-form .form-group label {
+            color: var(--text-dark);
+        }
+
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            background: var(--bg-light);
+            border: 1px solid #ddd;
+            color: var(--text-dark);
+        }
+
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus {
+            background: var(--white);
+            border-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f1f33;
+            color: var(--white);
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    </script>
 
-    <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #1e3a8a; border-radius: 4px; }
-
-        .reveal { opacity: 0; transform: translateY(35px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-        .reveal-left.active { opacity: 1; transform: translateX(0); }
-        .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-        .reveal-right.active { opacity: 1; transform: translateX(0); }
-
-        .typing-cursor { display: inline-block; width: 2px; height: 1.2em; background: #f97316; margin-left: 2px; vertical-align: text-bottom; animation: blink 1s step-end infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-        .gradient-text { background: linear-gradient(135deg, #1e3a8a, #3b5cb8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .gradient-text-accent { background: linear-gradient(135deg, #f97316, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-        .btn-shimmer { background-size: 200% 100%; }
-        .btn-shimmer:hover { background-position: 100% 0; }
-
-        /* Desktop mega-menu */
-        .mega-menu { opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; }
-        .group:hover .mega-menu,
-        .dropdown-open .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
-
-        .img-zoom { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .group:hover .img-zoom { transform: scale(1.08); }
-
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
-        .faq-item.active .faq-answer { max-height: 300px; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
-
-        .marquee-container:hover .marquee-track { animation-play-state: paused; }
-
-        .contact-form-step { display: none; }
-        .contact-form-step.active { display: block; animation: slideIn 0.4s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
-
-        select {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%239ca3af' viewBox='0 0 16 16'%3e%3cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            background-size: 12px;
-            padding-right: 2.5rem;
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        select.hero-select {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23f97316' viewBox='0 0 16 16'%3e%3cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            background-size: 12px;
-            padding-right: 2.5rem;
-            color-scheme: dark;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .about-content,
+            .why-us-content,
+            .areas-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .glass-form-container {
+                order: -1;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        select.hero-select option {
-            background: #1e293b;
-            color: #e2e8f0;
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .areas-list {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
         }
 
-        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
-        .animate-fade-in-left { animation: fadeInLeft 0.8s ease-out both; }
-        .animate-fade-in-right { animation: fadeInRight 0.8s ease-out both; }
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
+        }
 
-        /* Mobile submenu */
-        .mobile-submenu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease; opacity: 0; padding-left: 0; }
-        .mobile-submenu.open { max-height: 600px; opacity: 1; padding-left: 0.5rem; }
-        .mobile-submenu-toggle i.fa-chevron-down { transition: transform 0.3s ease; }
-        .mobile-submenu-toggle.open i.fa-chevron-down { transform: rotate(180deg); }
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
 
-        /* Hero inputs */
-        .hero-input { background: rgba(30, 41, 59, 0.55); border: 1.5px solid rgba(255, 255, 255, 0.18); color: #f1f5f9; }
-        .hero-input::placeholder { color: rgba(255, 255, 255, 0.4); }
-        .hero-input:focus { border-color: #f97316; background: rgba(30, 41, 59, 0.75); box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2); outline: none; }
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: var(--accent-color);
+        }
     </style>
 </head>
+<body>
 
-<body class="font-sans text-dark antialiased bg-white overflow-x-hidden">
-
-    <!-- NAVIGATION -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500" role="navigation">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="#home" class="flex items-center gap-3 z-50 relative flex-shrink-0">
-                    <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-lg flex items-center justify-center text-white text-lg shadow-lg shadow-accent/20">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="flex flex-col leading-none">
-                        <span class="text-white font-display font-black text-lg tracking-tight">Houstonian</span>
-                        <span class="text-accent text-[10px] font-bold uppercase tracking-[0.2em]">Home Renovations</span>
-                    </div>
-                </a>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden xl:flex items-center gap-0.5">
-                    <a href="#home" class="nav-link px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all text-[13px] font-medium">Home</a>
-                    <a href="#about" class="nav-link px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all text-[13px] font-medium">About</a>
-                    <a href="#services" class="nav-link px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all text-[13px] font-medium">Services</a>
-                    <a href="#planning" class="nav-link px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all text-[13px] font-medium">Planning & Construction</a>
-                    <a href="#gallery" class="nav-link px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all text-[13px] font-medium">Gallery</a>
-                    <a href="#blog" class="nav-link px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all text-[13px] font-medium">Blog</a>
-                    <a href="#reviews" class="nav-link px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all text-[13px] font-medium">Reviews</a>
-                    <a href="#contact" class="nav-link px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all text-[13px] font-medium">Contact</a>
-                </div>
-
-                <div class="hidden xl:flex items-center gap-5 flex-shrink-0">
-                    <a href="tel:+12812262350" class="flex items-center gap-2 text-white font-semibold text-sm group/link">
-                        <i class="fas fa-phone text-accent animate-pulse-slow"></i>
-                        <span class="group-hover/link:text-accent transition-colors">(281) 226-2350</span>
-                    </a>
-                    <a href="#contact" class="px-6 py-2.5 bg-gradient-to-r from-accent to-accent-dark text-white font-bold rounded-full text-sm shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5 transition-all btn-shimmer">Make Appointment</a>
-                </div>
-
-                <!-- Hamburger -->
-                <button id="hamburger" class="xl:hidden relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5 flex-shrink-0" aria-label="Toggle menu">
-                    <span class="hamburger-line w-6 h-0.5 bg-white rounded transition-all duration-300 origin-center"></span>
-                    <span class="hamburger-line w-6 h-0.5 bg-white rounded transition-all duration-300 origin-center"></span>
-                    <span class="hamburger-line w-4 h-0.5 bg-white rounded transition-all duration-300 origin-center ml-auto"></span>
-                </button>
-            </div>
-        </div>
-
-        <!-- MOBILE MENU -->
-        <div id="mobileMenu" class="xl:hidden fixed inset-0 bg-dark/98 backdrop-blur-2xl z-40 flex flex-col justify-start pt-28 px-8 overflow-y-auto opacity-0 invisible transition-all duration-500 pointer-events-none">
-            <div class="space-y-1">
-                <a href="#home" class="mobile-link block py-3 text-white/80 hover:text-white hover:pl-2 text-lg font-medium transition-all">Home</a>
-                <a href="#about" class="mobile-link block py-3 text-white/80 hover:text-white hover:pl-2 text-lg font-medium transition-all">About</a>
-                <a href="#services" class="mobile-link block py-3 text-white/80 hover:text-white hover:pl-2 text-lg font-medium transition-all">Services</a>
-                <a href="#planning" class="mobile-link block py-3 text-white/80 hover:text-white hover:pl-2 text-lg font-medium transition-all">Planning & Construction</a>
-                <a href="#gallery" class="mobile-link block py-3 text-white/80 hover:text-white hover:pl-2 text-lg font-medium transition-all">Gallery</a>
-                <a href="#blog" class="mobile-link block py-3 text-white/80 hover:text-white hover:pl-2 text-lg font-medium transition-all">Blog</a>
-                <a href="#reviews" class="mobile-link block py-3 text-white/80 hover:text-white hover:pl-2 text-lg font-medium transition-all">Reviews</a>
-                <a href="#contact" class="mobile-link block py-3 text-white/80 hover:text-white hover:pl-2 text-lg font-medium transition-all">Contact</a>
-            </div>
-            <div class="mt-8 pt-8 border-t border-white/10">
-                <a href="tel:+12812262350" class="flex items-center gap-3 text-accent font-bold text-xl mb-4"><i class="fas fa-phone"></i> (281) 226-2350</a>
-                <a href="#contact" class="mobile-link block text-center py-4 bg-gradient-to-r from-accent to-accent-dark text-white font-bold rounded-full text-lg">Make Appointment</a>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-home"></i>
+                Jenny Roofing
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact" class="nav-cta">Get Free Quote</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80" alt="Houstonian Home Renovations project" class="hero-bg-img w-full h-full object-cover scale-110" loading="eager" id="heroBg">
-            <div class="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/70 to-dark/85"></div>
-        </div>
-        <div class="relative z-10 w-full pt-24 pb-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                    <div class="animate-fade-in-left space-y-7">
-                        <div class="inline-flex items-center gap-2 px-5 py-2.5 bg-accent/10 border border-accent/25 rounded-full text-accent text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
-                            <i class="fas fa-star text-[10px] animate-pulse-slow"></i>
-                            Houston's Renovation Company of Choice
-                        </div>
-                        <h1 class="font-display text-4xl sm:text-5xl lg:text-[4rem] xl:text-[5rem] font-black text-white leading-[1.08]">
-                            Houstonian<br>
-                            <span class="gradient-text-accent">Home</span> Renovations
-                        </h1>
-                        <div class="h-9 flex items-center">
-                            <span id="typingText" class="text-lg sm:text-xl text-accent-light font-medium"></span>
-                            <span class="typing-cursor"></span>
-                        </div>
-                        <p class="text-white/60 text-base sm:text-lg leading-relaxed max-w-lg">
-                            Unmatched home construction and remodeling craftsmanship for over 30 years. From new builds to complete renovations, we make your vision a reality.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="tel:+12812262350" class="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-accent to-accent-dark text-white font-bold rounded-full text-sm shadow-xl shadow-accent/25 hover:shadow-2xl hover:shadow-accent/40 hover:-translate-y-1 transition-all btn-shimmer">
-                                <i class="fas fa-phone"></i> Call Us Now
-                            </a>
-                            <a href="#contact" class="inline-flex items-center gap-2.5 px-8 py-4 border-2 border-white/25 text-white font-bold rounded-full text-sm backdrop-blur-sm hover:bg-white hover:text-dark hover:border-white transition-all hover:-translate-y-1">
-                                <i class="fas fa-calendar-check"></i> Make Appointment
-                            </a>
-                        </div>
-                        <div class="flex gap-8 sm:gap-10 pt-2">
-                            <div>
-                                <div class="text-3xl font-black text-white">30<span class="text-accent">+</span></div>
-                                <div class="text-xs text-white/40 font-medium mt-1">Years Experience</div>
-                            </div>
-                            <div>
-                                <div class="text-3xl font-black text-white">5.0<span class="text-accent">★</span></div>
-                                <div class="text-xs text-white/40 font-medium mt-1">Google Rating</div>
-                            </div>
-                            <div>
-                                <div class="text-3xl font-black text-white">500<span class="text-accent">+</span></div>
-                                <div class="text-xs text-white/40 font-medium mt-1">Projects Completed</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Hero Form -->
-                    <div class="animate-fade-in-right lg:pl-8">
-                        <div class="bg-white/[0.07] backdrop-blur-2xl border-2 border-white/15 rounded-3xl p-7 sm:p-8 shadow-2xl shadow-black/30 relative overflow-hidden">
-                            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-shimmer"></div>
-                            <div class="text-center mb-7">
-                                <h3 class="text-2xl font-bold text-white mb-1">Schedule a Consultation</h3>
-                                <p class="text-white/50 text-sm">Free estimate, no obligation</p>
-                            </div>
-                            <form id="heroForm" class="space-y-4" onsubmit="return false;">
-                                <div>
-                                    <label class="block text-[11px] font-bold text-white/60 uppercase tracking-wider mb-2">Full Name *</label>
-                                    <input type="text" id="heroName" placeholder="John Smith" class="hero-input w-full px-4 py-3.5 rounded-xl text-sm placeholder:text-white/40 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all">
-                                    <p class="text-red-400 text-xs mt-1 hidden" id="heroNameError">Please enter your name</p>
-                                </div>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-[11px] font-bold text-white/60 uppercase tracking-wider mb-2">Phone *</label>
-                                        <input type="tel" id="heroPhone" placeholder="(281) 226-2350" class="hero-input w-full px-4 py-3.5 rounded-xl text-sm placeholder:text-white/40 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all">
-                                        <p class="text-red-400 text-xs mt-1 hidden" id="heroPhoneError">Enter valid phone</p>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[11px] font-bold text-white/60 uppercase tracking-wider mb-2">Email *</label>
-                                        <input type="email" id="heroEmail" placeholder="john@email.com" class="hero-input w-full px-4 py-3.5 rounded-xl text-sm placeholder:text-white/40 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all">
-                                        <p class="text-red-400 text-xs mt-1 hidden" id="heroEmailError">Enter valid email</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-bold text-white/60 uppercase tracking-wider mb-2">Service Needed</label>
-                                    <select id="heroService" class="hero-select hero-input w-full px-4 py-3.5 rounded-xl text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all appearance-none cursor-pointer">
-                                        <option value="">Select a service...</option>
-                                        <option value="siding">Siding Replacement</option>
-                                        <option value="brickstone">Brick & Stone Work</option>
-                                        <option value="outdoor">Outdoor Kitchens</option>
-                                        <option value="garage">Garages</option>
-                                        <option value="windows">Window Replacement</option>
-                                        <option value="other">Other Home Improvement</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-bold text-white/60 uppercase tracking-wider mb-2">Property Address</label>
-                                    <input type="text" placeholder="4220 Northfield Ln, Houston, TX" class="hero-input w-full px-4 py-3.5 rounded-xl text-sm placeholder:text-white/40 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-bold text-white/60 uppercase tracking-wider mb-2">Project Details</label>
-                                    <textarea rows="3" placeholder="Tell us about your renovation project..." class="hero-input w-full px-4 py-3.5 rounded-xl text-sm placeholder:text-white/40 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-all resize-none"></textarea>
-                                </div>
-                                <button type="button" onclick="submitHeroForm()" class="w-full py-4 bg-gradient-to-r from-accent to-accent-dark text-white font-bold rounded-xl text-sm hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 transition-all btn-shimmer flex items-center justify-center gap-2">
-                                    <i class="fas fa-paper-plane"></i> Get My Free Quote
-                                </button>
-                            </form>
-                            <div id="heroFormSuccess" class="hidden text-center py-10">
-                                <div class="w-18 h-18 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-green-500/30 animate-pulse-slow">
-                                    <i class="fas fa-check text-white text-2xl"></i>
-                                </div>
-                                <h3 class="text-xl font-bold text-white mb-2">Quote Request Sent!</h3>
-                                <p class="text-white/50 text-sm">Our team will contact you within 24 hours with your free estimate.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MARQUEE -->
-    <section class="bg-dark border-y border-white/5 py-5 overflow-hidden marquee-container">
-        <div class="marquee-track flex animate-marquee whitespace-nowrap">
-            <div class="flex items-center gap-6 px-6">
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-check-circle text-accent text-xs"></i> Licensed & Insured</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-star text-accent text-xs"></i> 5.0★ Google Rating</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-award text-accent text-xs"></i> 30+ Years Experience</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-handshake text-accent text-xs"></i> 500+ Projects</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-clock text-accent text-xs"></i> Free Estimates</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-file-contract text-accent text-xs"></i> Transparent Pricing</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-medal text-accent text-xs"></i> Workmanship Warranty</span>
-            </div>
-            <div class="flex items-center gap-6 px-6">
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-check-circle text-accent text-xs"></i> Licensed & Insured</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-star text-accent text-xs"></i> 5.0★ Google Rating</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-award text-accent text-xs"></i> 30+ Years Experience</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-handshake text-accent text-xs"></i> 500+ Projects</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-clock text-accent text-xs"></i> Free Estimates</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-file-contract text-accent text-xs"></i> Transparent Pricing</span>
-                <span class="w-1.5 h-1.5 bg-accent/30 rounded-full flex-shrink-0"></span>
-                <span class="flex items-center gap-2 text-white/40 text-sm font-medium"><i class="fas fa-medal text-accent text-xs"></i> Workmanship Warranty</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="relative reveal-left">
-                    <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Houstonian Home Renovations professional crew" class="w-full h-[400px] sm:h-[480px] object-cover img-zoom" loading="lazy">
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-br from-primary to-primary-light text-white p-6 sm:p-7 rounded-2xl shadow-xl shadow-primary/20 animate-float">
-                        <div class="text-3xl sm:text-4xl font-black leading-none">30+</div>
-                        <div class="text-xs font-bold uppercase tracking-wider opacity-90 mt-1">Years of<br>Excellence</div>
-                    </div>
-                </div>
-                <div class="reveal-right">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                        <i class="fas fa-info-circle text-[10px]"></i> About Us
-                    </div>
-                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight mb-6">
-                        Houston's <span class="gradient-text">Renovation</span> Company of Choice
-                    </h2>
-                    <p class="text-gray-500 leading-relaxed mb-4">
-                        Houstonian Home Renovations has been proudly serving the greater Houston, TX community with unmatched home construction and remodeling craftsmanship for over 30 years. Whether you’re building a new home from scratch or completely renovating an existing structure, we will work closely with you to help you make the best selections for your budget, keep you informed of the project’s progress, and ensure your vision for your home is ultimately achieved.
-                    </p>
-                    <p class="text-gray-500 leading-relaxed mb-8">
-                        Our team of construction experts pride themselves on providing you with every service your project requires. From architectural design and planning to material and product selection to post-construction cleaning, we’ll make your remodeling experience with us a smooth, efficient, and painless one without any hidden costs or delays.
-                    </p>
-                    <a href="#contact" class="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-full text-sm shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 transition-all btn-shimmer">
-                        Schedule a Consultation <i class="fas fa-arrow-right text-xs"></i>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">
+                    <i class="fas fa-shield-alt"></i> Licensed & Insured in Florida
+                </span>
+                <h1>Tampa's Most Trusted Roofing Experts</h1>
+                <p>Protecting Florida homes with premium roofing solutions. From repairs to complete replacements, we deliver quality craftsmanship that stands the test of time and weather.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-phone-alt"></i> Get Free Estimate
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        Our Services
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section id="services" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                    <i class="fas fa-tools text-[10px]"></i> Our Services
-                </div>
-                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight mb-5">
-                    Comprehensive <span class="gradient-text">Remodeling</span> Services
-                </h2>
-                <p class="text-gray-500 text-base leading-relaxed">We provide comprehensive residential remodeling services tailored to your needs.</p>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-                <!-- Siding Replacement -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal">
-                    <div class="h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80" alt="Siding replacement" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent"></div>
-                        <div class="absolute -bottom-5 left-6 w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 z-10"><i class="fas fa-layer-group"></i></div>
+            
+            <div class="glass-form-container">
+                <h3>Request Your Free Quote</h3>
+                <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
                     </div>
-                    <div class="p-6 pt-9">
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">Siding Replacement</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Premium siding solutions that enhance curb appeal and protect your home from the elements.</p>
-                        <a href="#contact" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Get Free Quote <i class="fas fa-arrow-right text-xs"></i></a>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(813) 555-0123" required>
                     </div>
-                </div>
-                <!-- Brick & Stone Work -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal" style="transition-delay:0.05s">
-                    <div class="h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Brick and stone work" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent"></div>
-                        <div class="absolute -bottom-5 left-6 w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 z-10"><i class="fas fa-cubes"></i></div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
                     </div>
-                    <div class="p-6 pt-9">
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">Brick & Stone Work</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Expert masonry for fireplaces, accent walls, and exterior facades that add timeless character.</p>
-                        <a href="#contact" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Get Free Quote <i class="fas fa-arrow-right text-xs"></i></a>
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="repair">Roof Repair</option>
+                            <option value="replacement">Roof Replacement</option>
+                            <option value="inspection">Roof Inspection</option>
+                            <option value="commercial">Commercial Roofing</option>
+                            <option value="emergency">Emergency Service</option>
+                        </select>
                     </div>
-                </div>
-                <!-- Outdoor Kitchens -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal" style="transition-delay:0.1s">
-                    <div class="h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Outdoor kitchen" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent"></div>
-                        <div class="absolute -bottom-5 left-6 w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 z-10"><i class="fas fa-utensils"></i></div>
+                    <div class="form-group">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Tell us about your project..."></textarea>
                     </div>
-                    <div class="p-6 pt-9">
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">Outdoor Kitchens</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Custom outdoor cooking and entertainment spaces built to withstand Houston's climate.</p>
-                        <a href="#contact" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Get Free Quote <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
-                </div>
-                <!-- Garages -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal" style="transition-delay:0.15s">
-                    <div class="h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Garage construction" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent"></div>
-                        <div class="absolute -bottom-5 left-6 w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 z-10"><i class="fas fa-warehouse"></i></div>
-                    </div>
-                    <div class="p-6 pt-9">
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">Garages</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Detached and attached garage construction with quality materials and precise engineering.</p>
-                        <a href="#contact" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Get Free Quote <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
-                </div>
-                <!-- Window Replacement -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal" style="transition-delay:0.2s">
-                    <div class="h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80" alt="Window replacement" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent"></div>
-                        <div class="absolute -bottom-5 left-6 w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 z-10"><i class="fas fa-window-maximize"></i></div>
-                    </div>
-                    <div class="p-6 pt-9">
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">Window Replacement</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Energy-efficient window upgrades that improve comfort and reduce utility bills.</p>
-                        <a href="#contact" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Get Free Quote <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
-                </div>
-                <!-- Other Home Improvement -->
-                <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal" style="transition-delay:0.25s">
-                    <div class="h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Home improvement" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent"></div>
-                        <div class="absolute -bottom-5 left-6 w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 z-10"><i class="fas fa-home"></i></div>
-                    </div>
-                    <div class="p-6 pt-9">
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">Other Home Improvements</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">From drywall repair to painting and everything in between, we handle it all with care.</p>
-                        <a href="#contact" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Get Free Quote <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
+                    <button type="submit" class="submit-btn">
+                        Get My Free Quote <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                <div class="trust-badges">
+                    <span><i class="fas fa-check-circle"></i> 24/7 Service</span>
+                    <span><i class="fas fa-check-circle"></i> Free Estimates</span>
+                    <span><i class="fas fa-check-circle"></i> Warranty</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PLANNING & CONSTRUCTION (Process) -->
-    <section id="planning" class="py-24 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                    <i class="fas fa-list-check text-[10px]"></i> Planning & Construction
-                </div>
-                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight mb-5">
-                    How We <span class="gradient-text">Work</span>
-                </h2>
-                <p class="text-gray-500 text-base">A proven approach that ensures your remodeling project is completed with precision and complete satisfaction.</p>
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=100&fit=crop" alt="GAF Certified">
+                <span>GAF Master Elite</span>
             </div>
-            <div class="reveal mb-14">
-                <div class="relative rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
-                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1200&q=80" alt="Houstonian Home Renovations managing a project" class="w-full h-[350px] sm:h-[400px] lg:h-[500px] object-cover" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/20 to-transparent"></div>
-                    <div class="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8">
-                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs font-bold uppercase tracking-widest mb-3">
-                            <i class="fas fa-star text-accent"></i> Trusted by 500+ Homeowners
-                        </div>
-                        <h3 class="text-white text-xl sm:text-2xl font-bold">Professional Remodeling Excellence in Every Step</h3>
-                    </div>
-                </div>
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=100&h=100&fit=crop" alt="BBB Accredited">
+                <span>BBB A+ Rated</span>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
-                <div class="group p-6 sm:p-7 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white text-xl font-bold mb-5 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">1</div>
-                    <h3 class="text-lg font-bold text-dark mb-2">Initial Consultation</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">On-site walkthrough to review your needs, budget, and vision for the space.</p>
-                </div>
-                <div class="group p-6 sm:p-7 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal" style="transition-delay:0.05s">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white text-xl font-bold mb-5 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">2</div>
-                    <h3 class="text-lg font-bold text-dark mb-2">Design & Budgeting</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Clear, upfront pricing and material selection to eliminate hidden costs and delays.</p>
-                </div>
-                <div class="group p-6 sm:p-7 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal" style="transition-delay:0.1s">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white text-xl font-bold mb-5 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">3</div>
-                    <h3 class="text-lg font-bold text-dark mb-2">Construction & Management</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Daily site tracking, material delivery, and smooth project coordination.</p>
-                </div>
-                <div class="group p-6 sm:p-7 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal" style="transition-delay:0.15s">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white text-xl font-bold mb-5 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">4</div>
-                    <h3 class="text-lg font-bold text-dark mb-2">Final Inspection & Clean-up</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">A comprehensive walkthrough and post-construction cleaning so you can enjoy your new space.</p>
-                </div>
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=100&h=100&fit=crop" alt="Owens Corning">
+                <span>Owens Corning Preferred</span>
+            </div>
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=100&h=100&fit=crop" alt="CertainTeed">
+                <span>CertainTeed SELECT</span>
+            </div>
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=100&h=100&fit=crop" alt="Angie's List">
+                <span>Angie's List Super Service</span>
+            </div>
+            <!-- Duplicate for infinite scroll -->
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=100&fit=crop" alt="GAF Certified">
+                <span>GAF Master Elite</span>
+            </div>
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=100&h=100&fit=crop" alt="BBB Accredited">
+                <span>BBB A+ Rated</span>
+            </div>
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=100&h=100&fit=crop" alt="Owens Corning">
+                <span>Owens Corning Preferred</span>
+            </div>
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=100&h=100&fit=crop" alt="CertainTeed">
+                <span>CertainTeed SELECT</span>
+            </div>
+            <div class="trust-item">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=100&h=100&fit=crop" alt="Angie's List">
+                <span>Angie's List Super Service</span>
             </div>
         </div>
     </section>
 
-    <!-- GALLERY (Projects) -->
-    <section id="gallery" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                    <i class="fas fa-images text-[10px]"></i> Our Gallery
-                </div>
-                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight mb-5">
-                    Featured <span class="gradient-text">Renovation</span> Projects
-                </h2>
-                <p class="text-gray-500 text-base">Real transformations, real craftsmanship. See what we've done for Houston homeowners.</p>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-                <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 reveal">
-                    <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=600&q=80" alt="Kitchen remodel" class="w-full h-72 sm:h-80 object-cover img-zoom" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 sm:p-7">
-                        <span class="inline-block px-3 py-1 bg-accent text-white text-xs font-bold rounded-full mb-3 w-fit">Kitchen</span>
-                        <h3 class="text-white text-lg sm:text-xl font-bold mb-1">Custom Kitchen Remodel</h3>
-                        <p class="text-white/60 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1.5"></i>Houston, TX</p>
-                        <a href="tel:+12812262350" class="inline-flex items-center gap-2 px-5 py-2 bg-white/15 border border-white/20 rounded-full text-white text-sm font-semibold backdrop-blur-sm hover:bg-accent hover:text-white hover:border-accent transition-all w-fit"><i class="fas fa-phone text-xs"></i> Call Us</a>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Jenny Roofing Team">
+                    <div class="experience-badge">
+                        <span class="years">15+</span>
+                        <span class="text">Years of<br>Excellence</span>
                     </div>
                 </div>
-                <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 reveal" style="transition-delay:0.05s">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Patio cover" class="w-full h-72 sm:h-80 object-cover img-zoom" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 sm:p-7">
-                        <span class="inline-block px-3 py-1 bg-accent text-white text-xs font-bold rounded-full mb-3 w-fit">Outdoor Living</span>
-                        <h3 class="text-white text-lg sm:text-xl font-bold mb-1">Beautiful Patio Cover</h3>
-                        <p class="text-white/60 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1.5"></i>Houston, TX</p>
-                        <a href="tel:+12812262350" class="inline-flex items-center gap-2 px-5 py-2 bg-white/15 border border-white/20 rounded-full text-white text-sm font-semibold backdrop-blur-sm hover:bg-accent hover:text-white hover:border-accent transition-all w-fit"><i class="fas fa-phone text-xs"></i> Call Us</a>
+                <div class="about-text">
+                    <h2>Your Trusted Tampa Roofing Partner Since 2009</h2>
+                    <p>At Jenny Roofing, we understand that your roof is more than just shingles and nails—it's the shield that protects your family and your investment. For over 15 years, we've been Tampa Bay's premier roofing contractor, delivering exceptional craftsmanship and unmatched customer service.</p>
+                    <p>Our team of certified professionals specializes in residential and commercial roofing solutions, from minor repairs to complete roof replacements. We pride ourselves on transparent pricing, timely completion, and workmanship that exceeds industry standards.</p>
+                    
+                    <div class="license-info">
+                        <h4><i class="fas fa-certificate"></i> Fully Licensed & Insured</h4>
+                        <p>Florida Certified Roofing Contractor License #CCC1337890 | General Liability Insurance: $2M | Workers' Compensation Coverage</p>
                     </div>
-                </div>
-                <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 reveal" style="transition-delay:0.1s">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Bathroom renovation" class="w-full h-72 sm:h-80 object-cover img-zoom" loading="lazy">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 sm:p-7">
-                        <span class="inline-block px-3 py-1 bg-accent text-white text-xs font-bold rounded-full mb-3 w-fit">Bathroom</span>
-                        <h3 class="text-white text-lg sm:text-xl font-bold mb-1">Total Bathroom Renovation</h3>
-                        <p class="text-white/60 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1.5"></i>Houston, TX</p>
-                        <a href="tel:+12812262350" class="inline-flex items-center gap-2 px-5 py-2 bg-white/15 border border-white/20 rounded-full text-white text-sm font-semibold backdrop-blur-sm hover:bg-accent hover:text-white hover:border-accent transition-all w-fit"><i class="fas fa-phone text-xs"></i> Call Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12 reveal">
-                <a href="tel:+12812262350" class="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-accent to-accent-dark text-white font-bold rounded-full text-sm shadow-xl shadow-accent/25 hover:shadow-2xl hover:shadow-accent/40 hover:-translate-y-1 transition-all btn-shimmer">
-                    <i class="fas fa-phone"></i> Call for More Projects
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- BLOG SECTION -->
-    <section id="blog" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                    <i class="fas fa-newspaper text-[10px]"></i> Blog
-                </div>
-                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight mb-5">
-                    Renovation <span class="gradient-text">Insights</span> & Tips
-                </h2>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <article class="group bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal">
-                    <div class="h-48 sm:h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80" alt="Siding tips" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <span class="absolute top-4 left-4 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Siding</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 text-xs text-gray-400 mb-3"><span><i class="fas fa-calendar mr-1"></i> Mar 10, 2026</span><span><i class="fas fa-clock mr-1"></i> 4 min read</span></div>
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">When to Replace Your Home's Siding in Houston</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Learn the signs that it's time for new siding and how it protects your investment.</p>
-                        <a href="#" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Read More <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
-                </article>
-                <article class="group bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal" style="transition-delay:0.05s">
-                    <div class="h-48 sm:h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Outdoor kitchen" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <span class="absolute top-4 left-4 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Outdoor Living</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 text-xs text-gray-400 mb-3"><span><i class="fas fa-calendar mr-1"></i> Apr 22, 2026</span><span><i class="fas fa-clock mr-1"></i> 5 min read</span></div>
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">Outdoor Kitchens: Design Ideas for Texas Homes</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Create the perfect backyard entertainment space with these expert tips.</p>
-                        <a href="#" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Read More <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
-                </article>
-                <article class="group bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal" style="transition-delay:0.1s">
-                    <div class="h-48 sm:h-52 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Garage addition" class="w-full h-full object-cover img-zoom" loading="lazy">
-                        <span class="absolute top-4 left-4 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">Garages</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 text-xs text-gray-400 mb-3"><span><i class="fas fa-calendar mr-1"></i> May 5, 2026</span><span><i class="fas fa-clock mr-1"></i> 6 min read</span></div>
-                        <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">Adding a Garage: What Houston Homeowners Need to Know</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">From permits to design, we break down the process of building a new garage.</p>
-                        <a href="#" class="inline-flex items-center gap-1.5 text-primary font-semibold text-sm group-hover:gap-3 transition-all">Read More <i class="fas fa-arrow-right text-xs"></i></a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- REVIEWS SECTION -->
-    <section id="reviews" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                    <i class="fas fa-star text-[10px]"></i> Testimonials
-                </div>
-                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight mb-5">
-                    What Our <span class="gradient-text">Customers</span> Say
-                </h2>
-            </div>
-            <div class="flex flex-wrap justify-center items-center gap-4 mb-14 reveal">
-                <div class="flex items-center gap-3 px-5 py-3 bg-white rounded-xl shadow-md border border-gray-100">
-                    <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-                    <div><div class="font-bold text-dark text-sm">Google Reviews</div><div class="text-xs text-gray-400">Houstonian Home Renovations</div></div>
-                </div>
-                <div class="flex items-center gap-4 px-5 py-3 bg-white rounded-xl shadow-md border border-gray-100">
-                    <div class="text-3xl font-black text-dark">5.0</div>
-                    <div><div class="text-yellow-400 text-sm tracking-wide">★★★★★</div><div class="text-xs text-gray-400 mt-0.5">Based on 15 reviews</div></div>
-                </div>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
-                <!-- Review 1: Angela Collins -->
-                <div class="bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">AC</div><div><div class="font-bold text-dark text-sm">Angela Collins</div><div class="text-xs text-gray-400">10 reviews · a year ago</div></div></div>
-                    <div class="text-yellow-400 text-sm mb-3 tracking-wide">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">Houstonian Home Renovations remodeled my kitchen. They completely gutted it, custom built new cabinets, and added amazing extras like a pull-out spice rack. The craftsmanship is incredible.</p>
-                </div>
-                <!-- Review 2: Mari Shoup -->
-                <div class="bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">MS</div><div><div class="font-bold text-dark text-sm">Mari Shoup</div><div class="text-xs text-gray-400">a year ago</div></div></div>
-                    <div class="text-yellow-400 text-sm mb-3 tracking-wide">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">We had the pleasure of working with Houstonian Home Renovations to build a patio cover for our home, and we couldn't be happier with the results! Outstanding experience from start to finish.</p>
-                </div>
-                <!-- Review 3: Gigi V -->
-                <div class="bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">GV</div><div><div class="font-bold text-dark text-sm">Gigi V</div><div class="text-xs text-gray-400">3 reviews · a year ago</div></div></div>
-                    <div class="text-yellow-400 text-sm mb-3 tracking-wide">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">I had the pleasure of working with Tomas and his team for a totally custom-built-from-the-ground-up house. They listened to our requests and delivered beyond expectations.</p>
-                </div>
-                <!-- Review 4: Michael Britton -->
-                <div class="bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">MB</div><div><div class="font-bold text-dark text-sm">Michael Britton</div><div class="text-xs text-gray-400">5 reviews · a year ago</div></div></div>
-                    <div class="text-yellow-400 text-sm mb-3 tracking-wide">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">HHR expanded our gazebo into a screened-in area with a summer kitchen and flagstone floor. Completed on-time and on budget. We enjoyed it for many years.</p>
-                </div>
-                <!-- Review 5: George Smith -->
-                <div class="bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">GS</div><div><div class="font-bold text-dark text-sm">George Smith</div><div class="text-xs text-gray-400">Local Guide · 15 reviews</div></div></div>
-                    <div class="text-yellow-400 text-sm mb-3 tracking-wide">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">Houstonian Home Renovations designed and built a beautiful patio cover that added a great outdoor living area poolside. Well managed and completed in a timely manner.</p>
-                </div>
-                <!-- Review 6: Susie Montz -->
-                <div class="bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div class="flex items-center gap-3 mb-4"><div class="w-11 h-11 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">SM</div><div><div class="font-bold text-dark text-sm">Susie Montz</div><div class="text-xs text-gray-400">13 reviews · a year ago</div></div></div>
-                    <div class="text-yellow-400 text-sm mb-3 tracking-wide">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">Tomas and his crew did a total bathroom renovation. He offered many creative ideas and his attention to detail was excellent. Perfection on every aspect.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section id="faq" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                <div class="lg:sticky lg:top-28 reveal-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                        <i class="fas fa-circle-question text-[10px]"></i> FAQ
-                    </div>
-                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight mb-6">
-                        Frequently Asked <span class="gradient-text">Questions</span>
-                    </h2>
-                    <p class="text-gray-500 leading-relaxed mb-8">Get answers to the most common renovation questions from our Houston experts.</p>
-                    <a href="#contact" class="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-full text-sm shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-1 transition-all btn-shimmer">
-                        <i class="fas fa-headset"></i> Ask Us Anything
-                    </a>
-                </div>
-                <div class="space-y-3 reveal-right">
-                    <div class="faq-item active bg-gray-50 rounded-xl border border-transparent hover:border-blue-100 transition-all overflow-hidden">
-                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left"><h4 class="text-sm font-bold text-dark pr-4 leading-snug">How much does a siding replacement cost?</h4><i class="faq-icon fas fa-chevron-down text-primary text-xs flex-shrink-0 transition-transform duration-300"></i></button>
-                        <div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">Costs vary based on material and home size, but we provide detailed, transparent itemized estimates so you know exactly what to expect with no hidden fees.</p></div>
-                    </div>
-                    <div class="faq-item bg-gray-50 rounded-xl border border-transparent hover:border-blue-100 transition-all overflow-hidden">
-                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left"><h4 class="text-sm font-bold text-dark pr-4 leading-snug">How long does an outdoor kitchen take to build?</h4><i class="faq-icon fas fa-chevron-down text-primary text-xs flex-shrink-0 transition-transform duration-300"></i></button>
-                        <div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">Timelines depend on complexity, but most outdoor kitchens are completed within 3-6 weeks. We work efficiently to minimize disruption to your home.</p></div>
-                    </div>
-                    <div class="faq-item bg-gray-50 rounded-xl border border-transparent hover:border-blue-100 transition-all overflow-hidden">
-                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left"><h4 class="text-sm font-bold text-dark pr-4 leading-snug">Do you handle permits and inspections?</h4><i class="faq-icon fas fa-chevron-down text-primary text-xs flex-shrink-0 transition-transform duration-300"></i></button>
-                        <div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">Absolutely. We manage all necessary permits and coordinate with local building inspectors to ensure every project meets Houston's structural standards and code requirements.</p></div>
-                    </div>
-                    <div class="faq-item bg-gray-50 rounded-xl border border-transparent hover:border-blue-100 transition-all overflow-hidden">
-                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left"><h4 class="text-sm font-bold text-dark pr-4 leading-snug">What makes Houstonian Home Renovations different?</h4><i class="faq-icon fas fa-chevron-down text-primary text-xs flex-shrink-0 transition-transform duration-300"></i></button>
-                        <div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">Over 30 years of experience, a seamless design-build process, and a commitment to transparent communication. We treat every home like our own.</p></div>
-                    </div>
-                    <div class="faq-item bg-gray-50 rounded-xl border border-transparent hover:border-blue-100 transition-all overflow-hidden">
-                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left"><h4 class="text-sm font-bold text-dark pr-4 leading-snug">Do you offer a warranty on your work?</h4><i class="faq-icon fas fa-chevron-down text-primary text-xs flex-shrink-0 transition-transform duration-300"></i></button>
-                        <div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">Yes, we stand behind our craftsmanship with a solid workmanship warranty. We'll ensure you understand all coverage before we start.</p></div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            Schedule Consultation
+                        </a>
+                        <a href="#projects" class="btn btn-secondary" style="color: var(--primary-color); border-color: var(--primary-color);">
+                            View Our Work
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                    <i class="fas fa-envelope text-[10px]"></i> Contact Us
-                </div>
-                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-dark leading-tight mb-5">
-                    Get In <span class="gradient-text">Touch</span>
-                </h2>
-                <p class="text-gray-500 text-base">Ready to start your renovation? Schedule a consultation today for a free estimate.</p>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Roofing Services</h2>
+                <p>Comprehensive roofing solutions tailored to meet your specific needs and budget</p>
             </div>
-            <div class="grid lg:grid-cols-2 gap-12">
-                <div class="reveal-left">
-                    <h3 class="text-2xl font-bold text-dark mb-4">Let's Talk About Your Project</h3>
-                    <p class="text-gray-500 leading-relaxed mb-8">Whether you need siding, a new garage, an outdoor kitchen, or a complete home renovation, our team is ready to help.</p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-4 p-4 bg-white rounded-xl hover:bg-blue-50 transition-colors group">
-                            <div class="w-11 h-11 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center text-white flex-shrink-0 shadow-md shadow-primary/20"><i class="fas fa-phone"></i></div>
-                            <div><div class="font-bold text-dark text-sm">Phone</div><a href="tel:+12812262350" class="text-primary text-sm hover:underline">(281) 226-2350</a></div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 bg-white rounded-xl hover:bg-blue-50 transition-colors group">
-                            <div class="w-11 h-11 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center text-white flex-shrink-0 shadow-md shadow-primary/20"><i class="fas fa-location-dot"></i></div>
-                            <div><div class="font-bold text-dark text-sm">Address</div><span class="text-gray-500 text-sm">4220 Northfield Ln, Houston, TX 77092</span></div>
-                        </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Roof Replacement">
                     </div>
-                    <div class="p-5 bg-white rounded-xl mb-8">
-                        <h4 class="font-bold text-dark text-sm mb-3 flex items-center gap-2"><i class="fas fa-clock text-primary"></i> Business Hours</h4>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex justify-between"><span class="font-semibold text-dark-2">Monday – Friday</span><span class="text-gray-500">8:00 AM – 6:00 PM</span></div>
-                            <div class="flex justify-between"><span class="font-semibold text-dark-2">Saturday</span><span class="text-gray-500">9:00 AM – 2:00 PM</span></div>
-                            <div class="flex justify-between"><span class="font-semibold text-dark-2">Sunday</span><span class="text-gray-500">Closed</span></div>
-                        </div>
+                    <div class="service-content">
+                        <h3>Roof Replacement</h3>
+                        <p>Complete roof replacement using premium materials from top manufacturers. We handle everything from tear-off to final inspection, ensuring your new roof meets all building codes and manufacturer specifications.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <!-- Simple Contact Form -->
-                <div class="reveal-right">
-                    <div class="bg-white p-7 sm:p-8 rounded-2xl shadow-md">
-                        <h3 class="text-xl font-bold text-dark mb-6">Send Us a Message</h3>
-                        <div id="contactFormSimple" class="space-y-4">
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Roof Repair">
+                    </div>
+                    <div class="service-content">
+                        <h3>Roof Repair</h3>
+                        <p>Fast and reliable roof repair services for leaks, storm damage, missing shingles, and more. Our expert technicians diagnose issues accurately and provide lasting solutions to protect your home.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Roofing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Commercial Roofing</h3>
+                        <p>Specialized commercial roofing services for businesses of all sizes. We offer TPO, EPDM, modified bitumen, and metal roofing systems designed for durability and energy efficiency.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Roof Inspection">
+                    </div>
+                    <div class="service-content">
+                        <h3>Roof Inspection</h3>
+                        <p>Comprehensive roof inspections for home buyers, insurance claims, and routine maintenance. Our detailed reports include photos, recommendations, and honest assessments of your roof's condition.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Storm Damage">
+                    </div>
+                    <div class="service-content">
+                        <h3>Storm Damage Repair</h3>
+                        <p>Emergency storm damage repair available 24/7. We work directly with insurance companies to streamline the claims process and get your roof back to perfect condition quickly.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gutters">
+                    </div>
+                    <div class="service-content">
+                        <h3>Gutter Installation</h3>
+                        <p>Professional gutter installation and repair services. We offer seamless gutters, gutter guards, and downspout installation to protect your home's foundation and landscaping.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Jenny Roofing?</h2>
+                <p>We're committed to excellence in every project we undertake</p>
+            </div>
+            
+            <div class="why-us-content">
+                <div class="why-us-image">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Why Choose Us">
+                </div>
+                <div class="why-us-text">
+                    <h3>The Jenny Roofing Difference</h3>
+                    <p>When you choose Jenny Roofing, you're choosing a partner dedicated to your satisfaction. Here's what sets us apart:</p>
+                    
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
                             <div>
-                                <label class="block text-xs font-bold text-dark-2 mb-2">Full Name *</label>
-                                <input type="text" id="contactName" placeholder="John Smith" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-dark focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
+                                <strong>Lifetime Workmanship Warranty</strong>
+                                <span>We stand behind our work with industry-leading warranties on both materials and labor.</span>
                             </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-dark-2 mb-2">Phone *</label>
-                                    <input type="tel" id="contactPhone" placeholder="(281) 226-2350" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-dark focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-dark-2 mb-2">Email</label>
-                                    <input type="email" id="contactEmail" placeholder="john@email.com" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-dark focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                                </div>
-                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
                             <div>
-                                <label class="block text-xs font-bold text-dark-2 mb-2">Service Needed</label>
-                                <select id="contactService" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-dark focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer">
-                                    <option value="">Select a service...</option>
-                                    <option>Siding Replacement</option>
-                                    <option>Brick & Stone Work</option>
-                                    <option>Outdoor Kitchens</option>
-                                    <option>Garages</option>
-                                    <option>Window Replacement</option>
-                                    <option>Other Home Improvement</option>
-                                </select>
+                                <strong>Local Tampa Experts</strong>
+                                <span>Deep knowledge of Florida building codes, hurricane requirements, and local weather challenges.</span>
                             </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
                             <div>
-                                <label class="block text-xs font-bold text-dark-2 mb-2">Message</label>
-                                <textarea id="contactMessage" rows="4" placeholder="Tell us about your project..." class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-dark focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none"></textarea>
+                                <strong>Financing Available</strong>
+                                <span>Flexible financing options with approved credit to make your roofing project affordable.</span>
                             </div>
-                            <button onclick="submitSimpleContact()" class="w-full py-4 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-xl text-sm shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all btn-shimmer flex items-center justify-center gap-2">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </div>
-                        <div id="contactFormSimpleSuccess" class="hidden text-center py-10">
-                            <div class="w-18 h-18 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-green-500/30 animate-pulse-slow">
-                                <i class="fas fa-check text-white text-2xl"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Clean & Respectful</strong>
+                                <span>We treat your property with respect, using magnetic nail sweepers and daily cleanup.</span>
                             </div>
-                            <h3 class="text-xl font-bold text-dark mb-2">Message Sent Successfully!</h3>
-                            <p class="text-gray-500 text-sm">Our team will contact you within 24 hours. Thank you!</p>
-                        </div>
-                    </div>
-                    <div class="mt-6 rounded-2xl overflow-hidden h-48 shadow-md">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221187.23445595544!2d-95.55289895!3d29.7604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d0b01f0a03c3e!2s4220%20Northfield%20Ln%2C%20Houston%2C%20TX%2077092!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Houstonian Home Renovations location"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA STRIP -->
-    <section class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1600&q=80" alt="Beautiful Houston home" class="w-full h-full object-cover" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary-dark/92 to-dark/95"></div>
-        </div>
-        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 border border-white/20 rounded-full text-white text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-sm">
-                <i class="fas fa-phone-volume animate-pulse"></i> Ready to Get Started?
-            </div>
-            <h2 class="font-display text-2xl sm:text-3xl lg:text-5xl font-black text-white mb-6 leading-tight">
-                Ready to Transform Your Home with <span class="text-accent">Houstonian Home Renovations?</span>
-            </h2>
-            <p class="text-white/70 text-base sm:text-lg mb-10 max-w-2xl mx-auto">Get your free, no-obligation estimate today. Houston trusts our 30 years of renovation expertise.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="tel:+12812262350" class="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-accent to-accent-dark text-white font-bold rounded-full text-sm shadow-xl shadow-accent/25 hover:shadow-2xl hover:-translate-y-1 transition-all btn-shimmer">
-                    <i class="fas fa-phone"></i> Call (281) 226-2350
-                </a>
-                <a href="#contact" class="inline-flex items-center gap-2.5 px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full text-sm hover:bg-white hover:text-dark transition-all hover:-translate-y-1">
-                    <i class="fas fa-calendar-check"></i> Make Appointment
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-dark text-white/60 pt-20 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
-                <div>
-                    <a href="#home" class="flex items-center gap-3 mb-5">
-                        <div class="w-10 h-10 bg-gradient-to-br from-accent to-accent-dark rounded-lg flex items-center justify-center text-white text-lg shadow-lg shadow-accent/20"><i class="fas fa-home"></i></div>
-                        <div class="flex flex-col leading-none"><span class="text-white font-display font-black text-lg">Houstonian</span><span class="text-accent text-[10px] font-bold uppercase tracking-[0.2em]">Home Renovations</span></div>
-                    </a>
-                    <p class="text-sm leading-relaxed mb-5">Comprehensive residential remodeling services including siding, brick & stone, outdoor kitchens, garages, window replacement, and more.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm mb-5 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-8 after:h-0.5 after:bg-accent after:rounded">Quick Links</h4>
-                    <ul class="space-y-2.5">
-                        <li><a href="#home" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Home</a></li>
-                        <li><a href="#about" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> About Us</a></li>
-                        <li><a href="#services" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Services</a></li>
-                        <li><a href="#gallery" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Gallery</a></li>
-                        <li><a href="#contact" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Contact</a></li>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Same-Day Estimates</strong>
+                                <span>Fast, free, no-obligation estimates with detailed written proposals.</span>
+                            </div>
+                        </li>
                     </ul>
+
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">
+                        Get Started Today
+                    </a>
                 </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm mb-5 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-8 after:h-0.5 after:bg-accent after:rounded">Our Services</h4>
-                    <ul class="space-y-2.5">
-                        <li><a href="#services" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Siding Replacement</a></li>
-                        <li><a href="#services" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Brick & Stone Work</a></li>
-                        <li><a href="#services" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Outdoor Kitchens</a></li>
-                        <li><a href="#services" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Garages</a></li>
-                        <li><a href="#services" class="text-sm hover:text-accent hover:pl-1 transition-all flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-accent/60"></i> Window Replacement</a></li>
-                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Recent Projects</h2>
+                <p>Browse our portfolio of completed roofing projects across Tampa Bay</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 1">
+                    <div class="project-overlay">
+                        <h3>Hyde Park Residence</h3>
+                        <p>Complete roof replacement with architectural shingles • Tampa, FL</p>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm mb-5 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-8 after:h-0.5 after:bg-accent after:rounded">Contact Info</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-3 text-sm"><i class="fas fa-location-dot text-accent mt-1 w-4 text-center flex-shrink-0"></i><span>4220 Northfield Ln<br>Houston, TX 77092</span></div>
-                        <div class="flex items-center gap-3 text-sm"><i class="fas fa-phone text-accent w-4 text-center flex-shrink-0"></i><a href="tel:+12812262350" class="hover:text-accent transition-colors">(281) 226-2350</a></div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 2">
+                    <div class="project-overlay">
+                        <h3>South Tampa Commercial</h3>
+                        <p>TPO flat roof installation • 15,000 sq ft • Tampa, FL</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 3">
+                    <div class="project-overlay">
+                        <h3>Bayshore Boulevard</h3>
+                        <p>Metal roof installation with hurricane straps • Tampa, FL</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 4">
+                    <div class="project-overlay">
+                        <h3>Palma Ceia Estate</h3>
+                        <p>Luxury tile roof replacement • Historic district • Tampa, FL</p>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
-                <p>&copy; 2026 Houstonian Home Renovations. All Rights Reserved.</p>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-accent transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-accent transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-accent transition-colors">Sitemap</a>
+        </div>
+    </section>
+
+    <!-- Areas We Serve -->
+    <section class="areas">
+        <div class="container">
+            <div class="areas-content">
+                <div class="areas-image">
+                    <img src="https://images.unsplash.com/photo-1535402803947-a92538055c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tampa Bay Area">
+                </div>
+                <div class="areas-text">
+                    <h3>Areas We Serve in Tampa Bay</h3>
+                    <p>As a local Tampa roofing company, we're proud to serve homeowners and businesses throughout the greater Tampa Bay area. Our local expertise means we understand the unique challenges Florida weather presents to your roof.</p>
+                    
+                    <div class="areas-list">
+                        <div class="area-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tampa</span>
+                        </div>
+                        <div class="area-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>St. Petersburg</span>
+                        </div>
+                        <div class="area-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Clearwater</span>
+                        </div>
+                        <div class="area-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Brandon</span>
+                        </div>
+                        <div class="area-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Plant City</span>
+                        </div>
+                        <div class="area-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Largo</span>
+                        </div>
+                        <div class="area-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Palm Harbor</span>
+                        </div>
+                        <div class="area-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Town 'n' Country</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn btn-primary">
+                        Service Your Area? Contact Us
+                    </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our roofing services</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <h4>How long does a typical roof replacement take?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most residential roof replacements are completed in 1-3 days, depending on the size and complexity of your roof. We work efficiently while maintaining the highest quality standards. Commercial projects vary based on square footage and roofing system type.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you offer financing options?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer flexible financing options through trusted lenders with approved credit. We also work with most major insurance companies for storm damage claims and can help you navigate the entire claims process.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What type of warranty do you provide?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide a lifetime workmanship warranty on all our installations, plus manufacturer warranties that can extend up to 50 years on premium roofing materials. All warranties are transferable if you sell your home.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How do I know if I need a roof repair or replacement?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our free inspection will determine the best course of action. Generally, if your roof is over 20 years old, has widespread damage, or multiple leaks, replacement may be more cost-effective. For isolated issues, repair is often sufficient.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Are you licensed and insured in Florida?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Jenny Roofing is a Florida Certified Roofing Contractor (License #CCC1337890) with full general liability insurance ($2M) and workers' compensation coverage. We comply with all state and local building codes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What happens if it rains during my roof installation?</h4>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We monitor weather forecasts closely and plan accordingly. If rain is expected, we use tarps and waterproofing materials to protect your home. Our team will never leave your roof exposed to the elements overnight.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Roofing Tips & News</h2>
+                <p>Expert advice and industry insights from our roofing professionals</p>
+            </div>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog 1">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> June 10, 2026</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3>Preparing Your Tampa Roof for Hurricane Season 2026</h3>
+                        <p>Essential steps to protect your home before the storms arrive. Learn about hurricane straps, impact-resistant shingles, and emergency preparedness.</p>
+                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog 2">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> June 5, 2026</span>
+                            <span><i class="far fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h3>5 Signs You Need Immediate Roof Repair</h3>
+                        <p>Don't ignore these warning signs that could lead to costly water damage. Early detection saves thousands in repairs.</p>
+                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600566752229-250ed79470f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog 3">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> May 28, 2026</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>Architectural vs. 3-Tab Shingles: Which is Right for You?</h3>
+                        <p>Compare durability, aesthetics, and cost to make an informed decision for your Tampa home's new roof.</p>
+                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Your Free Roofing Estimate</h2>
+                <p>Ready to protect your home? Contact us today for a free, no-obligation consultation</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Discuss Your Project</h3>
+                    <p>Whether you need emergency repairs or are planning a complete roof replacement, our team is here to help. We respond to all inquiries within 24 hours.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Office Location</strong>
+                                <span>4521 W Kennedy Blvd<br>Tampa, FL 33609</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Phone Number</strong>
+                                <span>(813) 555-ROOF (7663)<br>Available 24/7 for emergencies</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email Address</strong>
+                                <span>info@jennyroofingtampa.com<br>estimates@jennyroofingtampa.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Business Hours</strong>
+                                <span>Mon-Fri: 7:00 AM - 7:00 PM<br>Sat: 8:00 AM - 4:00 PM | Sun: Emergency Only</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Full Name *</label>
+                                <input type="text" id="contactName" required placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number *</label>
+                                <input type="tel" id="contactPhone" required placeholder="(813) 555-0123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address *</label>
+                            <input type="email" id="contactEmail" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactService">Service Needed</label>
+                            <select id="contactService">
+                                <option value="">Select a service</option>
+                                <option value="repair">Roof Repair</option>
+                                <option value="replacement">Roof Replacement</option>
+                                <option value="inspection">Inspection</option>
+                                <option value="commercial">Commercial Roofing</option>
+                                <option value="emergency">Emergency Service</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" rows="4" placeholder="Tell us about your roofing needs..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fas fa-home"></i>
+                    Jenny Roofing
+                </a>
+                <p>Tampa Bay's premier roofing contractor since 2009. Licensed, insured, and committed to protecting Florida homes with quality craftsmanship and exceptional service.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Roof Replacement</a></li>
+                    <li><a href="#">Roof Repair</a></li>
+                    <li><a href="#">Commercial Roofing</a></li>
+                    <li><a href="#">Storm Damage</a></li>
+                    <li><a href="#">Roof Inspection</a></li>
+                    <li><a href="#">Gutter Installation</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Warranty Information</a></li>
+                    <li><a href="#">License #CCC1337890</a></li>
+                    <li><a href="#">Insurance Info</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jenny Roofing. All rights reserved. | Florida Certified Roofing Contractor</p>
+            <p>Designed with <i class="fas fa-heart" style="color: var(--secondary-color);"></i> in Tampa, FL</p>
         </div>
     </footer>
 
-    <!-- BACK TO TOP -->
-    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-primary to-primary-light text-white rounded-full shadow-lg shadow-primary/30 opacity-0 invisible transition-all duration-300 hover:-translate-y-1 hover:shadow-xl z-50 flex items-center justify-center" aria-label="Back to top">
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <i class="fas fa-arrow-up"></i>
-    </button>
+    </div>
 
     <script>
-        // ===== NAVBAR SCROLL =====
-        const navbar = document.getElementById('navbar');
-        const backToTopBtn = document.getElementById('backToTop');
-
-        function updateNavbarScroll() {
-            const scrolled = window.scrollY > 60;
-            if (scrolled) {
-                navbar.classList.add('bg-dark/95', 'backdrop-blur-2xl', 'shadow-xl');
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.querySelector('.scroll-top');
+            
+            if (window.scrollY > 100) {
+                navbar.style.boxShadow = '0 2px 30px rgba(0,0,0,0.1)';
+                scrollTop.classList.add('visible');
             } else {
-                navbar.classList.remove('bg-dark/95', 'backdrop-blur-2xl', 'shadow-xl');
-            }
-            if (window.scrollY > 600) {
-                backToTopBtn.classList.remove('opacity-0', 'invisible');
-                backToTopBtn.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopBtn.classList.add('opacity-0', 'invisible');
-                backToTopBtn.classList.remove('opacity-100', 'visible');
-            }
-        }
-        window.addEventListener('scroll', updateNavbarScroll);
-        backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // ===== MOBILE MENU =====
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const hamburgerLines = hamburger.querySelectorAll('.hamburger-line');
-
-        function openMobileMenu() {
-            hamburgerLines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            hamburgerLines[1].style.opacity = '0';
-            hamburgerLines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-            hamburgerLines[2].style.width = '1.5rem';
-            mobileMenu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
-            mobileMenu.classList.add('opacity-100', 'visible');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileMenu() {
-            hamburgerLines[0].style.transform = '';
-            hamburgerLines[1].style.opacity = '1';
-            hamburgerLines[2].style.transform = '';
-            hamburgerLines[2].style.width = '1rem';
-            mobileMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-            mobileMenu.classList.remove('opacity-100', 'visible');
-            document.body.style.overflow = '';
-        }
-
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileMenu.classList.contains('opacity-100') ? closeMobileMenu() : openMobileMenu();
-        });
-
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-
-        // ===== TYPING EFFECT =====
-        const texts = [
-            'Expert Siding Replacement',
-            'Brick & Stone Work',
-            'Outdoor Kitchens & Garages',
-            'Window Replacement',
-            'Trusted Houston Renovator'
-        ];
-        let textIdx = 0, charIdx = 0, deleting = false;
-        const typingEl = document.getElementById('typingText');
-
-        function type() {
-            if (!typingEl) return;
-            const current = texts[textIdx];
-            if (deleting) {
-                typingEl.textContent = current.substring(0, charIdx - 1);
-                charIdx--;
-            } else {
-                typingEl.textContent = current.substring(0, charIdx + 1);
-                charIdx++;
-            }
-            let speed = deleting ? 40 : 90;
-            if (!deleting && charIdx === current.length) {
-                speed = 2200;
-                deleting = true;
-            } else if (deleting && charIdx === 0) {
-                deleting = false;
-                textIdx = (textIdx + 1) % texts.length;
-                speed = 400;
-            }
-            setTimeout(type, speed);
-        }
-        type();
-
-        // ===== HERO FORM =====
-        function submitHeroForm() {
-            let valid = true;
-            const name = document.getElementById('heroName');
-            const phone = document.getElementById('heroPhone');
-            const email = document.getElementById('heroEmail');
-            const nameErr = document.getElementById('heroNameError');
-            const phoneErr = document.getElementById('heroPhoneError');
-            const emailErr = document.getElementById('heroEmailError');
-
-            if (!name.value.trim()) { nameErr.classList.remove('hidden'); valid = false; } else { nameErr.classList.add('hidden'); }
-            if (!phone.value.trim() || phone.value.trim().length < 7) { phoneErr.classList.remove('hidden'); valid = false; } else { phoneErr.classList.add('hidden'); }
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email.value.trim() || !emailRegex.test(email.value)) { emailErr.classList.remove('hidden'); valid = false; } else { emailErr.classList.add('hidden'); }
-
-            if (valid) {
-                document.getElementById('heroForm').classList.add('hidden');
-                document.getElementById('heroFormSuccess').classList.remove('hidden');
-                setTimeout(() => {
-                    document.getElementById('heroFormSuccess').classList.add('hidden');
-                    document.getElementById('heroForm').classList.remove('hidden');
-                    document.getElementById('heroForm').reset();
-                }, 5000);
-            }
-        }
-
-        // ===== SIMPLE CONTACT FORM =====
-        function submitSimpleContact() {
-            const name = document.getElementById('contactName');
-            if (!name.value.trim()) { alert('Please enter your name.'); return; }
-            document.getElementById('contactFormSimple').classList.add('hidden');
-            document.getElementById('contactFormSimpleSuccess').classList.remove('hidden');
-            setTimeout(() => {
-                document.getElementById('contactFormSimpleSuccess').classList.add('hidden');
-                document.getElementById('contactFormSimple').classList.remove('hidden');
-                document.querySelectorAll('#contactFormSimple input, #contactFormSimple select, #contactFormSimple textarea').forEach(el => el.value = '');
-            }, 5000);
-        }
-
-        // ===== SCROLL REVEAL =====
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
-
-        // ===== FAQ ACCORDION =====
-        function toggleFaq(btn) {
-            const item = btn.closest('.faq-item');
-            const wasActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
-            if (!wasActive) item.classList.add('active');
-        }
-
-        // ===== HERO PARALLAX =====
-        window.addEventListener('scroll', () => {
-            const img = document.getElementById('heroBg');
-            if (img && window.scrollY < window.innerHeight) {
-                img.style.transform = `translateY(${window.scrollY * 0.35}px) scale(1.1)`;
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                scrollTop.classList.remove('visible');
             }
         });
 
-        // ===== SMOOTH SCROLL =====
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Form submissions
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your request! We will contact you within 24 hours with your free estimate.');
+            this.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                const target = document.querySelector(href);
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: target.getBoundingClientRect().top + window.pageYOffset - 80,
-                        behavior: 'smooth'
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
         });
 
-        // ===== ACTIVE NAV LINK =====
-        const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                if (window.scrollY >= section.offsetTop - 150) {
-                    current = section.id;
-                }
-            });
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('!text-white', '!bg-white/10');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('!text-white', '!bg-white/10');
-                }
-            });
-        });
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // ===== INITIAL SCROLL STATE =====
-        updateNavbarScroll();
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.service-card, .project-card, .blog-card, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
-
-
-
-
