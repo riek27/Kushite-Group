@@ -1,1162 +1,1142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kushite Engineering — Engineering, Real Estate & Energy Solutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:90px}
-  body{
-    font-family:'Inter',system-ui,-apple-system,sans-serif;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    background:#fff;color:#1e293b;
-    overflow-x:hidden;
-  }
-  body.menu-open{overflow:hidden}
-  img{max-width:100%;height:auto;display:block}
-  a,button{transition:all .25s ease}
-  a{color:inherit;text-decoration:none}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushite Group | Building. Powering. Engineering.</title>
+    <meta name="description" content="Kushite Group delivers integrated engineering, premium real estate, and sustainable energy solutions across South Sudan, Uganda, and Kenya.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#0A0A0A',
+                        'brand-charcoal': '#1C1C1C',
+                        'brand-gray': '#F4F4F5',
+                        'brand-gold': '#C5A976',
+                        'brand-goldLight': '#D4BC8E',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-  ::-webkit-scrollbar{width:8px}
-  ::-webkit-scrollbar-track{background:#f1f5f9}
-  ::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:4px}
-  ::-webkit-scrollbar-thumb:hover{background:#64748b}
+    <!-- Custom Premium Tailwind Addons -->
+    <style>
+        /* =========================================
+           KUSHITE GROUP - PREMIUM TAILWIND ADDONS
+           ========================================= */
 
-  /* ===== PALETTE ===== */
-  :root{
-    --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-200:#bfdbfe;--blue-300:#93c5fd;
-    --blue-400:#60a5fa;--blue-500:#3b82f6;--blue-600:#2563eb;--blue-700:#1d4ed8;
-    --blue-800:#1e40af;--blue-900:#1e3a8a;--blue-950:#0f172a;
-    --surface-50:#f8fafc;--surface-100:#f1f5f9;--surface-200:#e2e8f0;
-    --surface-300:#cbd5e1;--surface-400:#94a3b8;--surface-500:#64748b;
-    --surface-600:#475569;--surface-700:#334155;--surface-800:#1e293b;
-    --surface-900:#0f172a;
-    --accent:#f59e0b;
-  }
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.6) 40%, rgba(10,10,10,0.2) 100%);
+        }
+        @media (max-width: 1024px) {
+            .hero-overlay {
+                background: linear-gradient(to bottom, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.5) 100%);
+            }
+        }
 
-  .container{max-width:1280px;margin:0 auto;padding:0 32px}
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
 
-  /* ===== GLASS ===== */
-  .glass-light{
-    background:rgba(255,255,255,.85);
-    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.4);
-  }
-  .glass-dark{
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.12);
-  }
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            color: #c5a976;
+        }
 
-  .text-gradient{
-    background:linear-gradient(135deg,var(--blue-400),var(--blue-600));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
+        /* Gallery Hover Effects */
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 65%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .gallery-item:hover::before { opacity: 1; }
 
-  /* ===== BUTTONS ===== */
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:10px;
-    padding:14px 28px;font-size:13px;font-weight:600;letter-spacing:.02em;
-    border-radius:10px;cursor:pointer;border:0;
-    transition:all .3s cubic-bezier(.4,0,.2,1);
-    position:relative;overflow:hidden;
-  }
-  .btn svg{width:14px;height:14px;transition:transform .3s}
-  .btn:hover svg{transform:translateX(3px)}
+        .gallery-content {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .gallery-item:hover .gallery-content {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-  .btn-primary{
-    background:linear-gradient(135deg,var(--blue-500),var(--blue-600));
-    color:#fff;
-  }
-  .btn-primary::after{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(135deg,var(--blue-600),var(--blue-700));
-    opacity:0;transition:opacity .3s;
-  }
-  .btn-primary:hover::after{opacity:1}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(59,130,246,.4)}
-  .btn-primary > *{position:relative;z-index:1}
+        /* Smooth reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-  .btn-dark{
-    background:var(--blue-950);color:#fff;
-  }
-  .btn-dark:hover{background:var(--blue-800);transform:translateY(-2px);box-shadow:0 12px 30px rgba(15,23,42,.35)}
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c5a976; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #b0925a; }
 
-  .btn-outline{
-    border:1.5px solid rgba(255,255,255,.3);color:#fff;
-    background:transparent;
-  }
-  .btn-outline:hover{
-    background:rgba(255,255,255,.08);
-    border-color:rgba(255,255,255,.55);
-    transform:translateY(-2px);
-  }
-  .btn-outline-dark{
-    border:1.5px solid var(--blue-950);color:var(--blue-950);background:transparent;
-  }
-  .btn-outline-dark:hover{background:var(--blue-950);color:#fff;transform:translateY(-2px)}
+        html { scroll-padding-top: 100px; }
 
-  .btn-lg{padding:18px 36px;font-size:14px}
+        /* Mobile menu smooth transition */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            visibility: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        #mobile-menu.active {
+            max-height: 600px;
+            opacity: 1;
+            visibility: visible;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
 
-  .card-hover{transition:all .35s cubic-bezier(.16,1,.3,1)}
-  .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(15,23,42,.08)}
+        /* Typing cursor */
+        .typing-cursor {
+            border-right: 3px solid #c5a976;
+            padding-right: 4px;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink { 50% { border-color: transparent; } }
 
-  /* ===== NAV ===== */
-  .nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:18px 0;
-    transition:all .35s ease;
-  }
-  .nav.scrolled{
-    padding:12px 0;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-    border-bottom:1px solid var(--surface-200);
-    box-shadow:0 1px 3px rgba(15,23,42,.04);
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:32px}
-  .logo{display:flex;align-items:center;gap:12px;color:#fff}
-  .nav.scrolled .logo{color:var(--blue-950)}
-  .logo-mark{
-    width:40px;height:40px;border-radius:10px;
-    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
-    display:grid;place-items:center;color:#fff;
-    font-weight:700;font-size:18px;
-    box-shadow:0 4px 12px rgba(37,99,235,.35);
-  }
-  .logo-text{font-weight:700;font-size:18px;letter-spacing:-.01em}
-  .logo-text small{display:block;font-size:10px;letter-spacing:.18em;color:var(--blue-400);font-weight:500;text-transform:uppercase;margin-top:-2px}
-  .nav.scrolled .logo-text small{color:var(--blue-600)}
+        /* Dropdown animation */
+        .dropdown-menu { 
+            transform-origin: top center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Division Cards */
+        .division-card {
+            transition: all 0.4s ease;
+        }
+        .division-card:hover {
+            transform: translateY(-8px);
+        }
 
-  .nav-links{display:flex;gap:32px;list-style:none}
-  .nav-links a{
-    color:rgba(255,255,255,.85);font-size:14px;font-weight:500;
-    position:relative;padding:6px 0;
-  }
-  .nav.scrolled .nav-links a{color:var(--surface-700)}
-  .nav-links a:hover{color:#fff}
-  .nav.scrolled .nav-links a:hover{color:var(--blue-600)}
-  .nav-links a::after{
-    content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
-    background:linear-gradient(90deg,var(--blue-400),var(--blue-600));
-    transition:width .3s ease;border-radius:2px;
-  }
-  .nav-links a:hover::after{width:100%}
-
-  .nav-cta{
-    padding:10px 22px;border-radius:10px;font-size:13px;font-weight:600;
-    background:linear-gradient(135deg,var(--blue-500),var(--blue-600));
-    color:#fff;box-shadow:0 4px 14px rgba(59,130,246,.3);
-  }
-  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(59,130,246,.4)}
-
-  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
-  .burger span{width:22px;height:2px;background:#fff;transition:all .3s;border-radius:2px}
-  .nav.scrolled .burger span{background:var(--blue-950)}
-
-  /* ===== HERO ===== */
-  .hero{
-    position:relative;min-height:100vh;
-    display:flex;align-items:center;
-    overflow:hidden;
-    padding:140px 0 100px;
-    isolation:isolate;
-  }
-  .hero-bg{
-    position:absolute;inset:0;z-index:-2;
-    background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80');
-    background-size:cover;background-position:center;
-    transform:scale(1.05);
-    animation:slowZoom 20s ease-out forwards;
-  }
-  @keyframes slowZoom{to{transform:scale(1)}}
-  .hero-bg::after{
-    content:"";position:absolute;inset:0;
-    background:
-      linear-gradient(135deg,rgba(15,23,42,.85) 0%,rgba(30,58,138,.7) 50%,rgba(15,23,42,.88) 100%),
-      radial-gradient(ellipse at 20% 30%,rgba(59,130,246,.25) 0%,transparent 50%);
-  }
-  .hero-content{position:relative;z-index:2;width:100%}
-  .hero-eyebrow{
-    display:inline-flex;align-items:center;gap:12px;
-    padding:8px 18px;border-radius:999px;
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.18);
-    backdrop-filter:blur(10px);
-    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-    color:#fff;font-weight:500;margin-bottom:32px;
-  }
-  .hero-eyebrow .dot{width:6px;height:6px;background:var(--blue-400);border-radius:50%;box-shadow:0 0 12px var(--blue-400)}
-  .hero h1{
-    font-size:clamp(44px,6.8vw,96px);
-    font-weight:700;line-height:1.02;letter-spacing:-.03em;
-    color:#fff;max-width:14ch;margin-bottom:28px;
-  }
-  .hero h1 em{
-    font-style:normal;
-    background:linear-gradient(135deg,var(--blue-300),var(--blue-400));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
-  .hero-sub{
-    max-width:580px;font-size:18px;line-height:1.7;
-    color:rgba(255,255,255,.78);font-weight:400;margin-bottom:48px;
-  }
-  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:72px}
-
-  .hero-stats{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
-    padding-top:40px;border-top:1px solid rgba(255,255,255,.15);
-    max-width:900px;
-  }
-  .hero-stat .num{
-    font-size:40px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1;
-    background:linear-gradient(135deg,#fff,var(--blue-200));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
-  .hero-stat .lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:8px;font-weight:500}
-
-  .scroll-hint{
-    position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;
-    color:rgba(255,255,255,.6);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-    display:flex;flex-direction:column;align-items:center;gap:12px;
-  }
-  .scroll-hint .line{width:1px;height:40px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
-  .scroll-hint .line::after{
-    content:"";position:absolute;left:0;top:-100%;width:100%;height:50%;background:var(--blue-400);
-    animation:scrollLine 2.2s ease-in-out infinite;
-  }
-  @keyframes scrollLine{0%{top:-50%}100%{top:100%}}
-
-  /* ===== MARQUEE ===== */
-  .marquee{
-    background:var(--blue-950);color:#fff;
-    padding:28px 0;overflow:hidden;
-    border-top:1px solid rgba(255,255,255,.08);
-    border-bottom:1px solid rgba(255,255,255,.08);
-    position:relative;
-  }
-  .marquee::before,.marquee::after{
-    content:"";position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;
-  }
-  .marquee::before{left:0;background:linear-gradient(90deg,var(--blue-950),transparent)}
-  .marquee::after{right:0;background:linear-gradient(-90deg,var(--blue-950),transparent)}
-  .marquee-track{
-    display:flex;gap:64px;white-space:nowrap;
-    animation:marquee 40s linear infinite;
-    width:max-content;
-  }
-  .marquee-item{
-    display:inline-flex;align-items:center;gap:64px;
-    font-size:22px;font-weight:500;letter-spacing:-.01em;
-  }
-  .marquee-item .dot{width:6px;height:6px;background:var(--blue-400);border-radius:50%}
-  .marquee-item em{font-style:normal;color:var(--blue-300);font-weight:400}
-  @keyframes marquee{to{transform:translateX(-50%)}}
-
-  /* ===== SECTION HEAD ===== */
-  .section{padding:120px 0}
-  .section-head{margin-bottom:72px;max-width:780px}
-  .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:10px;
-    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--blue-600);font-weight:600;margin-bottom:20px;
-  }
-  .eyebrow::before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--blue-500),var(--blue-400));border-radius:2px}
-  .eyebrow.light{color:var(--blue-300)}
-  .eyebrow.light::before{background:linear-gradient(90deg,var(--blue-400),var(--blue-300))}
-  .section-head h2{
-    font-size:clamp(34px,4.4vw,56px);
-    font-weight:700;line-height:1.08;letter-spacing:-.025em;
-    color:var(--blue-950);margin-bottom:20px;
-  }
-  .section-head h2 em{
-    font-style:normal;
-    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
-  .section-head p{font-size:17px;line-height:1.7;color:var(--surface-600);max-width:620px}
-  .section-head.center p{margin:0 auto}
-
-  /* ===== ABOUT ===== */
-  .about{background:#fff}
-  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
-  .about-img-wrap{position:relative}
-  .about-img{
-    width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;
-    box-shadow:0 30px 60px -20px rgba(15,23,42,.25);
-  }
-  .about-img-badge{
-    position:absolute;bottom:-28px;right:-28px;
-    background:linear-gradient(135deg,var(--blue-600),var(--blue-800));
-    color:#fff;padding:28px 32px;border-radius:16px;
-    box-shadow:0 20px 40px -10px rgba(37,99,235,.5);
-    max-width:220px;
-  }
-  .about-img-badge .num{font-size:48px;font-weight:700;line-height:1;letter-spacing:-.02em}
-  .about-img-badge p{font-size:13px;margin-top:8px;color:rgba(255,255,255,.85);line-height:1.5}
-  .about-img-decor{
-    position:absolute;top:-20px;left:-20px;width:120px;height:120px;
-    border:2px solid var(--blue-200);border-radius:20px;z-index:-1;
-  }
-  .about h2{
-    font-size:clamp(34px,4.2vw,52px);font-weight:700;line-height:1.08;
-    letter-spacing:-.025em;color:var(--blue-950);margin:20px 0 28px;
-  }
-  .about h2 em{
-    font-style:normal;
-    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
-  .about p{color:var(--surface-600);font-size:16px;line-height:1.8;margin-bottom:18px}
-  .licensed{
-    display:inline-flex;align-items:center;gap:12px;margin-top:24px;
-    padding:14px 20px;background:var(--blue-50);border:1px solid var(--blue-100);
-    border-radius:12px;
-  }
-  .licensed svg{width:20px;height:20px;color:var(--blue-600);flex-shrink:0}
-  .licensed span{font-size:13px;color:var(--blue-900);font-weight:600}
-  .about-stats{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-    margin-top:40px;padding-top:36px;border-top:1px solid var(--surface-200);
-  }
-  .about-stats .s .n{
-    font-size:38px;font-weight:700;color:var(--blue-700);line-height:1;letter-spacing:-.02em;
-  }
-  .about-stats .s .l{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--surface-500);margin-top:8px;font-weight:600}
-
-  /* ===== DIVISIONS ===== */
-  .divisions{background:var(--surface-50)}
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-  .pillar{
-    background:#fff;padding:44px 36px;border-radius:20px;
-    border:1px solid var(--surface-200);
-    transition:all .4s cubic-bezier(.16,1,.3,1);
-    position:relative;overflow:hidden;
-  }
-  .pillar::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg,var(--blue-500),var(--blue-400));
-    transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
-  }
-  .pillar:hover::before{transform:scaleX(1)}
-  .pillar:hover{
-    transform:translateY(-8px);
-    box-shadow:0 25px 50px -15px rgba(37,99,235,.2);
-    border-color:var(--blue-200);
-  }
-  .pillar-num{
-    font-size:12px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--blue-600);font-weight:700;margin-bottom:28px;
-  }
-  .pillar-icon{
-    width:60px;height:60px;border-radius:14px;
-    background:linear-gradient(135deg,var(--blue-50),var(--blue-100));
-    display:grid;place-items:center;margin-bottom:28px;
-    transition:all .4s ease;
-  }
-  .pillar:hover .pillar-icon{
-    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
-    transform:rotate(-6deg) scale(1.05);
-  }
-  .pillar-icon svg{width:26px;height:26px;color:var(--blue-600);transition:color .4s}
-  .pillar:hover .pillar-icon svg{color:#fff}
-  .pillar h3{font-size:24px;font-weight:700;margin-bottom:14px;color:var(--blue-950);letter-spacing:-.015em}
-  .pillar p{color:var(--surface-600);font-size:15px;line-height:1.7;margin-bottom:28px}
-  .pillar-link{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:13px;font-weight:600;color:var(--blue-600);
-  }
-  .pillar-link svg{width:14px;height:14px;transition:transform .3s}
-  .pillar:hover .pillar-link svg{transform:translateX(4px)}
-
-  /* ===== ALL SERVICES ===== */
-  .all-services{background:#fff}
-  .services-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
-  }
-  .svc{
-    background:#fff;padding:32px 26px;border-radius:16px;
-    border:1px solid var(--surface-200);
-    transition:all .35s cubic-bezier(.16,1,.3,1);
-  }
-  .svc:hover{
-    transform:translateY(-4px);
-    border-color:var(--blue-300);
-    box-shadow:0 16px 32px -10px rgba(37,99,235,.15);
-  }
-  .svc-cat{
-    font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--blue-600);font-weight:700;margin-bottom:14px;
-  }
-  .svc h4{font-size:18px;font-weight:700;color:var(--blue-950);margin-bottom:10px;letter-spacing:-.01em;line-height:1.3}
-  .svc p{font-size:13.5px;color:var(--surface-600);line-height:1.6}
-  .svc-cta{margin-top:72px;text-align:center}
-
-  /* ===== WHY CHOOSE US ===== */
-  .why{
-    background:linear-gradient(135deg,var(--blue-950) 0%,var(--blue-900) 100%);
-    color:#fff;padding:120px 0;position:relative;overflow:hidden;
-  }
-  .why::before{
-    content:"";position:absolute;top:-300px;right:-300px;
-    width:700px;height:700px;border-radius:50%;
-    background:radial-gradient(circle,rgba(59,130,246,.18) 0%,transparent 70%);
-  }
-  .why::after{
-    content:"";position:absolute;bottom:-200px;left:-200px;
-    width:500px;height:500px;border-radius:50%;
-    background:radial-gradient(circle,rgba(96,165,250,.12) 0%,transparent 70%);
-  }
-  .why-grid{
-    display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:center;
-    position:relative;z-index:2;
-  }
-  .why-img-wrap{position:relative}
-  .why-img{
-    width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;
-    box-shadow:0 30px 60px -15px rgba(0,0,0,.5);
-  }
-  .why-img-wrap::before{
-    content:"";position:absolute;top:24px;left:24px;right:-24px;bottom:-24px;
-    border:2px solid var(--blue-400);border-radius:20px;z-index:-1;opacity:.5;
-  }
-  .why h2{
-    font-size:clamp(34px,4.2vw,52px);font-weight:700;line-height:1.08;
-    letter-spacing:-.025em;margin:20px 0 28px;
-  }
-  .why h2 em{
-    font-style:normal;
-    background:linear-gradient(135deg,var(--blue-300),var(--blue-400));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
-  .why-text{color:rgba(255,255,255,.75);font-size:16px;line-height:1.8;margin-bottom:40px;max-width:520px}
-  .why-list{display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;margin-bottom:44px}
-  .why-item{display:flex;gap:14px;align-items:flex-start}
-  .why-item .check{
-    width:32px;height:32px;border-radius:10px;flex-shrink:0;
-    background:linear-gradient(135deg,rgba(59,130,246,.25),rgba(96,165,250,.15));
-    border:1px solid rgba(96,165,250,.4);
-    display:grid;place-items:center;
-  }
-  .why-item .check svg{width:14px;height:14px;color:var(--blue-300)}
-  .why-item h5{font-size:15px;font-weight:600;margin-bottom:4px;color:#fff}
-  .why-item p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.55;margin:0}
-
-  /* ===== PROPERTIES ===== */
-  .properties{background:var(--surface-50)}
-  .prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-  .prop{
-    background:#fff;border-radius:20px;overflow:hidden;
-    border:1px solid var(--surface-200);
-    transition:all .4s cubic-bezier(.16,1,.3,1);
-  }
-  .prop:hover{transform:translateY(-6px);box-shadow:0 25px 50px -15px rgba(15,23,42,.15);border-color:var(--blue-200)}
-  .prop-img{width:100%;aspect-ratio:4/5;overflow:hidden;position:relative}
-  .prop-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-  .prop:hover .prop-img img{transform:scale(1.06)}
-  .prop-tag{
-    position:absolute;top:16px;left:16px;z-index:2;
-    padding:6px 14px;border-radius:999px;
-    background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
-    font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--blue-700);font-weight:700;
-  }
-  .prop-body{padding:28px}
-  .prop h3{font-size:22px;font-weight:700;margin-bottom:8px;color:var(--blue-950);letter-spacing:-.015em}
-  .prop-loc{font-size:13px;color:var(--surface-500);margin-bottom:20px;display:flex;align-items:center;gap:6px}
-  .prop-loc svg{width:14px;height:14px;color:var(--blue-500)}
-  .prop-meta{
-    display:flex;gap:18px;padding-top:18px;border-top:1px solid var(--surface-200);
-    font-size:12px;color:var(--surface-600);font-weight:500;
-  }
-  .prop-meta span{display:flex;align-items:center;gap:6px}
-  .prop-meta svg{width:14px;height:14px;color:var(--blue-600)}
-
-  /* ===== NEWS ===== */
-  .news{background:#fff}
-  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-  .article{
-    background:#fff;border-radius:20px;overflow:hidden;
-    border:1px solid var(--surface-200);
-    transition:all .4s cubic-bezier(.16,1,.3,1);
-    cursor:pointer;
-  }
-  .article:hover{transform:translateY(-6px);box-shadow:0 25px 50px -15px rgba(15,23,42,.12);border-color:var(--blue-200)}
-  .article-img{width:100%;aspect-ratio:16/10;overflow:hidden}
-  .article-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-  .article:hover .article-img img{transform:scale(1.06)}
-  .article-body{padding:28px}
-  .article-meta{
-    display:flex;gap:16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--surface-500);margin-bottom:14px;font-weight:600;
-  }
-  .article-meta .cat{
-    color:var(--blue-600);padding:4px 10px;border-radius:6px;
-    background:var(--blue-50);
-  }
-  .article h3{
-    font-size:20px;font-weight:700;line-height:1.3;
-    margin-bottom:12px;color:var(--blue-950);letter-spacing:-.015em;
-    transition:color .3s;
-  }
-  .article:hover h3{color:var(--blue-600)}
-  .article p{font-size:14px;color:var(--surface-600);line-height:1.7;margin-bottom:18px}
-  .article-link{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--blue-600);
-  }
-  .article-link svg{width:14px;height:14px;transition:transform .3s}
-  .article:hover .article-link svg{transform:translateX(4px)}
-
-  /* ===== CONTACT ===== */
-  .contact{background:var(--surface-50)}
-  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
-  .contact-info h2{
-    font-size:clamp(34px,4.2vw,52px);font-weight:700;line-height:1.08;
-    letter-spacing:-.025em;color:var(--blue-950);margin:20px 0 24px;
-  }
-  .contact-info h2 em{
-    font-style:normal;
-    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
-  .contact-info > p{color:var(--surface-600);font-size:16px;line-height:1.8;margin-bottom:40px}
-  .contact-blocks{display:flex;flex-direction:column;gap:20px}
-  .contact-block{
-    display:flex;gap:16px;align-items:flex-start;padding:20px;
-    background:#fff;border-radius:14px;border:1px solid var(--surface-200);
-    transition:all .3s ease;
-  }
-  .contact-block:hover{border-color:var(--blue-200);box-shadow:0 10px 24px -10px rgba(37,99,235,.12)}
-  .contact-block .ic{
-    width:44px;height:44px;border-radius:12px;flex-shrink:0;
-    background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
-    display:grid;place-items:center;
-  }
-  .contact-block .ic svg{width:18px;height:18px;color:#fff}
-  .contact-block h5{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--surface-500);font-weight:700;margin-bottom:6px}
-  .contact-block p{font-size:14px;color:var(--blue-950);line-height:1.6;font-weight:500}
-
-  .contact-form{
-    background:#fff;padding:44px;border-radius:20px;
-    border:1px solid var(--surface-200);
-    box-shadow:0 20px 40px -20px rgba(15,23,42,.1);
-  }
-  .contact-form h3{font-size:26px;font-weight:700;color:var(--blue-950);margin-bottom:8px;letter-spacing:-.015em}
-  .contact-form .sub{color:var(--surface-500);font-size:14px;margin-bottom:32px}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
-  .field{display:flex;flex-direction:column;gap:8px}
-  .field label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--surface-600);font-weight:700}
-  .field input,.field select,.field textarea{
-    padding:14px 16px;border:1.5px solid var(--surface-200);border-radius:10px;
-    background:var(--surface-50);font-family:inherit;font-size:14px;color:var(--blue-950);
-    outline:none;transition:all .25s ease;
-  }
-  .field input:focus,.field select:focus,.field textarea:focus{
-    border-color:var(--blue-500);background:#fff;
-    box-shadow:0 0 0 4px rgba(59,130,246,.1);
-  }
-  .field textarea{resize:vertical;min-height:110px}
-  .form-btn{width:100%;justify-content:center;margin-top:8px}
-
-  /* ===== FINAL CTA ===== */
-  .final-cta{
-    background:linear-gradient(135deg,var(--blue-950) 0%,var(--blue-800) 100%);
-    color:#fff;padding:120px 0;position:relative;overflow:hidden;text-align:center;
-  }
-  .final-cta::before{
-    content:"";position:absolute;inset:0;
-    background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80');
-    background-size:cover;background-position:center;opacity:.1;
-  }
-  .final-cta::after{
-    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:800px;height:800px;border-radius:50%;
-    background:radial-gradient(circle,rgba(59,130,246,.2) 0%,transparent 60%);
-  }
-  .final-cta .container{position:relative;z-index:2}
-  .final-cta h2{
-    font-size:clamp(40px,5.6vw,80px);font-weight:700;line-height:1.04;
-    letter-spacing:-.03em;max-width:18ch;margin:20px auto 28px;
-  }
-  .final-cta h2 em{
-    font-style:normal;
-    background:linear-gradient(135deg,var(--blue-300),var(--blue-400));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  }
-  .final-cta p{max-width:560px;margin:0 auto 44px;color:rgba(255,255,255,.75);font-size:17px;line-height:1.75}
-  .final-cta .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-
-  /* ===== FOOTER ===== */
-  footer{background:var(--blue-950);color:rgba(255,255,255,.65);padding:80px 0 32px}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
-  .foot-brand p{font-size:14px;line-height:1.75;margin:20px 0;max-width:320px}
-  .foot-col h6{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:20px}
-  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-  .foot-col a{font-size:14px;transition:color .3s}
-  .foot-col a:hover{color:var(--blue-400)}
-  .foot-bottom{
-    padding-top:28px;border-top:1px solid rgba(255,255,255,.08);
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
-    font-size:12px;
-  }
-  .socials{display:flex;gap:10px;margin-top:20px}
-  .socials a{
-    width:38px;height:38px;border:1px solid rgba(255,255,255,.15);border-radius:10px;
-    display:grid;place-items:center;transition:all .3s;
-  }
-  .socials a:hover{background:linear-gradient(135deg,var(--blue-500),var(--blue-700));border-color:transparent;color:#fff;transform:translateY(-2px)}
-  .socials svg{width:14px;height:14px}
-
-  /* ===== REVEAL ===== */
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease}
-  .reveal.in{opacity:1;transform:none}
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width:1024px){
-    .container{padding:0 24px}
-    .about-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
-    .pillars,.services-grid{grid-template-columns:repeat(2,1fr)}
-    .prop-grid,.news-grid{grid-template-columns:1fr 1fr}
-    .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
-    .hero-stats{grid-template-columns:repeat(2,1fr);gap:24px}
-    .about-img-badge{right:20px;bottom:-20px}
-    .why-img-wrap::before{display:none}
-  }
-  @media (max-width:720px){
-    .container{padding:0 20px}
-    .nav-links,.nav-cta{display:none}
-    .burger{display:flex}
-    .hero{padding:120px 0 80px;min-height:auto}
-    .section{padding:80px 0}
-    .section-head{margin-bottom:48px}
-    .pillars,.services-grid,.prop-grid,.news-grid{grid-template-columns:1fr}
-    .form-row{grid-template-columns:1fr}
-    .contact-form{padding:28px 22px}
-    .why-list{grid-template-columns:1fr}
-    .foot-grid{grid-template-columns:1fr;gap:32px}
-    .marquee-item{font-size:18px;gap:40px}
-    .about-stats{grid-template-columns:1fr 1fr}
-    .hero-stats{grid-template-columns:1fr 1fr}
-    .scroll-hint{display:none}
-    .about-img-decor{display:none}
-  }
-</style>
+        /* Navigation active state */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #C5A976;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans antialiased text-brand-charcoal bg-white">
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="container nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-mark">K</div>
-      <div class="logo-text">Kushite<small>Engineering</small></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#properties">Properties</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#consult" class="nav-cta">Get Consultation</a>
-    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
+    <!-- ========================================== -->
+    <!-- HEADER / NAVIGATION                        -->
+    <!-- ========================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-brand-gold rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-building text-brand-black text-lg"></i>
+                    </div>
+                    <span class="font-serif text-xl font-bold text-white tracking-wide">KUSHITE</span>
+                </a>
 
-<!-- HERO -->
-<header class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="container hero-content">
-    <span class="hero-eyebrow"><span class="dot"></span>Engineering · Real Estate · Energy</span>
-    <h1>Building the future of <em>East Africa</em>, one landmark at a time.</h1>
-    <p class="hero-sub">Kushite Engineering delivers integrated engineering, premium real estate, and sustainable energy solutions across South Sudan, Uganda, and Kenya — crafted with integrity, precision, and long-term vision.</p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary btn-lg">
-        Explore Projects
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="#consult" class="btn btn-outline btn-lg">
-        Request Consultation
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">120+</div><div class="lbl">Projects Delivered</div></div>
-      <div class="hero-stat"><div class="num">3</div><div class="lbl">Countries Served</div></div>
-      <div class="hero-stat"><div class="num">10+</div><div class="lbl">Years Experience</div></div>
-      <div class="hero-stat"><div class="num">100%</div><div class="lbl">Licensed & Certified</div></div>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <span class="line"></span>
-  </div>
-</header>
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-6">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">About</a>
+                    
+                    <!-- Divisions Dropdown -->
+                    <div class="dropdown relative">
+                        <button class="nav-link text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium flex items-center gap-1">
+                            Divisions <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+                            <a href="#real-estate" class="block px-5 py-3 text-sm text-brand-charcoal hover:bg-brand-gold/10 hover:text-brand-gold transition-colors border-b border-gray-100">
+                                <i class="fa-solid fa-city text-brand-gold mr-2"></i>Real Estate
+                            </a>
+                            <a href="#engineering" class="block px-5 py-3 text-sm text-brand-charcoal hover:bg-brand-gold/10 hover:text-brand-gold transition-colors border-b border-gray-100">
+                                <i class="fa-solid fa-helmet-safety text-brand-gold mr-2"></i>Engineering
+                            </a>
+                            <a href="#energy" class="block px-5 py-3 text-sm text-brand-charcoal hover:bg-brand-gold/10 hover:text-brand-gold transition-colors">
+                                <i class="fa-solid fa-solar-panel text-brand-gold mr-2"></i>Energy
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">Projects</a>
+                    <a href="#properties" class="nav-link text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">Properties</a>
+                    <a href="#news" class="nav-link text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">News</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">Contact</a>
+                    
+                    <!-- Get Consultation Button -->
+                    <a href="#consultation" class="bg-brand-gold hover:bg-brand-goldLight text-brand-black font-semibold px-5 py-2.5 rounded-lg transition-all text-sm shadow-lg hover:shadow-xl">
+                        Get Consultation
+                    </a>
+                </nav>
 
-<!-- MARQUEE -->
-<section class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="marquee-item">Kushite Engineering <span class="dot"></span> <em>Urban Development</em> <span class="dot"></span> Premium Real Estate <span class="dot"></span> <em>Civil Infrastructure</em> <span class="dot"></span> Solar Energy Solutions <span class="dot"></span> <em>Construction Management</em> <span class="dot"></span> Property Investment <span class="dot"></span> <em>Sustainable Power</em> <span class="dot"></span></div>
-    <div class="marquee-item">Kushite Engineering <span class="dot"></span> <em>Urban Development</em> <span class="dot"></span> Premium Real Estate <span class="dot"></span> <em>Civil Infrastructure</em> <span class="dot"></span> Solar Energy Solutions <span class="dot"></span> <em>Construction Management</em> <span class="dot"></span> Property Investment <span class="dot"></span> <em>Sustainable Power</em> <span class="dot"></span></div>
-  </div>
-</section>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
 
-<!-- ABOUT -->
-<section class="section about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img-wrap reveal">
-        <div class="about-img-decor"></div>
-        <img class="about-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Kushite team">
-        <div class="about-img-badge">
-          <div class="num">10+</div>
-          <p>Years delivering engineering and real estate excellence across East Africa.</p>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden">
+                <nav class="flex flex-col gap-4 pb-4">
+                    <a href="#home" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">About</a>
+                    <a href="#real-estate" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium pl-4">- Real Estate</a>
+                    <a href="#engineering" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium pl-4">- Engineering</a>
+                    <a href="#energy" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium pl-4">- Energy</a>
+                    <a href="#projects" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">Projects</a>
+                    <a href="#properties" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">Properties</a>
+                    <a href="#news" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">News</a>
+                    <a href="#contact" class="text-gray-300 hover:text-brand-gold transition-colors text-sm font-medium">Contact</a>
+                    <a href="#consultation" class="bg-brand-gold hover:bg-brand-goldLight text-brand-black font-semibold px-5 py-2.5 rounded-lg transition-all text-sm text-center">Get Consultation</a>
+                </nav>
+            </div>
         </div>
-      </div>
-      <div class="reveal">
-        <span class="eyebrow">About Kushite</span>
-        <h2>A legacy of <em>quality</em>, built on integrity and innovation.</h2>
-        <p>Founded in South Sudan, Kushite Engineering has grown into a regional force delivering integrated engineering, real estate, and sustainable energy solutions across South Sudan, Uganda, and Kenya.</p>
-        <p>Through three core divisions — Engineering, Real Estate, and Energy — we create value-driven projects that meet international standards and contribute meaningfully to the region's economic growth.</p>
+    </header>
 
-        <div class="licensed">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <span>Fully Licensed · Registered · Certified Across East Africa</span>
+    <!-- ========================================== -->
+    <!-- HERO SECTION                               -->
+    <!-- ========================================== -->
+    <section id="home" class="relative min-h-screen flex items-center bg-brand-black">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="w-full h-full object-cover opacity-40" alt="Hero Background">
+            <div class="hero-overlay absolute inset-0"></div>
         </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <!-- Hero Content -->
+            <div class="text-white space-y-5 animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 bg-brand-gold/20 border border-brand-gold/50 px-4 py-2 rounded-full">
+                    <i class="fa-solid fa-city text-brand-gold"></i>
+                    <span class="text-brand-gold font-medium text-xs sm:text-sm">Engineering · Real Estate · Energy</span>
+                </div>
+                
+                <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                    Building the Future of East Africa, One Landmark at a Time.
+                </h1>
+                
+                <div class="h-8 sm:h-10">
+                    <p class="text-base sm:text-lg text-gray-200 font-light">
+                        <span id="typing-text" class="typing-cursor"></span>
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="#properties" class="inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-goldLight text-brand-black font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all hover:scale-105 shadow-lg text-sm sm:text-base">
+                        <i class="fa-solid fa-building"></i> Explore Projects
+                    </a>
+                    <a href="#consultation" class="inline-flex items-center justify-center gap-2 border-2 border-white/80 hover:bg-white/10 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all text-sm sm:text-base">
+                        <i class="fa-solid fa-handshake"></i> Get Consultation
+                    </a>
+                </div>
+                
+                <div class="flex flex-wrap gap-4 sm:gap-6 pt-4 text-xs sm:text-sm">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-gold"></i><span class="text-gray-300">120+ Projects</span></div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-globe-africa text-brand-gold"></i><span class="text-gray-300">3 Countries</span></div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-award text-brand-gold"></i><span class="text-gray-300">10+ Years</span></div>
+                </div>
+            </div>
 
-        <div class="about-stats">
-          <div class="s"><div class="n">120+</div><div class="l">Projects Delivered</div></div>
-          <div class="s"><div class="n">3</div><div class="l">Countries Served</div></div>
-          <div class="s"><div class="n">98%</div><div class="l">Client Retention</div></div>
+            <!-- Consultation Form -->
+            <div id="consultation" class="glass-panel rounded-2xl p-5 sm:p-7 shadow-2xl animate-fade-in-up" style="animation-delay: 0.2s">
+                <div class="mb-5">
+                    <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-charcoal mb-2">Request a Consultation</h3>
+                    <p class="text-gray-600 text-sm">Tell us about your project — we'll respond within 24 hours.</p>
+                </div>
+                <form action="#" method="POST" class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! We will respond within 24 hours.');">
+                    <input type="text" name="full_name" placeholder="Full Name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all text-sm">
+                    <input type="email" name="email" placeholder="Email Address" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all text-sm">
+                    <input type="tel" name="phone" placeholder="Phone Number" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all text-sm">
+                    <select name="service_interest" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all bg-white text-sm">
+                        <option value="">Service Interest</option>
+                        <option>Engineering</option>
+                        <option>Real Estate</option>
+                        <option>Energy Solutions</option>
+                        <option>Consultancy</option>
+                    </select>
+                    <textarea name="project_details" rows="3" placeholder="Project Details..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all resize-none text-sm"></textarea>
+                    <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldLight text-brand-black font-semibold py-4 rounded-xl transition-all hover:scale-[1.02] shadow-md text-sm sm:text-base">Send Request</button>
+                </form>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- DIVISIONS -->
-<section class="section divisions" id="services">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">01 — Our Divisions</span>
-      <h2>Three Pillars of <em>Excellence</em>.</h2>
-      <p>Integrated solutions across engineering, real estate, and energy — delivering comprehensive value to every project, every partner, every community.</p>
-    </div>
-
-    <div class="pillars reveal">
-      <div class="pillar">
-        <span class="pillar-num">01 / Engineering</span>
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+    <!-- ========================================== -->
+    <!-- TRUST STRIP                                -->
+    <!-- ========================================== -->
+    <div class="bg-brand-charcoal py-6 sm:py-8 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold text-base sm:text-lg flex-shrink-0"><i class="fa-solid fa-building"></i></div>
+                    <div><h4 class="text-white font-medium text-xs sm:text-sm">120+ Projects</h4><p class="text-gray-400 text-xs">Successfully Delivered</p></div>
+                </div>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold text-base sm:text-lg flex-shrink-0"><i class="fa-solid fa-globe-africa"></i></div>
+                    <div><h4 class="text-white font-medium text-xs sm:text-sm">3 Countries</h4><p class="text-gray-400 text-xs">East Africa Region</p></div>
+                </div>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold text-base sm:text-lg flex-shrink-0"><i class="fa-solid fa-award"></i></div>
+                    <div><h4 class="text-white font-medium text-xs sm:text-sm">10+ Years</h4><p class="text-gray-400 text-xs">Of Excellence</p></div>
+                </div>
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold text-base sm:text-lg flex-shrink-0"><i class="fa-solid fa-certificate"></i></div>
+                    <div><h4 class="text-white font-medium text-xs sm:text-sm">100% Certified</h4><p class="text-gray-400 text-xs">Licensed & Insured</p></div>
+                </div>
+            </div>
         </div>
-        <h3>Engineering Services</h3>
-        <p>Civil engineering, construction management, infrastructure development, and expert consultancy for complex projects of any scale.</p>
-        <a href="#" class="pillar-link">Learn More
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-      <div class="pillar">
-        <span class="pillar-num">02 / Real Estate</span>
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8v10a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1V11z"/></svg>
-        </div>
-        <h3>Real Estate</h3>
-        <p>Premium property development, sales, management, and strategic investment opportunities across East Africa's growing markets.</p>
-        <a href="#" class="pillar-link">Learn More
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-      <div class="pillar">
-        <span class="pillar-num">03 / Energy</span>
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
-        </div>
-        <h3>Energy Solutions</h3>
-        <p>Solar energy systems, renewable solutions, industrial energy consulting, and sustainable power infrastructure for a greener future.</p>
-        <a href="#" class="pillar-link">Learn More
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ALL SERVICES -->
-<section class="section all-services">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">02 — Full Service Catalogue</span>
-      <h2>Everything you need, <em>under one roof</em>.</h2>
-      <p>From the first sketch to the final handover, our integrated teams deliver end-to-end solutions tailored to your ambition.</p>
-    </div>
-
-    <div class="services-grid reveal">
-      <div class="svc"><div class="svc-cat">Engineering</div><h4>Civil Engineering</h4><p>Roads, bridges, drainage, and structural works executed to international standards.</p></div>
-      <div class="svc"><div class="svc-cat">Engineering</div><h4>Construction Management</h4><p>On-time, on-budget project delivery with rigorous quality and safety oversight.</p></div>
-      <div class="svc"><div class="svc-cat">Engineering</div><h4>Infrastructure Development</h4><p>Large-scale public and private infrastructure that powers regional growth.</p></div>
-      <div class="svc"><div class="svc-cat">Engineering</div><h4>Technical Consultancy</h4><p>Expert advisory for complex engineering challenges and feasibility studies.</p></div>
-
-      <div class="svc"><div class="svc-cat">Real Estate</div><h4>Property Development</h4><p>Modern residential, commercial, and hospitality projects designed for long-term value.</p></div>
-      <div class="svc"><div class="svc-cat">Real Estate</div><h4>Property Sales</h4><p>Curated listings and direct sales support for investors and homebuyers.</p></div>
-      <div class="svc"><div class="svc-cat">Real Estate</div><h4>Property Management</h4><p>Full-service management that protects and grows your asset portfolio.</p></div>
-      <div class="svc"><div class="svc-cat">Real Estate</div><h4>Investment Advisory</h4><p>Strategic opportunities connecting investors with high-potential markets.</p></div>
-
-      <div class="svc"><div class="svc-cat">Energy</div><h4>Solar Energy Systems</h4><p>Residential and commercial solar installations engineered for performance.</p></div>
-      <div class="svc"><div class="svc-cat">Energy</div><h4>Renewable Solutions</h4><p>Wind, hybrid, and off-grid systems tailored to East Africa's terrain.</p></div>
-      <div class="svc"><div class="svc-cat">Energy</div><h4>Industrial Consulting</h4><p>Energy audits, efficiency planning, and cost-optimization for industry.</p></div>
-      <div class="svc"><div class="svc-cat">Energy</div><h4>Power Infrastructure</h4><p>Sustainable grid and micro-grid projects that power communities forward.</p></div>
-    </div>
-
-    <div class="svc-cta reveal">
-      <a href="#consult" class="btn btn-dark btn-lg">
-        Request a Custom Proposal
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section class="why">
-  <div class="container">
-    <div class="why-grid">
-      <div class="why-img-wrap reveal">
-        <img class="why-img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Kushite project">
-      </div>
-      <div class="reveal">
-        <span class="eyebrow light">Why Kushite</span>
-        <h2>Built on <em>trust</em>, delivered with precision.</h2>
-        <p class="why-text">We don't just build structures — we build lasting partnerships. Our integrated approach, regional expertise, and unwavering commitment to quality set us apart in every market we serve.</p>
-
-        <div class="why-list">
-          <div class="why-item">
-            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
-            <div><h5>Regional Expertise</h5><p>Deep knowledge of South Sudan, Uganda, and Kenya markets.</p></div>
-          </div>
-          <div class="why-item">
-            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
-            <div><h5>International Standards</h5><p>Every project meets global quality and safety benchmarks.</p></div>
-          </div>
-          <div class="why-item">
-            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
-            <div><h5>Integrated Delivery</h5><p>Engineering, real estate, and energy — one seamless team.</p></div>
-          </div>
-          <div class="why-item">
-            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
-            <div><h5>Sustainable Focus</h5><p>Green solutions that respect community and environment.</p></div>
-          </div>
-          <div class="why-item">
-            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
-            <div><h5>Proven Track Record</h5><p>120+ projects delivered across three countries.</p></div>
-          </div>
-          <div class="why-item">
-            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
-            <div><h5>Client-First Culture</h5><p>Transparent communication and accountability at every step.</p></div>
-          </div>
-        </div>
-
-        <a href="#consult" class="btn btn-primary btn-lg">
-          Start Your Project
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROPERTIES -->
-<section class="section properties" id="properties">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">03 — Featured Properties</span>
-      <h2>Premium spaces, <em>curated for you</em>.</h2>
-      <p>A selection of our most sought-after residential, commercial, and investment properties across the region.</p>
     </div>
 
-    <div class="prop-grid">
-      <div class="prop reveal">
-        <div class="prop-img">
-          <span class="prop-tag">Residential · For Sale</span>
-          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=80" alt="Juba Heights">
+    <!-- ========================================== -->
+    <!-- ABOUT SECTION                              -->
+    <!-- ========================================== -->
+    <section id="about" class="bg-brand-black py-16 sm:py-20 lg:py-28 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
+            <div class="relative reveal">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="rounded-2xl shadow-2xl w-full" alt="Team">
+                <div class="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-brand-gold text-brand-black p-4 sm:p-6 rounded-2xl shadow-xl">
+                    <div class="text-3xl sm:text-4xl font-bold font-serif">10+</div>
+                    <div class="text-xs sm:text-sm opacity-90">Years of Excellence</div>
+                </div>
+            </div>
+            <div class="text-white space-y-5 reveal">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold">A Legacy of Quality, Built on Integrity.</h2>
+                <p class="text-gray-300 leading-relaxed text-sm sm:text-base">Founded in South Sudan, Kushite Group has grown into a regional force delivering integrated engineering, real estate, and sustainable energy solutions across South Sudan, Uganda, and Kenya.</p>
+                <div class="grid sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-brand-gold mt-1"></i><div><h4 class="font-medium text-sm sm:text-base">Civil Engineering</h4><p class="text-gray-400 text-xs">Infrastructure & Roads</p></div></div>
+                    <div class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-brand-gold mt-1"></i><div><h4 class="font-medium text-sm sm:text-base">Premium Real Estate</h4><p class="text-gray-400 text-xs">Development & Sales</p></div></div>
+                    <div class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-brand-gold mt-1"></i><div><h4 class="font-medium text-sm sm:text-base">Sustainable Energy</h4><p class="text-gray-400 text-xs">Solar & Hybrid Systems</p></div></div>
+                    <div class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-brand-gold mt-1"></i><div><h4 class="font-medium text-sm sm:text-base">Expert Consultancy</h4><p class="text-gray-400 text-xs">Feasibility & Planning</p></div></div>
+                </div>
+                <div class="flex items-center gap-3 sm:gap-4 bg-white/5 border border-white/10 rounded-xl p-4">
+                    <i class="fa-solid fa-certificate text-brand-gold text-xl sm:text-2xl"></i>
+                    <div><h4 class="font-medium text-white text-sm">Fully Licensed & Certified</h4><p class="text-gray-400 text-xs">Across South Sudan, Uganda & Kenya</p></div>
+                </div>
+            </div>
         </div>
-        <div class="prop-body">
-          <h3>Juba Heights Residences</h3>
-          <div class="prop-loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
-            Juba, South Sudan
-          </div>
-          <div class="prop-meta">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>4 Beds</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>320 m²</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>2025</span>
-          </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- WHY CHOOSE US SECTION                      -->
+    <!-- ========================================== -->
+    <section class="py-16 sm:py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image Left -->
+                <div class="relative reveal">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Why Choose Kushite Group" class="rounded-2xl shadow-2xl w-full">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-gold text-brand-black p-6 rounded-2xl shadow-xl hidden sm:block">
+                        <div class="text-4xl font-bold font-serif">15+</div>
+                        <div class="text-sm font-medium">Years Experience</div>
+                    </div>
+                </div>
+                
+                <!-- Content Right -->
+                <div class="reveal">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-charcoal mb-6">Why Choose Kushite Group?</h2>
+                    <p class="text-gray-600 text-base mb-8 leading-relaxed">We bring together three dynamic companies united by a shared purpose: to build with excellence, power sustainably, and engineer progress across Africa and beyond.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-brand-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-brand-gold text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-charcoal text-sm mb-1">Experienced & Award-Winning Team</h4>
+                                <p class="text-gray-600 text-xs">Skilled professionals with proven expertise</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-brand-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-brand-gold text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-charcoal text-sm mb-1">Strong Market Knowledge</h4>
+                                <p class="text-gray-600 text-xs">Deep understanding of East African markets</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-brand-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-brand-gold text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-charcoal text-sm mb-1">Transparent Communication</h4>
+                                <p class="text-gray-600 text-xs">Honest and clear at every step</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-brand-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-brand-gold text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-charcoal text-sm mb-1">Proven Systems & Technology</h4>
+                                <p class="text-gray-600 text-xs">Modern tools for superior results</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-brand-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-brand-gold text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-charcoal text-sm mb-1">Maximizing Returns</h4>
+                                <p class="text-gray-600 text-xs">Minimizing stress for our clients</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-brand-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-brand-gold text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-charcoal text-sm mb-1">Client Success Commitment</h4>
+                                <p class="text-gray-600 text-xs">Your success is our priority</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#consultation" class="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-goldLight text-brand-black font-semibold px-6 py-3 rounded-xl transition-all hover:scale-105">
+                        <i class="fa-solid fa-arrow-right"></i> Get Started Today
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="prop reveal">
-        <div class="prop-img">
-          <span class="prop-tag">Commercial · Leasing</span>
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80" alt="Kampala Towers">
+    </section>
+
+    <!-- ========================================== -->
+    <!-- REAL ESTATE DIVISION                       -->
+    <!-- ========================================== -->
+    <section id="real-estate" class="py-16 sm:py-20 lg:py-28 bg-brand-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 bg-brand-gold/20 text-brand-gold px-4 py-2 rounded-full mb-4">
+                        <i class="fa-solid fa-city"></i>
+                        <span class="font-medium text-sm">KUSHITE REAL ESTATE</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-charcoal mb-6">Building Spaces. Creating Value.</h2>
+                    <p class="text-gray-600 text-base mb-8">A leading real estate and property management company in Juba, South Sudan, delivering exceptional property solutions across East Africa.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-house-chimney text-brand-gold text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-charcoal mb-1">Property Sales & Purchases</h4>
+                                    <p class="text-gray-600 text-sm">Residential, commercial & land acquisition</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-building text-brand-gold text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-charcoal mb-1">Property Management</h4>
+                                    <p class="text-gray-600 text-sm">Professional & reliable management services</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-key text-brand-gold text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-charcoal mb-1">Rental & Tenant Placement</h4>
+                                    <p class="text-gray-600 text-sm">Quality tenants, Maximized returns</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-bullhorn text-brand-gold text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-charcoal mb-1">Property Marketing</h4>
+                                    <p class="text-gray-600 text-sm">Strategic marketing for faster results</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-chart-line text-brand-gold text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-charcoal mb-1">Valuations & Advisory</h4>
+                                    <p class="text-gray-600 text-sm">Expert valuation and real estate advice</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-handshake text-brand-gold text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-charcoal mb-1">Investment Property Consultancy</h4>
+                                    <p class="text-gray-600 text-sm">Helping you make smart real estate decisions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative reveal">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kushite Real Estate" class="rounded-2xl shadow-2xl w-full">
+                </div>
+            </div>
         </div>
-        <div class="prop-body">
-          <h3>Kampala Business Towers</h3>
-          <div class="prop-loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
-            Kampala, Uganda
-          </div>
-          <div class="prop-meta">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Office</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>1,200 m²</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>2024</span>
-          </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ENGINEERING DIVISION                       -->
+    <!-- ========================================== -->
+    <section id="engineering" class="py-16 sm:py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div class="order-2 lg:order-1 relative reveal">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kushite Engineering" class="rounded-2xl shadow-2xl w-full">
+                </div>
+                
+                <div class="order-1 lg:order-2 reveal">
+                    <div class="inline-flex items-center gap-2 bg-brand-gold/20 text-brand-gold px-4 py-2 rounded-full mb-4">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                        <span class="font-medium text-sm">KUSHITE ENGINEERING</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-charcoal mb-6">Crafting Tomorrow's Infrastructure.</h2>
+                    <p class="text-gray-600 text-base mb-8">A leading engineering, construction and consulting enterprise delivering innovative, cost-effective and sustainable solutions.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3 bg-brand-gray p-4 rounded-xl">
+                            <i class="fa-solid fa-building text-brand-gold text-2xl"></i>
+                            <span class="font-medium text-sm">Building Construction</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-brand-gray p-4 rounded-xl">
+                            <i class="fa-solid fa-road text-brand-gold text-2xl"></i>
+                            <span class="font-medium text-sm">Roads & Bridges</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-brand-gray p-4 rounded-xl">
+                            <i class="fa-solid fa-gears text-brand-gold text-2xl"></i>
+                            <span class="font-medium text-sm">Mechanical Engineering</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-brand-gray p-4 rounded-xl">
+                            <i class="fa-solid fa-bolt text-brand-gold text-2xl"></i>
+                            <span class="font-medium text-sm">Electrical Engineering</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-brand-gray p-4 rounded-xl">
+                            <i class="fa-solid fa-clipboard-check text-brand-gold text-2xl"></i>
+                            <span class="font-medium text-sm">Project Management</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-brand-gray p-4 rounded-xl">
+                            <i class="fa-solid fa-drafting-compass text-brand-gold text-2xl"></i>
+                            <span class="font-medium text-sm">Design & Consultancy</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-brand-gray p-4 rounded-xl">
+                            <i class="fa-solid fa-leaf text-brand-gold text-2xl"></i>
+                            <span class="font-medium text-sm">Environmental Engineering</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-brand-gray p-4 rounded-xl">
+                            <i class="fa-solid fa-paint-roller text-brand-gold text-2xl"></i>
+                            <span class="font-medium text-sm">Fit-Out & Interiors</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-brand-charcoal text-white p-6 rounded-2xl">
+                        <h4 class="font-serif text-xl font-bold mb-4">Why Choose Our Engineering?</h4>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> Over 15 Years of Combined Experience</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> Skilled & Dedicated Professionals</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> Commitment to Safety, Quality & Environment</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> Proven Track Record of Successful Delivery</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> Strong Client Relationships & Partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="prop reveal">
-        <div class="prop-img">
-          <span class="prop-tag">Luxury · Investment</span>
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Nairobi Villas">
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ENERGY DIVISION                            -->
+    <!-- ========================================== -->
+    <section id="energy" class="py-16 sm:py-20 lg:py-28 bg-brand-black text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center gap-2 bg-brand-gold/20 text-brand-gold px-4 py-2 rounded-full mb-4">
+                    <i class="fa-solid fa-solar-panel"></i>
+                    <span class="font-medium text-sm">KUSHITE ENERGY</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-6">Powering Today. Sustaining Tomorrow.</h2>
+                <p class="text-gray-300 text-base max-w-3xl mx-auto">A leading power company delivering reliable, affordable and sustainable energy solutions in South Sudan and East Africa.</p>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 reveal">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+                    <div class="text-3xl sm:text-4xl font-bold text-brand-gold mb-2">250<span class="text-lg">MW</span></div>
+                    <div class="text-sm text-gray-300">Capacity</div>
+                    <div class="text-xs text-gray-400 mt-1">One of the largest private players in renewables</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+                    <div class="text-3xl sm:text-4xl font-bold text-brand-gold mb-2">2.0<span class="text-lg">MN</span></div>
+                    <div class="text-sm text-gray-300">Customers</div>
+                    <div class="text-xs text-gray-400 mt-1">Largest retail customer base in South Sudan</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+                    <div class="text-3xl sm:text-4xl font-bold text-brand-gold mb-2">1.0<span class="text-lg">MN</span></div>
+                    <div class="text-sm text-gray-300">End Users</div>
+                    <div class="text-xs text-gray-400 mt-1">First network operator</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+                    <div class="text-3xl sm:text-4xl font-bold text-brand-gold mb-2">3</div>
+                    <div class="text-sm text-gray-300">Countries</div>
+                    <div class="text-xs text-gray-400 mt-1">Active in South Sudan and East Africa</div>
+                </div>
+            </div>
+            
+            <!-- Solutions -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 reveal">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <i class="fa-solid fa-sun text-brand-gold text-3xl mb-4"></i>
+                    <h4 class="font-semibold mb-2">Green Power</h4>
+                    <p class="text-sm text-gray-400">Solar, Wind, Hydro, Geothermal, Hydrogen & Storage</p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <i class="fa-solid fa-network-wired text-brand-gold text-3xl mb-4"></i>
+                    <h4 class="font-semibold mb-2">Infrastructure & Networks</h4>
+                    <p class="text-sm text-gray-400">Building resilient, smart & sustainable grids</p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <i class="fa-solid fa-lightbulb text-brand-gold text-3xl mb-4"></i>
+                    <h4 class="font-semibold mb-2">Innovative Solutions</h4>
+                    <p class="text-sm text-gray-400">Smart energy for cities, businesses & e-mobility</p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <i class="fa-solid fa-wallet text-brand-gold text-3xl mb-4"></i>
+                    <h4 class="font-semibold mb-2">Financial Services</h4>
+                    <p class="text-sm text-gray-400">Integrated financial & payment solutions</p>
+                </div>
+            </div>
+            
+            <!-- Sustainability Commitment -->
+            <div class="bg-brand-gold/10 border border-brand-gold/30 rounded-2xl p-8 text-center reveal">
+                <i class="fa-solid fa-leaf text-brand-gold text-4xl mb-4"></i>
+                <h3 class="font-serif text-2xl font-bold mb-3">Committed to a Sustainable Future</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto">Aligned with the UN Sustainable Development Goals. Building a cleaner, greener and more inclusive energy future.</p>
+            </div>
         </div>
-        <div class="prop-body">
-          <h3>Nairobi Garden Villas</h3>
-          <div class="prop-loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
-            Nairobi, Kenya
-          </div>
-          <div class="prop-meta">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>5 Beds</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>480 m²</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>2026</span>
-          </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PROJECTS SECTION                           -->
+    <!-- ========================================== -->
+    <section id="projects" class="py-16 sm:py-20 lg:py-28 bg-brand-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 reveal">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-charcoal mb-3 sm:mb-4">Our Projects. Our Pride.</h2>
+                <p class="text-gray-600 text-sm sm:text-base">Showcasing excellence across real estate developments, infrastructure, energy solutions, and engineering works.</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="relative group overflow-hidden rounded-2xl reveal">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" alt="Real Estate">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif font-bold text-lg">Real Estate Developments</h4>
+                            <p class="text-gray-300 text-sm">Premium residential & commercial properties</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-2xl reveal">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" alt="Roads">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif font-bold text-lg">Roads & Bridges</h4>
+                            <p class="text-gray-300 text-sm">Critical infrastructure development</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-2xl reveal">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" alt="Energy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif font-bold text-lg">Power Generation & Renewables</h4>
+                            <p class="text-gray-300 text-sm">Sustainable energy solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-2xl reveal">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" alt="Electrical">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif font-bold text-lg">Electrical Works</h4>
+                            <p class="text-gray-300 text-sm">Power distribution & systems</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-2xl reveal">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" alt="Mechanical">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif font-bold text-lg">Mechanical Works</h4>
+                            <p class="text-gray-300 text-sm">Industrial & commercial systems</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-2xl reveal">
+                    <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" alt="Environmental">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-serif font-bold text-lg">Environmental Works</h4>
+                            <p class="text-gray-300 text-sm">Sustainable infrastructure solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <div class="svc-cta reveal" style="margin-top:64px">
-      <a href="#consult" class="btn btn-outline-dark btn-lg">
-        View All Properties
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- NEWS -->
-<section class="section news" id="news">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">04 — News & Insights</span>
-      <h2>Stories from <em>the field</em>.</h2>
-      <p>Project updates, industry perspectives, and the latest from Kushite Engineering across the region.</p>
-    </div>
-
-    <div class="news-grid">
-      <article class="article reveal">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80" alt=""></div>
-        <div class="article-body">
-          <div class="article-meta"><span class="cat">Real Estate</span><span>June 12, 2026</span></div>
-          <h3>Kushite unveils new mixed-use development in Juba's growing business district.</h3>
-          <p>The 42,000 m² project will combine premium office space, retail, and serviced residences — setting a new benchmark for urban development in South Sudan.</p>
-          <a href="#" class="article-link">Read Article
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+    <!-- ========================================== -->
+    <!-- PROPERTIES SECTION                         -->
+    <!-- ========================================== -->
+    <section id="properties" class="py-16 sm:py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-4 reveal">
+                <div class="max-w-2xl">
+                    <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-charcoal mb-3 sm:mb-4">Premium Spaces, Curated for You</h2>
+                    <p class="text-gray-600 text-sm sm:text-base">A selection of our most sought-after residential, commercial, and investment properties across the region.</p>
+                </div>
+                <a href="#" class="inline-flex items-center gap-2 text-brand-gold font-semibold hover:gap-3 transition-all text-sm">View All Properties <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            </div>
+            
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                <!-- Property 1 -->
+                <a href="#" class="gallery-item relative aspect-[4/5] rounded-xl overflow-hidden cursor-pointer group reveal block">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" alt="Luxury Villa">
+                    <div class="gallery-content absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                        <span class="text-xs font-semibold bg-brand-gold text-brand-black px-2 py-1 rounded">RESIDENTIAL</span>
+                        <h4 class="font-serif font-bold text-lg sm:text-xl mt-2">Luxury Waterfront Villa</h4>
+                        <p class="text-xs opacity-90 flex items-center gap-1 mt-1"><i class="fa-solid fa-location-dot"></i> Kampala, Uganda</p>
+                    </div>
+                </a>
+                <!-- Property 2 -->
+                <a href="#" class="gallery-item relative aspect-[4/5] rounded-xl overflow-hidden cursor-pointer group reveal block">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" alt="Commercial Tower">
+                    <div class="gallery-content absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                        <span class="text-xs font-semibold bg-brand-gold text-brand-black px-2 py-1 rounded">COMMERCIAL</span>
+                        <h4 class="font-serif font-bold text-lg sm:text-xl mt-2">Kushite Business Tower</h4>
+                        <p class="text-xs opacity-90 flex items-center gap-1 mt-1"><i class="fa-solid fa-location-dot"></i> Juba, South Sudan</p>
+                    </div>
+                </a>
+                <!-- Property 3 -->
+                <a href="#" class="gallery-item relative aspect-[4/5] rounded-xl overflow-hidden cursor-pointer group reveal block">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" alt="Modern Estate">
+                    <div class="gallery-content absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                        <span class="text-xs font-semibold bg-brand-gold text-brand-black px-2 py-1 rounded">INVESTMENT</span>
+                        <h4 class="font-serif font-bold text-lg sm:text-xl mt-2">The Horizon Estate</h4>
+                        <p class="text-xs opacity-90 flex items-center gap-1 mt-1"><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</p>
+                    </div>
+                </a>
+            </div>
         </div>
-      </article>
-      <article class="article reveal">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=80" alt=""></div>
-        <div class="article-body">
-          <div class="article-meta"><span class="cat">Energy</span><span>May 28, 2026</span></div>
-          <h3>Our 5MW solar farm in Northern Uganda reaches full operational capacity.</h3>
-          <p>The installation will power over 8,000 homes and reduce regional carbon emissions by an estimated 6,200 tonnes annually — a milestone for clean energy in East Africa.</p>
-          <a href="#" class="article-link">Read Article
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- NEWS SECTION                               -->
+    <!-- ========================================== -->
+    <section id="news" class="py-16 sm:py-20 lg:py-28 bg-brand-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-4 reveal">
+                <div class="max-w-2xl">
+                    <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-charcoal mb-3 sm:mb-4">Stories from the Field</h2>
+                    <p class="text-gray-600 text-sm sm:text-base">Project updates, industry perspectives, and the latest from Kushite Group.</p>
+                </div>
+                <a href="#" class="inline-flex items-center gap-2 text-brand-gold font-semibold hover:gap-3 transition-all text-sm">All News & Press <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <!-- News 1 -->
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all reveal">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover" alt="News">
+                    <div class="p-5 sm:p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span class="text-brand-gold font-semibold">REAL ESTATE</span> <span>•</span> <span>JUNE 12, 2026</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-brand-charcoal text-lg mb-2">Kushite unveils new mixed-use development in Juba.</h4>
+                        <p class="text-gray-600 text-sm mb-4">The 42,000 m² project will combine premium office space, retail, and serviced residences.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-brand-gold font-semibold hover:gap-3 transition-all text-sm">Read Article <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                <!-- News 2 -->
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all reveal">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover" alt="News">
+                    <div class="p-5 sm:p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span class="text-brand-gold font-semibold">ENERGY</span> <span>•</span> <span>MAY 28, 2026</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-brand-charcoal text-lg mb-2">Our 5MW solar farm in Northern Uganda reaches capacity.</h4>
+                        <p class="text-gray-600 text-sm mb-4">The installation will power over 8,000 homes and reduce regional carbon emissions.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-brand-gold font-semibold hover:gap-3 transition-all text-sm">Read Article <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                <!-- News 3 -->
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all reveal">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover" alt="News">
+                    <div class="p-5 sm:p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span class="text-brand-gold font-semibold">ENGINEERING</span> <span>•</span> <span>MAY 04, 2026</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-brand-charcoal text-lg mb-2">Kushite partners on cross-border infrastructure initiative.</h4>
+                        <p class="text-gray-600 text-sm mb-4">The multi-year programme will deliver roads, bridges, and utilities connecting three markets.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-brand-gold font-semibold hover:gap-3 transition-all text-sm">Read Article <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </article>
-      <article class="article reveal">
-        <div class="article-img"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=80" alt=""></div>
-        <div class="article-body">
-          <div class="article-meta"><span class="cat">Engineering</span><span>May 04, 2026</span></div>
-          <h3>Kushite partners with regional authorities on cross-border infrastructure initiative.</h3>
-          <p>The multi-year programme will deliver roads, bridges, and utilities connecting three East African markets — strengthening trade and community access.</p>
-          <a href="#" class="article-link">Read Article
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CONTACT SECTION                            -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-16 sm:py-20 lg:py-28 bg-brand-charcoal relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+                <div class="reveal">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">Let's Build Something Great Together</h2>
+                    <p class="text-gray-300 text-base mb-8">Ready to start your next project? Get in touch with our team and let's discuss how we can bring your vision to life.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-brand-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Head Office</h4>
+                                <p class="text-gray-400 text-sm">Suite No.3, 3rd Floor, Old KCB Building, Og Bligham Road, Kuwait Area, P O Box, Private Bag, Juba, South Sudan</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-phone text-brand-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Phone</h4>
+                                <p class="text-gray-400 text-sm">+211 927 755 557<br>+211 927 003 999</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-brand-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Email</h4>
+                                <p class="text-gray-400 text-sm">info@kushitegroup.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-globe text-brand-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Regional Offices</h4>
+                                <p class="text-gray-400 text-sm">Kenya: +254 720 977 945<br>Uganda: +256 786 381 899</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-panel rounded-2xl p-6 sm:p-8 reveal">
+                    <h3 class="font-serif text-2xl font-bold text-brand-charcoal mb-6">Send Us a Message</h3>
+                    <form action="#" method="POST" class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you soon.');">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <input type="text" name="first_name" placeholder="First Name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all text-sm">
+                            <input type="text" name="last_name" placeholder="Last Name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all text-sm">
+                        </div>
+                        <input type="email" name="email" placeholder="Email Address" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all text-sm">
+                        <input type="tel" name="phone" placeholder="Phone Number" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all text-sm">
+                        <select name="subject" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all bg-white text-sm">
+                            <option value="">Select Subject</option>
+                            <option>General Inquiry</option>
+                            <option>Real Estate</option>
+                            <option>Engineering</option>
+                            <option>Energy Solutions</option>
+                            <option>Partnership</option>
+                        </select>
+                        <textarea name="message" rows="4" placeholder="Your Message..." required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 outline-none transition-all resize-none text-sm"></textarea>
+                        <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldLight text-brand-black font-semibold py-4 rounded-xl transition-all hover:scale-[1.02] shadow-md text-sm sm:text-base">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </article>
-    </div>
+    </section>
 
-    <div class="svc-cta reveal" style="margin-top:64px">
-      <a href="#" class="btn btn-outline-dark btn-lg">
-        All News & Press
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section contact" id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <span class="eyebrow">Get In Touch</span>
-        <h2>Let's build something <em>extraordinary</em> together.</h2>
-        <p>Whether you're planning a development, exploring an investment, or need expert engineering guidance — our team is ready to help.</p>
-
-        <div class="contact-blocks">
-          <div class="contact-block">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg></div>
-            <div><h5>Head Office</h5><p>Juba, South Sudan<br>Regional offices in Kampala & Nairobi</p></div>
-          </div>
-          <div class="contact-block">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V21a1 1 0 01-1.09 1 19 19 0 01-8.29-3 19 19 0 01-6-6A19 19 0 013.1 4.1 1 1 0 014.1 3h4.09a1 1 0 011 .75c.2.96.5 1.9.9 2.8a1 1 0 01-.23 1L8.21 9.21a16 16 0 006 6l1.66-1.66a1 1 0 011-.23c.9.4 1.84.7 2.8.9a1 1 0 01.75 1z"/></svg></div>
-            <div><h5>Phone</h5><p>+211 (9) 277 55  557<br>+256 (0) 654 654 000</p></div>
-          </div>
-          <div class="contact-block">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
-            <div><h5>Email</h5><p>info@kushiteengineering.com<br>projects@kushiteengineering.com</p></div>
-          </div>
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="bg-brand-black text-gray-400 pt-16 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="#home" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-brand-gold rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-building text-brand-black text-lg"></i>
+                        </div>
+                        <span class="font-serif text-xl font-bold text-white tracking-wide">KUSHITE</span>
+                    </a>
+                    <p class="text-sm leading-relaxed mb-4">Building. Powering. Engineering. Creating Value. Sustaining Futures.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 bg-white/5 hover:bg-brand-gold hover:text-brand-black rounded-lg flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 bg-white/5 hover:bg-brand-gold hover:text-brand-black rounded-lg flex items-center justify-center transition-all"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-9 h-9 bg-white/5 hover:bg-brand-gold hover:text-brand-black rounded-lg flex items-center justify-center transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-9 h-9 bg-white/5 hover:bg-brand-gold hover:text-brand-black rounded-lg flex items-center justify-center transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="#projects" class="hover:text-brand-gold transition-colors">Projects</a></li>
+                        <li><a href="#properties" class="hover:text-brand-gold transition-colors">Properties</a></li>
+                        <li><a href="#news" class="hover:text-brand-gold transition-colors">News</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Divisions -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Our Divisions</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#real-estate" class="hover:text-brand-gold transition-colors">Real Estate</a></li>
+                        <li><a href="#engineering" class="hover:text-brand-gold transition-colors">Engineering</a></li>
+                        <li><a href="#energy" class="hover:text-brand-gold transition-colors">Energy</a></li>
+                        <li><a href="#consultation" class="hover:text-brand-gold transition-colors">Get Consultation</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+                            <span>Juba, South Sudan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-gold"></i>
+                            <span>+211 927 755 557</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-gold"></i>
+                            <span>info@kushitegroup.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                    <p>&copy; 2026 Kushite Group. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-brand-gold transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-brand-gold transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="text-center mt-6 text-xs text-gray-500">
+                    ONE GROUP. THREE EXPERTISES. ENDLESS POSSIBILITIES.
+                </div>
+            </div>
         </div>
-      </div>
+    </footer>
 
-      <form class="contact-form reveal" id="consult" onsubmit="event.preventDefault();alert('Thank you. Our team will be in touch within 24 hours.');">
-        <h3>Request a Consultation</h3>
-        <p class="sub">Tell us about your project — we'll respond within one business day.</p>
-        <div class="form-row">
-          <div class="field"><label>Full Name</label><input type="text" required placeholder="John Doe"></div>
-          <div class="field"><label>Email</label><input type="email" required placeholder="you@email.com"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label>Phone</label><input type="tel" placeholder="+211 ..."></div>
-          <div class="field"><label>Service Interest</label>
-            <select>
-              <option>Real Estate</option>
-              <option>Engineering</option>
-              <option>Energy Solutions</option>
-              <option>Investment Advisory</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-        <div class="field" style="margin-bottom:18px"><label>Project Details</label><textarea placeholder="Tell us about your project, timeline, and goals..."></textarea></div>
-        <button type="submit" class="btn btn-primary btn-lg form-btn">
-          Send Request
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT                                 -->
+    <!-- ========================================== -->
+    <script>
+        // 1. Typing Effect
+        const typingTexts = [
+            "Delivering integrated engineering solutions across East Africa.",
+            "Developing premium real estate that redefines luxury living.",
+            "Powering communities with sustainable, future-ready energy."
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="container">
-    <span class="eyebrow light">Ready to Begin?</span>
-    <h2>Your next landmark <em>starts here</em>.</h2>
-    <p>From concept to completion, Kushite Engineering is the partner you can trust to deliver projects that shape communities and create lasting value.</p>
-    <div class="btns">
-      <a href="#consult" class="btn btn-primary btn-lg">
-        Request Consultation
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="#projects" class="btn btn-outline btn-lg">
-        Explore Projects
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
+        function type() {
+            if (!typingElement) return;
+            const currentText = typingTexts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a href="#" class="logo" style="color:#fff">
-          <div class="logo-mark">K</div>
-          <div class="logo-text">Kushite<small>Engineering</small></div>
-        </a>
-        <p>Engineering, real estate, and sustainable energy solutions shaping the future of East Africa — with integrity, innovation, and excellence.</p>
-        <div class="socials">
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.3 18.3H5.7V9.7h2.6v8.6zM7 8.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11.3 9.8h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.6V9.7h2.5v1.2h.1a2.7 2.7 0 012.5-1.4c2.7 0 3.2 1.8 3.2 4.1v4.7z"/></svg></a>
-          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8a8.5 8.5 0 01-2.4.7 4.2 4.2 0 001.8-2.3 8.3 8.3 0 01-2.6 1 4.1 4.1 0 00-7 3.7A11.7 11.7 0 013 4.9a4.1 4.1 0 001.3 5.5 4 4 0 01-1.9-.5v.1a4.1 4.1 0 003.3 4 4.1 4.1 0 01-1.9.1 4.1 4.1 0 003.8 2.9A8.3 8.3 0 012 18.6 11.7 11.7 0 008.3 20.5c7.5 0 11.7-6.3 11.7-11.7v-.5A8.4 8.4 0 0022 5.8z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.2.3-2 2-2h2V2.1A26 26 0 0014.2 2C11.4 2 9.5 3.7 9.5 6.8V10H7v4h2.5v8H13z"/></svg></a>
-        </div>
-      </div>
-      <div class="foot-col">
-        <h6>Company</h6>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Our Divisions</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h6>Services</h6>
-        <ul>
-          <li><a href="#">Real Estate</a></li>
-          <li><a href="#">Engineering</a></li>
-          <li><a href="#">Energy Solutions</a></li>
-          <li><a href="#">Investment</a></li>
-          <li><a href="#">Consultancy</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h6>Contact</h6>
-        <ul>
-          <li>Juba, South Sudan</li>
-          <li>Kampala, Uganda</li>
-          <li>Nairobi, Kenya</li>
-          <li>info@kushiteengineering.com</li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <div>© 2026 Kushite Engineering. All rights reserved.</div>
-      <div>Integrity · Excellence · Innovation · Sustainability</div>
-    </div>
-  </div>
-</footer>
+            let typeSpeed = 50;
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000; 
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typingTexts.length;
+                typeSpeed = 500; 
+            }
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+            setTimeout(type, typeSpeed);
+        }
 
-  const burger = document.querySelector('.burger');
-  const links = document.querySelector('.nav-links');
-  burger?.addEventListener('click', () => {
-    const open = links.style.display === 'flex';
-    links.style.display = open ? '' : 'flex';
-    links.style.position = 'absolute';
-    links.style.top = '100%';
-    links.style.left = '0';
-    links.style.right = '0';
-    links.style.background = '#fff';
-    links.style.flexDirection = 'column';
-    links.style.padding = '24px 32px';
-    links.style.gap = '18px';
-    links.style.borderTop = '1px solid #e2e8f0';
-    links.querySelectorAll('a').forEach(a => a.style.color = '#1e293b');
-  });
-</script>
+        // 2. Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        function revealOnScroll() {
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                const revealPoint = 150;
 
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // 3. Header Scroll Effect
+        const header = document.getElementById('main-header');
+        function handleHeaderScroll() {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-brand-black/95', 'backdrop-blur-md', 'shadow-lg', 'border-b', 'border-white/10');
+            } else {
+                header.classList.remove('bg-brand-black/95', 'backdrop-blur-md', 'shadow-lg', 'border-b', 'border-white/10');
+            }
+        }
+
+        // 4. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // Initialize Events
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+            revealOnScroll();
+            handleHeaderScroll();
+        });
+        
+        window.addEventListener('scroll', () => {
+            revealOnScroll();
+            handleHeaderScroll();
+        });
+    </script>
 </body>
 </html>
